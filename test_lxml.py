@@ -1,4 +1,8 @@
 #!/usr/bin/python
+
+import matplotlib
+matplotlib.use('Agg')
+
 import datetime as dt
 import numpy as np
 import pandas as pd
@@ -20,9 +24,12 @@ from crocus_forcing_nc import populate_forcing_nc
 para_dict = {}# {'index': []}
 index = []
 
-tree = etree.parse(open('test.xml'))
+tree = etree.parse(open('blindern_2013-2014.xml'))
 
 root = tree.getroot()
+
+# Print tree structure of file
+print etree.tostring(root, pretty_print=True)
 
 for child_of_root in root:
     print child_of_root.tag, child_of_root.attrib
@@ -76,8 +83,9 @@ print para_dict
 df = pd.DataFrame(para_dict, index=index)
 print df
 
-
-populate_forcing_nc(df)
+df.plot()
+matplotlib.pyplot.gcf().savefig('blindern.png', dpi=90)
+#populate_forcing_nc(df)
 
 #df.to_hdf('test_ET.hdf', 'test_from_eklima')
 
