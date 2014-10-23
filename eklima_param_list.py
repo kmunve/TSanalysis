@@ -1,12 +1,13 @@
 #!/usr/bin/python
+# -*- coding: latin-1 -*-
 """
 Author: kmunve
 
-Return a list of available meteorological parameters from www.eklima.no
+Returns a list of available meteorological parameters from www.eklima.no
+CSV files with English and Norwegian terms are created.
 """
 from lxml import etree
 from wsklima_getdata import wsKlimaRequest
-from io import StringIO
 
 
 def hourly_params():
@@ -15,24 +16,40 @@ def hourly_params():
     
     # Parse XML string
     root = etree.fromstring(wr.content)
-    tmp = etree.tostring(root)
-    print tmp
-    # Print tree structure of file
-    #print etree.tostring(root, pretty_print=True)
     
-    # Open file
-    fid = open('eklima_param_list.csv', 'w')
-    fid.write('#Main Group,#Group,#Code,#Unit,#Number,#Description\n')
+    # Temporary list of element codes
+    elem_list = []
+
+    # Open file for Norwegian version
+    fid = open('eklima_param_list_no.csv', 'w')
+    fid.write('#Gruppe,#Undergruppe,#Kode,#Enhet,#Nummer,#Beskrivelse\n')
 
     # Iterate over all "item" elements
     for element in root.iter("item"):
-        print element
-        print "{0},{1},{2},{3},{4},{5}\n".format(element.find('elemGroup').text, element.find('name').text, element.find('elemCode').text, element.find('unit').text, element.find('elemNo').text, element.find('description').text)
-
-        fid.write("{0},{1},{2},{3},{4},{5}\n".format(element.find('elemGroup').text, element.find('name').text, element.find('elemCode').text, element.find('unit').text, element.find('elemNo').text, element.find('description').text))
+        fid.write("{0},{1},{2},{3},{4},{5}\n".format(element.find('elemGroup').text.encode('utf-8'), element.find('name').text.encode('utf-8'), element.find('elemCode').text.encode('utf-8'), element.find('unit').text.encode('utf-8'), element.find('elemNo').text.encode('utf-8'), element.find('description').text.encode('utf-8')))
+            
+        elem_list.append(element.find('elemCode').text)
 
     fid.close()
-    print '...file written'
+ 
+    wr =  wsKlimaRequest('getElementsProperties', {'language': 'en', 'elem_codes': elem_list}).get()
+
+    # Parse XML string
+    root = etree.fromstring(wr.content)
+
+    # Print tree structure of file
+    #print etree.tostring(root, pretty_print=True)
+
+    # Open file for English version
+    fid = open('eklima_param_list_en.csv', 'w')
+    fid.write('#Group,#Subgroup,#Code,#Unit,#Number,#Description\n')
+
+    # Iterate over all "item" elements
+    for element in root.iter("item"):
+        fid.write("{0},{1},{2},{3},{4},{5}\n".format(element.find('elemGroup').text.encode('utf-8'), element.find('name').text.encode('utf-8'), element.find('elemCode').text.encode('utf-8'), element.find('unit').text.encode('utf-8'), element.find('elemNo').text.encode('utf-8'), element.find('description').text.encode('utf-8')))
+
+    fid.close()
+    print '...files written'
     
 
 if __name__ =="__main__":

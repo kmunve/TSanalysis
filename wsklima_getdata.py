@@ -15,7 +15,7 @@ class wsKlimaRequest():
     def __init__(self, method, params=None):
         
         self.wsmethod = method
-        self.wsmethods = ['getElementsFromTimeserieType', 'getStationsFromTimeserieTypeElemCodes', 'getMetData']
+        self.wsmethods = ['getElementsProperties', 'getElementsFromTimeserieType', 'getStationsFromTimeserieTypeElemCodes', 'getMetData']
 
 
         if self.wsmethod not in self.wsmethods:
@@ -43,6 +43,11 @@ class wsKlimaRequest():
         elif self.wsmethod == 'getElementsFromTimeserieType':
             # params = timeserietypeID
             self.wsklima_url = "{0}?invoke=getElementsFromTimeserieType&timeserietypeID={1}".format(self.base_url, self.params['timeserietypeID'])
+            
+        elif self.wsmethod == 'getElementsProperties':
+            # params = language, elem_codes
+            self.wsklima_url = "{0}?invoke=getElementsProperties&language={1}&elem_codes={2}".format(self.base_url, self.params['language'], ",".join(map(str, self.params['elem_codes'])))
+
 
         else:
             print "Could not create url!"
