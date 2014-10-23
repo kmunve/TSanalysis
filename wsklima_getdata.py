@@ -1,13 +1,21 @@
 #!/usr/bin/python
-
+"""
+Author: kmunve
+"""
 import requests
 
 class wsKlimaRequest():
-    
+    """
+    Creates a request to eklima.met.no using the wsKlima methods.
+    See: http://eklima.met.no/wsKlima/start/start_no.html
+
+    Usage: see "test_..." functions at the end of this file.
+
+    """    
     def __init__(self, method, params=None):
         
         self.wsmethod = method
-        self.wsmethods = ['getStationsFromTimeserieTypeElemCodes', 'getMetData']
+        self.wsmethods = ['getElementsFromTimeserieType', 'getStationsFromTimeserieTypeElemCodes', 'getMetData']
 
 
         if self.wsmethod not in self.wsmethods:
@@ -21,24 +29,21 @@ class wsKlimaRequest():
 
         self._create_wsklima_url()
         
-        ### Returns a requests.Response object
-#        return requests.get(self.wsklima_url)
-
-        # _r = requests.Request('GET', url=self.base_url, params=self.params) 
-
-        # _d = _r.prepare()
-        # _d.url = _d.url.replace('?', self.methods[method])
-        
-        # _s = requests.Session()
-        # self.r = _s.send(_d)
-
 
     def _create_wsklima_url(self):
 
         if self.wsmethod == 'getMetData':
             self.wsklima_url = "{0}?invoke=getMetData&timeserietypeID={1}&format={2}&from={3}&to={4}&stations={5}&elements={6}&hours={7}&months={8}&username={9}".format(self.base_url, self.params['timeserietypeID'], self.params['format'], self.params['from'], self.params['to'], ",".join(map(str, self.params['stations'])), ",".join(map(str, self.params['elements'])), ",".join(map(str, self.params['hours'])), self.params['months'], self.params['username'])
             
-            
+        
+        elif self.wsmethod == 'getStationsFromTimeserieTypeElemCodes':
+            # params = timeserietypeID, elem_codes, username
+            self.wsklima_url = "{0}?invoke=getStationsFromTimeserieTypeElemCodes&timeserietypeID={1}&elem_codes={2}&username={3}".format(self.base_url, self.params['timeserietypeID'], ",".join(map(str, self.params['elem_codes'])), self.params['username'])
+
+        elif self.wsmethod == 'getElementsFromTimeserieType':
+            # params = timeserietypeID
+            self.wsklima_url = "{0}?invoke=getElementsFromTimeserieType&timeserietypeID={1}".format(self.base_url, self.params['timeserietypeID'])
+
         else:
             print "Could not create url!"
 
@@ -50,17 +55,26 @@ class wsKlimaRequest():
 
 
 def test_getStationsFromTimeserieTypeElemCodes():
-    wr = wsKlimaRequest('getStationsFromTimeserieTypeElemCodes', {'timeserietypeID': 2, 'elem_codes': 'FF', 'username': ""})
-    print wr.r.text
+    wr = wsKlimaRequest('getStationsFromTimeserieTypeElemCodes', {'timeserietypeID': 2, 'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF'], 'username': ""}).get()
+    print wr.text
+    print wr.url
 
 def test_getMetData():
     wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-31', 'stations': [18700,], 'elements': ['ra', 'tam' , 'tax'], 'hours': [0, 6, 12, 18], 'months': "", 'username': ""}).get()
     print wr.text
     print wr.url
+
+
+def test_getElementsFromTimeserieType():
+    wr = wsKlimaRequest('getElementsFromTimeserieType', {'timeserietypeID': 2}).get()
+    print wr.text
+    print wr.url
+
  
 
 
 if __name__ == "__main__":
 #    test_getStationsFromTimeserieTypeElemCodes()
-    test_getMetData()
+    test_getElementsFromTimeserieType()
+#    test_getMetData()
         
