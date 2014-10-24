@@ -1,27 +1,44 @@
 #!/usr/bin/python
 """
 Author. kmunve
+
+
+Todo:
+- make diff methods for different station list: all_input, all_but_rad, ta_uu_ff, rr_ta, ...
+- make list over radiation stations
+- export station list to Google kmz-file
 """
 from lxml import etree
 from wsklima_getdata import wsKlimaRequest
 
 
-wr = wsKlimaRequest('getStationsFromTimeserieTypeElemCodes', {'timeserietypeID': 2, 'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF'], 'use\
-rname': ""}).get()
+def hourly_rr_ta_uu_ff_dd_po():
+    
+    wr = wsKlimaRequest('getStationsFromTimeserieTypeStationsElemCode', {'stations': [], 'timeserietypeID': 2, 'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF', 'DD', 'PO'], 'username': ""})
+    rsp = wr.get()
 
 
-# Parse XML string
-root = etree.fromstring(wr.content)
+    # Parse XML string
+    root = etree.fromstring(rsp.content)
 
-# Temporary list of element codes
-station_list = []
+    # Temporary list of element codes
+    station_list = []
 
-# Iterate over all "item" elements
-for element in root.iter("item"):
-    #        fid.write("{0},{1},{2},{3},{4},{5}\n".format(element.find('elemGroup').text.encode('utf-8'), element.find('name').text.encode('utf-8')element.find('elemCode').text.encode('utf-8'), element.find('unit').text.encode('utf-8'), element.find('elemNo').text.encode('utf-8'), element.find('description').text.encode('utf-8')))
-    # Add only stations that still are operative
-    if int(element.find('toYear').text) == 0:
-        station_list.append(int(element.find('stnr').text))
+    # prepare outfile
+    outfile = 'stations_hourly_rr_ta_uu_ff_dd_po.txt'
+    fid = open(outfile, 'w')
+    fid.write('#\tSNR\tSTNR\tLAT_DEC\tLON_DEC\tAMSL\tST_NAME\tDepartment\n')
+    # Iterate over all "item" elements
+    for element in root.iter("item"):
+        # Add only stations that still are operative
+        if int(element.find('toYear').text) == 0:
+            station_list.append(int(element.find('stnr').text))
+            fid.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\n".format(element.find('wmoNo').text.encode('utf-8'), element.find('stnr').text, element.find('latDec').text, element.find('lonDec').text, element.find('amsl').text, element.find('name').text.encode('utf-8'), element.find('department').text.encode('utf-8')))
+            
+    print "Found {0} stations.\nWritten to {1}".format(len(station_list), outfile)
 
-print "Found {0} stations.".format(len(station_list))
-print station_list
+    fid.close()
+
+
+if __name__ == "__main__":
+    hourly_rr_ta_uu_ff_dd_po()

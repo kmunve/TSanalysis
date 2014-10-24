@@ -37,10 +37,12 @@ class wsKlimaRequest():
             
         
         elif self.wsmethod == 'getStationsFromTimeserieTypeElemCodes':
+            # Use this method if at least one of the elements in elem_codes should be measured. If all elements should be measured at the station use 'getStationsFromTimeserieTypeStationsElemCode'.
             # params = timeserietypeID, elem_codes, username
             self.wsklima_url = "{0}?invoke=getStationsFromTimeserieTypeElemCodes&timeserietypeID={1}&elem_codes={2}&username={3}".format(self.base_url, self.params['timeserietypeID'], ",".join(map(str, self.params['elem_codes'])), self.params['username'])
 
         elif self.wsmethod == 'getStationsFromTimeserieTypeStationsElemCode':
+            # Use this method if all elements in elem_codes should be measured. If at least one should be measured at the station use 'getStationsFromTimeserieTypeElemCodes'.
             # params = timeserietypeID, elem_codes, username, stations
             self.wsklima_url = "{0}?invoke=getStationsFromTimeserieTypeStationsElemCode&timeserietypeID={1}&stations={4}&elem_codes={2}&username={3}".format(self.base_url, self.params['timeserietypeID'], ",".join(map(str, self.params['elem_codes'])), self.params['username'], ",".join(map(str, self.params['stations'])))
             
@@ -111,7 +113,7 @@ def test_getStationsFromTimeserieTypeStationsElemCode():
             
     
 def test_getMetData():
-    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-31', 'stations': [52860,], 'elements': ['TA', 'RR_1' , 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
+    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-31', 'stations': [54110,], 'elements': ['TA', 'RR_1' , 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
     print wr.text
     print wr.url
 
@@ -127,5 +129,5 @@ def test_getElementsFromTimeserieType():
 if __name__ == "__main__":
 #    test_getStationsFromTimeserieTypeElemCodes()
 #    test_getElementsFromTimeserieType()
-    test_getMetData()
-        
+#    test_getMetData()
+    test_getStationsFromTimeserieTypeStationsElemCode()    
