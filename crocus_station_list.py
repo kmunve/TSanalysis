@@ -19,8 +19,9 @@ station_list = []
 # Iterate over all "item" elements
 for element in root.iter("item"):
     #        fid.write("{0},{1},{2},{3},{4},{5}\n".format(element.find('elemGroup').text.encode('utf-8'), element.find('name').text.encode('utf-8')element.find('elemCode').text.encode('utf-8'), element.find('unit').text.encode('utf-8'), element.find('elemNo').text.encode('utf-8'), element.find('description').text.encode('utf-8')))
-
-    station_list.append(int(element.find('stnr').text))
+    # Add only stations that still are operative
+    if int(element.find('toYear').text) == 0:
+        station_list.append(int(element.find('stnr').text))
 
 print "Found {0} stations.".format(len(station_list))
 print station_list
