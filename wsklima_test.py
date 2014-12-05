@@ -1,6 +1,6 @@
 import requests
 from lxml import etree
-
+import json
 
 """
 Set request parameters. !!! Currently that does not work since the dictionary provides an arbitrary order, but the "invoke" command needs to be send first. 
@@ -24,6 +24,8 @@ print r.url
 print r.text
 print r.raw
 
+data = json.loads(r.text)
+print data
 
 tree = etree.parse(r.text)
 
