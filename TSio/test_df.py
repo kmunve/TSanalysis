@@ -1,11 +1,11 @@
 __author__ = 'kmunve'
-
+import numpy as np
 import pandas as pd
 import requests
 import json
 import matplotlib.pyplot as plt
 
-url = 'http://api01.nve.no/hydrology/forecast/avalanche/v2.0.1/api/AvalancheWarningByRegion/Detail/11/1/2014-03-13/2014-03-17'
+url = 'http://api01.nve.no/hydrology/forecast/avalanche/v2.0.1/api/AvalancheWarningByRegion/Detail/11/1/2014-02-13/2014-03-17'
 resp = requests.get(url)
 data = json.loads(resp.text)
 
@@ -35,16 +35,21 @@ except AttributeError:
 print df.AvalancheProblems[0]
 df4 = df.query('DangerLevel == 4')
 
-dl_ds = {} # dict of dangerlevel
+# add columns: 'large_trigger', 'small_trigger', 'natural_trigger', 'largest_destructive_size', 'large_probability', 'small probability', 'natural_probability'
+
+natural_trigger = np.zeros(len(df4.index))
+
 count = 0
 for ap in df4.AvalancheProblems:
     for p in ap:
-        if p['DestructiveSizeExtId'] > 2:
-            count += 1
-    if count > 0:
+        if p['AvalTriggerSimpleId'] == 22:
+            natural_trigger[count] = 1
+    count += 1
 
+df4['natural_trigger'] = natural_trigger
 
 print "Count = ", count
+print df4.natural_trigger
 
 
 # df.plot(x='ValidFrom', y='DangerLevel', kind='bar')
