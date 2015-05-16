@@ -115,13 +115,13 @@ def test_getStationsFromTimeserieTypeStationsElemCode():
             
     
 def test_getMetData():
-    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-31', 'stations': [54110,], 'elements': ['TA', 'RR_1' , 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
+    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-31', 'stations': [54110,], 'elements': ['TA', 'RR_1', 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
     print wr.text
     print wr.url
 
 # return XSD formated scheme
 def test_getMetDataValue():
-    wr = wsKlimaRequest('getMetDataValue', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-03', 'stations': [54110,], 'elements': ['TA', 'RR_1' , 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
+    wr = wsKlimaRequest('getMetDataValue', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-03', 'stations': [54110,], 'elements': ['TA', 'RR_1', 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
     return wr
     
     
@@ -136,5 +136,5 @@ def test_getElementsFromTimeserieType():
 if __name__ == "__main__":
 #    test_getStationsFromTimeserieTypeElemCodes()
 #    test_getElementsFromTimeserieType()
-#    test_getMetData()
-    test_getStationsFromTimeserieTypeStationsElemCode()    
+    test_getMetData()
+#    test_getStationsFromTimeserieTypeStationsElemCode()
