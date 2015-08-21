@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import datetime as dt
 import numpy as np
 import pandas as pd

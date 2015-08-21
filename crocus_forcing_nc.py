@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 """
 Create a forcing netcdf file for the snow pack model Crocus.
 """
@@ -37,20 +37,20 @@ def init_forcing_nc(no_points=1):
 #lat = rootgrp.createDimension('lat', 73)
 #lon = rootgrp.createDimension('lon', 144)
     print rootgrp.dimensions
-    
+
     print time.isunlimited()
     print number_of_points.isunlimited()
-    
+
 # variables.
     # Scalars:
-    
+
     FORC_TIME_STEP = rootgrp.createVariable('FORC_TIME_STEP','f8')
     FORC_TIME_STEP.units = 's'
     FORC_TIME_STEP.long_name = 'Forcing_Time_Step'
 
 
     # 1D
-        
+
     time = rootgrp.createVariable('time','f8',('time',))
     # depends on FORC_TIME_STP units
     time.units = 'hours/seconds since '
@@ -67,7 +67,7 @@ def init_forcing_nc(no_points=1):
     aspect = rootgrp.createVariable('aspect', 'f8', ('Number_of_points'))
     aspect.units = 'degrees from north'
     aspect.long_name = 'slope aspect'
-    
+
     slope = rootgrp.createVariable('slope','f8',('Number_of_points',))
     slope.units = 'degrees from horizontal'
     slope.long_name = 'slope angle'
@@ -75,26 +75,26 @@ def init_forcing_nc(no_points=1):
     UREF = rootgrp.createVariable('UREF','f8',('Number_of_points',))
     UREF.units = 'm'
     UREF.long_name = 'Reference_Height_for_Wind'
-    
+
     ZREF = rootgrp.createVariable('ZREF','f8',('Number_of_points',))
     ZREF.units = 'm'
     ZREF.long_name = 'Reference_Height'
-    
+
     ZS = rootgrp.createVariable('ZS','f8',('Number_of_points',))
     ZS.units = 'm'
     ZS.long_name = 'altitude'
-    
+
 
     # 2D
 
     CO2air = rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',))
     CO2air.units = 'kg/m3'
     CO2air.long_name = 'Near_Surface_CO2_Concentration'
-    
+
     DIR_SWdown = rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',))
     DIR_SWdown.units = 'W/m2'
     DIR_SWdown.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
-    
+
     HUMREL = rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',))
     HUMREL.units = '%'
     HUMREL.long_name = 'Relative Humidity'
@@ -102,19 +102,19 @@ def init_forcing_nc(no_points=1):
     LWdown = rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',))
     LWdown.units = 'W/m2'
     LWdown.long_name = 'Surface_Incident_Longwave_Radiation'
-    
+
     NEB = rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',))
     NEB.units = 'between 0 and 1'
     NEB.long_name = 'Nebulosity'
-    
+
     PSurf = rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',))
     PSurf.units = 'Pa'
     PSurf.long_name = 'Surface_Pressure'
-    
+
     Qair = rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',))
     Qair.units = 'Kg/Kg'
     Qair.long_name = 'Near_Surface_Specific_Humidity'
-    
+
     Rainf = rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',))
     Rainf.units = 'kg/m2/s'
     Rainf.long_name = 'Rainfall_Rate'
@@ -122,7 +122,7 @@ def init_forcing_nc(no_points=1):
     SCA_SWdown = rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',))
     SCA_SWdown.units = 'W/m2'
     SCA_SWdown.long_name = 'Surface_Incident_Diffuse_Shortwave_Radiation'
-    
+
     Snowf = rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',))
     Snowf.units = 'kg/m2/s'
     Snowf.long_name = 'Snowfall_Rate'
@@ -130,11 +130,11 @@ def init_forcing_nc(no_points=1):
     Tair = rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',))
     Tair.units = 'K'
     Tair.long_name = 'Near_Surface_Air_Temperature'
-    
+
     Wind = rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',))
     Wind.units = 'm/s'
     Wind.long_name = 'Wind_Speed'
-    
+
     Wind_DIR = rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',))
     Wind_DIR.units = 'deg'
     Wind_DIR.long_name = 'Wind_Direction'
@@ -152,12 +152,12 @@ def populate_forcing_nc(df):
     Add values to the empty netcdf file from the pandas DataFrame "df"
     """
     id_dict = {'TAM': 'Tair'}
-    
+
     # Create new and empty FORCING.nc file with correct number of points
     init_forcing_nc()
     # Open FORCING.nc file, r+ ensures that it exists
     nc = Dataset('FORCING.nc', 'r+', format='NETCDF3_CLASSIC')
-    
+
 
     # Fill the time variable
     nc.variables['time'].units, nc.variables['time'][:] = get_nc_time(df.index)
@@ -172,8 +172,8 @@ def populate_forcing_nc(df):
     nc.close()
 
 def get_nc_time(df_index):
-    
-    # 
+
+    #
     print df_index[0]
     tinterval = df_index[1]-df_index[0]
     print tinterval

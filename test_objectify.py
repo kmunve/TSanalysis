@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import xml2dict
 import re
 import requests

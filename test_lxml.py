@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import matplotlib
 matplotlib.use('Agg')
@@ -24,7 +24,7 @@ from crocus_forcing_nc import populate_forcing_nc
 para_dict = {}# {'index': []}
 index = []
 
-tree = etree.parse(open('blindern_2013-2014.xml'))
+tree = etree.parse(open('54110.xml'))
 
 root = tree.getroot()
 
@@ -38,7 +38,7 @@ for child_of_root in root:
 
 # Find timeStamp-tag
 for timestamp in tree.iter('timeStamp'):
-    
+
 
 # Iterate over each item of the timeStamp
     for item in timestamp.findall('item'):
