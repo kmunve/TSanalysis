@@ -21,6 +21,7 @@ from crocus_forcing_nc import populate_forcing_nc
 
 
 # dictionary pairing MET parameter names to Crocus parameter names
+stat_dict = {} # station dictionary
 para_dict = {}# {'index': []}
 index = []
 
@@ -52,10 +53,22 @@ for timestamp in tree.iter('timeStamp'):
 # Access each location-tag and store the station number in its id-tag
         loc = item.find('location')
         for locitem in loc:
-# Get the station ID
+            """
+            Start to iterate over the items in the location tag
+            see http://lxml.de/xpathxslt.html to get a better mapping.
+            """
+
+            for stat_item in locitem.findall('item')
+            # Get the station ID
+
             stat_id = locitem.find('id').text
+            if stat_id not in stat_dict.keys():
+                stat_dict[stat_id] = {}
+'''
 # Convert stat_id to an integer
             stat_id = np.int(stat_id)
+'''
+
 # Access the weatherElement
             weather_e = locitem.find('weatherElement')
             for weather_i in weather_e:
@@ -75,19 +88,22 @@ for timestamp in tree.iter('timeStamp'):
                 #print stat_id, tstamp, param_id, quality, value
 
                 para_dict[param_id].append(value)
+            stat_dict[stat_id] = para_dict
 
+
+'''
+When retrieving data from more than two stations the dictionary is wrong.
+'''
 
 print para_dict
+print stat_dict.keys()
+# Now store in a pandas dataframe...
+df = pd.DataFrame(stat_dict['12290'], index=index)
+#print df
 
-# Now store the whole shit in a pandas dataframe...
-df = pd.DataFrame(para_dict, index=index)
-print df
-
-df.plot()
-matplotlib.pyplot.gcf().savefig('blindern.png', dpi=90)
+#df.plot(secondary_y=['TA', 'UU'])
+df.plot(subplots=True)
+matplotlib.pyplot.gcf().savefig('12290.png', dpi=90)
 #populate_forcing_nc(df)
 
-#df.to_hdf('test_ET.hdf', 'test_from_eklima')
-
-#for elem in tree.iter(tag='value'):
-#    print elem.tag, elem.attrib, elem.text
+#df.to_hdf('test_lxml.hdf', 'test_from_eklima')

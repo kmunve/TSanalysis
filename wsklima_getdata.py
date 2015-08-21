@@ -115,7 +115,7 @@ def test_getStationsFromTimeserieTypeStationsElemCode():
 
 
 def test_getMetData(save=False):
-    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2014-01-01', 'to': '2014-01-31', 'stations': [54110,], 'elements': ['TA', 'RR_1', 'RR_24', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
+    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2015-08-01', 'to': '2015-08-21', 'stations': [54110, 12290,], 'elements': ['TA', 'RR_1', 'RR', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
     print wr.text
     if save:
         fname = '54110.xml'
