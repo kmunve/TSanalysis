@@ -22,33 +22,59 @@ from crocus_forcing_nc import populate_forcing_nc
 
 # dictionary pairing MET parameter names to Crocus parameter names
 stat_dict = {} # station dictionary
-para_dict = {}# {'index': []}
+#para_dict = {}# {'index': []}
 index = []
 
 tree = etree.parse(open('54110.xml'))
 
 root = tree.getroot()
 
-
-rootTS = root.xpath('//timeStamp')
-print len(rootTS), rootTS[0].tag
+# Get all item-tags that are a children of the timeStamp-tag
+TSitems = root.xpath('//timeStamp/item')
+#print len(rootTS), rootTS[0].tag
 
 #TS = rootTS[0].xpath('item[@xsi:type="ns2:no_met_metdata_TimeStamp"]')
-TS = rootTS[0].xpath('item')
-for f in TS:
-    time = f.xpath('from')[0].text
-    L = f.xpath('location/item')
-    for loc in L:
-        stat_id = loc.xpath('id')[0].text
+#TS = rootTS[0].xpath('item')
+
+# loop over all timestamps
+for TS in TSitems:
+    # extract datetime
+    tstamp = TS.xpath('from')[0].text
+    # Convert string to datetime
+    _index = dt.datetime.strptime(tstamp, '%Y-%m-%dT%H:%M:%S.000Z')
+
+    # Get all item-tags that are a children of the current location-tag
+    LOCitmes = TS.xpath('location/item')
+    for LOC in LOCitmes:
+        # Retrieve station id
+        stat_id = LOC.xpath('id')[0].text
         print stat_id
-        WEitems = loc.xpath('weatherElement/item')
+        if stat_id not in stat_dict.keys():
+            stat_dict[stat_id] = {}
+
+        # Get all item-tags that are a children of the weatherElement-tag
+        WEitems = LOC.xpath('weatherElement/item')
+        # Loop over the weather elements
         for WE in WEitems:
-            we_name = WE.xpath('id')[0].text
-            we_q = WE.xpath('quality')[0].text
-            we_val = WE.xpath('value')[0].text
-            print we_name, we_q, we_val
+            we_id = WE.xpath('id')[0].text # Retrieve parameter name
+            we_q = WE.xpath('quality')[0].text # Retrieve quality flag
+            we_val = WE.xpath('value')[0].text # Retrieve measured value
+            print we_id, we_val
+
+            if we_id not in stat_dict[stat_id].keys():
+                stat_dict[stat_id] = {}
+                stat_dict[stat_id]['index'] = []
+                stat_dict[stat_id][we_id] = {}
+                stat_dict[stat_id][we_id]['val'] = []
+                stat_dict[stat_id][we_id]['q'] = []
+
+            stat_dict[stat_id]['index'].append(_index)
+            stat_dict[stat_id][we_id]['val'].append(we_val)
+            stat_dict[stat_id][we_id]['q'].append(we_q)
 
 
+print stat_dict['12290'].keys()
+print stat_dict['12290']['RR_1']['val'][0]
 
 
 # Print tree structure of file
@@ -120,6 +146,9 @@ When retrieving data from more than two stations the dictionary is wrong.
 
 print para_dict
 print stat_dict.keys()
+
+
+
 # Now store in a pandas dataframe...
 df = pd.DataFrame(stat_dict['12290'], index=index)
 #print df
