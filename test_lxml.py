@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 
 '''
+MOVED TO WSKLIMA_PARSER.PY
+
+
+
 __author__: Karsten Müller, kmunve
 
 Converts the XML return from a wsklima.getData() call to a Python dictionary.

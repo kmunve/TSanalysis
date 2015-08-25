@@ -18,21 +18,23 @@ A dictionary with a key for each station:
 
 Usage:
 
+Get XML file from eklima.met.no, e.g. by using wsklima_getdata.py or
+http://eklima.met.no/met/MetService?operation=getMetData
 
+Hand the XML file to parse_getData(xml_data)
 
 '''
 
 import datetime as dt
 import numpy as np
-import pandas as pd
 
+from cStringIO import StringIO
 from lxml import etree
 
-def parse_wsklima(xml_data):
+def parse_getData(xml_data):
     stat_dict = {} # station dictionary
     index = []
 
-    # Add a check for StringIO or xml-file
     tree = etree.parse(open(xml_data))
 
     root = tree.getroot()
@@ -83,7 +85,7 @@ def parse_wsklima(xml_data):
 
 if __name__ == '__main__':
     import pylab
-    sd = parse_wsklima('54110.xml')
+    sd = parse_getData('54110.xml')
     print sd['54110']
     print sd['12290']
     pylab.plot(sd['12290']['index'], sd['12290']['TA']['val'])
