@@ -24,12 +24,22 @@ for i in doc['obs_data']:
     data['snow_height'].append(np.float(i['sd']))
     data['snow_fall_height'].append(np.float(i['sdfsw']))
     data['humidity'].append(np.float(i['humid']))
+
+    # Bad data is either null or 999.9.
+    # Replace those values by np.nan.
     try:
-        data['wind_speed'].append(np.float(i['wspd']))
+        _wspd = np.float(i['wspd'])
+        if _wspd > 250.0:
+            _wspd = np.nan
+        data['wind_speed'].append(_wspd)
     except ValueError:
         data['wind_speed'].append(np.nan)
+
     try:
-        data['wind_speed_max'].append(np.float(i['wspd_max']))
+        _wspd_max = np.float(i['wspd_max'])
+        if _wspd_max > 250.0:
+            _wspd_max = np.nan
+        data['wind_speed_max'].append(_wspd_max)
     except ValueError:
         data['wind_speed_max'].append(np.nan)
     try:
