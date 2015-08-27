@@ -5,7 +5,7 @@ import datetime
 import pandas as pd
 import numpy as np
 import pylab as mpl
-doc = json.load(open('117.json'))
+doc = json.load(open('125.json'))
 
 header = doc['obs_description']
 
@@ -50,6 +50,7 @@ for i in doc['obs_data']:
 df = pd.DataFrame(data)
 # Now set the observation time as the index
 df.set_index('obs_time', inplace=True)
+print df.describe()
 
 #df.plot(x='obs_time', y='air_temperature')
 df.plot(subplots=True)
