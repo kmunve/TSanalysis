@@ -12,12 +12,15 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
        <th>Name</th>
        <th>Station ID</th>
        <th>Elevation</th>
+       <th>Department</th>
      </tr>
      <xsl:for-each select="//return/item">
-      <xsl:if test="amsl &gt; 300">
+      <xsl:sort select="department"/>
+      <xsl:if test="amsl &gt; 600">
        <tr>
          <td><xsl:value-of select="name"/></td>
          <td><xsl:value-of select="stnr"/></td>
+         <td><xsl:value-of select="department"/></td>
          <td><xsl:value-of select="amsl"/></td>
        </tr>
       </xsl:if>
