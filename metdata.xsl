@@ -15,7 +15,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
      <xsl:for-each select="bookstore/book">
        <tr>
          <td><xsl:value-of select="title"/></td>
-         <td><xsl:value-of select="author"/></td>
+         <td>
+           <xsl:for-each select="author"  >
+            <xsl:value-of select="."/>
+           </xsl:for-each>
+         </td>
        </tr>
      </xsl:for-each>
    </table>
@@ -23,4 +27,4 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  </html>
 </xsl:template>
 
-</xsl:stylesheet> 
+</xsl:stylesheet>
