@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+'''
+Usage: python test_xslt.py > out.html
+'''
+
+
 import lxml.etree as ET
 
 #xml_filename = 'bookstore.xml'

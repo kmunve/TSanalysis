@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SOAP-ENV:Body>
+    <ns1:getStationsPropertiesResponse SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://no/met/metdata/MetService.wsdl">
+      <return ns2:arrayType="ns3:no_met_metdata_StationProperties[2]" xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns3="http://no.met.metdata/IMetService.xsd" xsi:type="ns2:Array">
+        <item xsi:type="ns3:no_met_metdata_StationProperties">
+          <amsl xsi:type="xsd:int">132</amsl>
+          <department xsi:type="xsd:string">HEDMARK</department>
+          <fromDay xsi:type="xsd:int">20</fromDay>
+          <fromMonth xsi:type="xsd:int">5</fromMonth>
+          <fromYear xsi:type="xsd:int">1968</fromYear>
+          <latDec xsi:type="xsd:double">60.801</latDec>
+          <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+          <lonDec xsi:type="xsd:double">11.0977</lonDec>
+          <municipalityNo xsi:type="xsd:int">403</municipalityNo>
+          <name xsi:type="xsd:string">HAMAR II</name>
+          <stnr xsi:type="xsd:int">12290</stnr>
+          <toDay xsi:type="xsd:int">0</toDay>
+          <toMonth xsi:type="xsd:int">0</toMonth>
+          <toYear xsi:type="xsd:int">0</toYear>
+          <utm_e xsi:type="xsd:int">287708</utm_e>
+          <utm_n xsi:type="xsd:int">6746937</utm_n>
+          <utm_zone xsi:type="xsd:int">33</utm_zone>
+          <wmoNo xsi:type="xsd:int">1386</wmoNo>
+        </item>
+        <item xsi:type="ns3:no_met_metdata_StationProperties">
+          <amsl xsi:type="xsd:int">2</amsl>
+          <department xsi:type="xsd:string">SOGN OG FJORDANE</department>
+          <fromDay xsi:type="xsd:int">12</fromDay>
+          <fromMonth xsi:type="xsd:int">9</fromMonth>
+          <fromYear xsi:type="xsd:int">2008</fromYear>
+          <latDec xsi:type="xsd:double">61.1033</latDec>
+          <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+          <lonDec xsi:type="xsd:double">7.5025</lonDec>
+          <municipalityNo xsi:type="xsd:int">1422</municipalityNo>
+          <name xsi:type="xsd:string">LÆRDAL IV</name>
+          <stnr xsi:type="xsd:int">54110</stnr>
+          <toDay xsi:type="xsd:int">0</toDay>
+          <toMonth xsi:type="xsd:int">0</toMonth>
+          <toYear xsi:type="xsd:int">0</toYear>
+          <utm_e xsi:type="xsd:int">96426</utm_e>
+          <utm_n xsi:type="xsd:int">6797459</utm_n>
+          <utm_zone xsi:type="xsd:int">33</utm_zone>
+          <wmoNo xsi:type="xsd:int">1355</wmoNo>
+        </item>
+      </return>
+    </ns1:getStationsPropertiesResponse>
+
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

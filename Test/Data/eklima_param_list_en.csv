@@ -1,0 +1,298 @@
+#Group,#Subgroup,#Code,#Unit,#Number,#Description
+Precipitation,Precipitation (24 hours),RR_24,mm,110,Amount of precipitation last 24 hours
+Weather,Past weather,W2,code,43,Second highest code for weather since last main observation time (code 0 - 9)
+Weather,Present weather,V2,code,32,Weather at time of observation, code (number or letter) for different types of weather; up to three codes may be given (V1-V3).
+Weather,Past weather,V6,code,38,Weather during six or twelve hours before time of observation, code (number or letter) for different types of weather; up to four codes may be given (V4-V7)
+Weather,Past weather (intensity),V5S,code,37,Intencity of weather given by V5, e.g. heavy (rain) or light (showers of snow).
+Weather,Past weather,WD3,code,46,Additional information about the weather since last main observation.
+Battery voltage,Battery voltage,BAT,volt,281,Battery voltage
+Snow,Mean snow depth,SAM,cm,-1,Monthly value: Arithmetic mean of daily snow depths
+Temperature,Dew point temperature,TD,ºC,217,Dew point temperature (temperature at which clouds will form)
+Soiltemperature,Soil temperature at 100 cm depth,TJ100,ºC,-1,Soil temperature at 100 cm depth
+Soiltemperature,Soil temperature at 5 cm depth,TJ5,ºC,-1,Soil temperature at 5 cm depth
+Soiltemperature,Soil temperature at 50 cm depth,TJ50,ºC,-1,Soil temperature at 50 cm depth
+Temperature,Mean temperature,TAM,ºC,212,"Hourly value: Arithmetic mean of minute values.Daily value: Arithmetic mean of 24 hourly values (00-00 utc), or a formula based mean value computed from fewer observations (18-18 utc).Monthly value: Arithmetic mean of daily TAMs. "
+Temperature,Minimum temperature,TAN,ºC,213,Lowest noted temperature this hour/day (from 18 to 18)/month.
+Temperature,Maximum temperature,TAX,ºC,215,Highest noted temperature this hour/day (from 18 to 18)/month.
+Wind,Time period (FX),ITZ,code,13,Code indicating how many hours before time of observation the max wind speed (FX) occurred
+Sea ice,Present ice situation and trend of conditions,ZI,code,21,Present ice situation and trend of conditions over preceding three hours
+Temperature,Air temperature (1),X1TA,ºC,-1,Air temperature - sensor 1
+Wind,Maximum gust,X1FG,m/s,83,Maximum gust (3 seconds) since last main observation (10 meters above ground) sensor 1
+Snow,Snow depth,SIGNSTR_SHM,kode,112,-
+Temperature,Mean soil temperature in 10 cm depth,X1TJM10,ºC,-1,Mean soil temperature at 10 cm depth
+Temperature,Mean soil temperature at 20 cm depth,X1TJM20,ºC,-1,Mean soil temperature at 20 cm depth
+Temperature,Mean soil temperature at 50 cm depth,X1TJM50,ºC,-1,Mean soil temperature at 50 cm depth
+Temperature,Mean temperature (2),X1TAM,ºC,-1,Mean temperature - sensor 1
+Humidity,Relative humidity,X1UU,percent,-1,Relative humidity of the air at hour of observation
+Wind,Gust wind speed,X1FG_010,m/s,-1,Highest gust wind speed (3 sec mean) last 10 min
+Wind,Wind speed (10 meters above ground),X1FF,m/s,-1,Wind speed, 10 min mean
+Wind,Max Wind Speed (10 min mean),X1FX,m/s,-1,Max Wind Speed last 3 hours (10 min mean)
+Temperature,Minimum temperature,TAN_24,ºC,-1,Temperature in ºC, minimum minute value last 24 hours
+Evaporation,Evaporation from open water,EV_1,mm,102,Evaporated water last hour in mm
+Temperature,Sea temperature,TW,ºC,242,Sea temperature at water surface
+Soiltemperature,Soil temperature at 20 cm depth,TJ20,ºC,-1,Soil temperature at 20 cm depth
+Clouds,Type of low clouds,CL,code,23,Cloud type, low clouds (base 0 - approx 2500 meter), by code 0 - 9 (Cu, Cb, St, Sc, ref cloud atlas).
+Clouds,Type of medium clouds,CM,code,24,Cloud type, medium clouds (base approx 2500-6000 meter), by code 0 - 9 (As, Ac, Ns, ref cloud atlas).
+Wind,Maximum mean wind speed (beaufort),FXB,Beaufort,-1,Maximum wind speed (10 meters above ground) - value FX according to the Beaufort scale.
+Waves,Wave height - instrumentally,HWA,meters,134,Significant wave height - instrumentally measured
+Waves,Direction of swell system 1,DW1,degrees,65,Direction of swell system (HW1)
+Air pressure,Air pressure characteristic,AA,code,1,Characteristic of the pressure tendency, given by code 0 - 8, indicating if pressure is rising, falling or steady.
+Sea ice,Ice of land origin,BI,code,2,Number of icebergs (navigation hazard)
+Clouds,Type of high clouds,CH,code,22,Cloud type, high clouds (base above approx 6000 meter), by code 0 - 9 (Ci, Cs, Cc, ref cloud atlas).
+Waves,Direction of swell system 2,DW2,degrees,66,Direction of swell system (HW2)
+Temperature,Mean grass temperature (3),X3TGM,ºC,-1,Mean grass temperature - sensor 3
+Temperature,Minimum grass temperature,TGN,ºC,223,Lowest noted temperature this hour/day/month, measured 10 cm above ground.
+Temperature,Minimum grass temperature (3),X3TGN,ºC,-1,Minimum grass temperature - sensor 3
+Temperature,Minimum road temperature,TVN,ºC,240,Temperature from sensor milled into the road, minimum value last hour
+Temperature,Temperature difference,TDIF,ºC,-1,Temperature difference
+Wind,Wind direction (FF),DD,degrees,61,The general wind direction last 10 minutes (ref wind speed FF), defined as the direction the wind comes from, e.g north being 360º and east 90º. Code = -3 means variable direction.
+Temperature,Air temperature,TA,ºC,211,Air temperature at time of observation
+Humidity,Mean relative humidity,UM,percent,263,Mean relative humidity
+Snow,Snow cover,SD,code,18,Code 1 - 4: 1-3 = parts of the ground covered with snow, 4 = area around station all covered with snow. Code = -1 means no snow, presented as "."
+Clouds,Cloud cover,NN,octas,15,Total cloud cover, code 0 - 8 (0 = sky clear, 1-8 = octas of sky covered. Code -3 = cloud cover can not be estimated due to fog, drifting snow etc. Code -3 is presented as '.'  (in synop code=9))
+Wind,Maximum mean wind speed,FX,m/s,86,Max. wind speed (10 m above ground) - standard value: Highest 10 minutes mean wind for the period after the station's last main observation (normally 6 hours, could be 12, especially at obs 06 utc).
+Wind,Maximum gust,FG,m/s,83,Maximum gust (3 seconds) since last main observation (10 meters above ground)
+Waves,State of sea,SG,code,19,State of sea (observed waves, not measured), code 0 - 9.
+Temperature,Grass temperature,TG,ºC,221,Temperature 10 cm above ground level
+Soiltemperature,Mean soil temperature at 20 cm depth,TJM20,ºC,227,Mean soil temperature at 20 cm depth
+Humidity,Relative humidity, 60 minutes mean,X1UM,percent,-1,Relative humidity, 60 minutes mean
+Temperature,Maximum grass temperature (2),X1TGX,ºC,-1,Maximum grass temperature - sensor 1
+Wind,Wind direction,X1DD,degrees,-1,Wind direction, 10 min mean.
+Temperature,Grass temperature (2),X1TG,ºC,-1,Grass temperature - sensor 1
+Temperature,Mean grass temperature (2),X1TGM,ºC,-1,Mean grass temperature - sensor 1
+Temperature,Minimum grass temperature (2),X1TGN,ºC,-1,Minimum grass temperature - sensor 1
+Temperature,Maximum temperature (2),X1TAX,ºC,-1,Maximum temperature - sensor 1
+Wind,Wind speed (2 meters above ground),FF2,m/s,-1,Wind speed (2 meters above ground) - mean value for last 10 minutes before time of observation
+Icing,Rate of ice accretion on ships,RS,code,17,How rapidly ice is building up or melting
+Sea ice,Stage of development,SI,code,20,Age and thickness og sea ice
+Soiltemperature,Mean soil temperature at 10 cm depth,TJM10,ºC,227,Mean soil temperature at 10 cm depth
+Precipitation,Precipitation measurements,IR,code,9,Code indicating if precipitation amount is included in the synop-message (1 = precipitation incl, 3 = precipitation not incl, 4 = precipitation not measured).
+Snow,Snow depth,SA,cm,112,Snow depth, total from ground up; normally measured in the morning. Code = -1 means no snow, presented as ".", -3 = "not possible to measure".
+Temperature,Maximum temperature (2),X2TAX,ºC,-1,Maximum temperature - sensor 2
+Temperature,Minimum sea temperature,TWN,ºC,244,The lowest sea temperature of the month
+Air pressure,Air pressure at station level,PO,hPa,173,Air pressure reduced to the reference height of the station (QFE)
+Weather,Present weather,WAWA,code,49,Weather at observation time
+Stråling,Longwave radiation from above, present value,QLONETINST_01,W/m2,-1,The difference between incoming long wave radiation from below and the instrumental radiation, mean over last minute
+Stråling,Longwave radiation,QNET,Wh/m2,-1,Net radiation, mean over last hour
+Temperature,Instrumental temperature,TIQL,degrees C,10225,Instrumental temperature, radiation
+Wind,Wind direction (FF),DD2,degrees,61,General wind direction last 10 minutes at 2 m (refers to wind speed FF2), defined as the direction from which the wind blows, where north is 360º and east 90º. Kode -3 means variable wind direction.
+Wind,Wind direction (vectorised),DG2_1,degrees,78,Wind direction, vectorised in degrees (belongs to FG2_1) at 2 m
+Wind,Wind direction (FX_1),DX2_1,degrees,73,Wind direction at strongest middlewind last hour (FX2_1) at 2 meter
+Soiltemperature,Soil temperature at  5250cm depth,TJ5250,ºC,226,Soil temperature at 5250 cm depth
+Radiation,Longwave radiation from above, present value,QLI_01,Wh/m2,210,Longwave radiation from above, mean over last minute
+Radiation,Wave length area,QLO_01,Wh/m2,2102,Long wave radiation from below, mean over last minute
+Radiation,Short wave(global) radiation,QSI,W/m2,-1,Short wave radiation(global) from above, mean over last hour
+Radiation,Short wave(global) radiation,QSI_01,W/m2,2073,Short wave radiation(global) from above, mean over last minute
+Radiation,Short wave(global) radiation,QSI_010,W/m2,2072,Short wave radiation(global) from above, mean over last ten minutes
+Radiation,Short wave radiation,QSO,W/m2,2070,Short wave radiation from below, mean over last hour
+Radiation,Short wave radiation,QSO_01,W/m2,2070,Short wave radiation from below, mean over last minute
+Radiation,Reflected radiation, present value,QRA,W/m2,209,Radiation, reflected
+Radiation,Radiation balance,QOB,Wh/m2,203,Radiation balance
+Radiation,Radiation,QF,Wh/m2,204,Photosynthetic active radiation
+Radiation,Long wave radiation,QLI,Wh/m2,210,Long wave radiation from above, mean over last hour
+Radiation,Long wave radiation,QLINETINST_01,W/m2,-1,The difference between incoming long wave radiation from above and the instrumental radiation, mean over last minute
+Snow,Status snow depth sensor,STATSA,cm,-1,Status snow depth sensor SR50/SR50A
+Sunshine,Sunshine last minute,OT_01,seconds,2121,Number of seconds (within the minute) with sunshine
+-,Status ventilator,STATVENT,code,-1,-
+Temperature,Instrumental temperature,TIQS,degrees C,10228,Instrumental temperature, shortwave radiation
+Soiltemperature,Soil temperature at 120 cm depth,TJ120,ºC,-1,Soil temperature at 120 cm depth
+Soiltemperature,Soil temperature at 1300 cm depth,TJ1300,ºC,-1,Soil temperature at 1300 cm depth
+Soiltemperature,Soil temperature at 160 cm depth,TJ160,ºC,-1,Soil temperature at 160 cm depth
+Soiltemperature,Soil temperature at 250 cm depth,TJ250,ºC,-1,Soil temperature at 250 cm depth
+Soiltemperature,Soil temperature at 2500 cm depth,TJ2500,ºC,-1,Soil temperature at 2500 cm depth
+Soiltemperature,Soil temperature at 300 cm depth,TJ300,ºC,-1,Soil temperature at 300 cm depth
+Soiltemperature,Soil temperature at 3000 cm depth,TJ3000,ºC,-1,Soil temperature at 3000 cm depth
+Soiltemperature,Soil temperature at 350 cm depth,TJ350,ºC,-1,Soil temperature at 350 cm depth
+Soiltemperature,Soil temperature at 500 cm depth,TJ500,ºC,-1,Soil temperature at 500 cm depth
+Soiltemperature,Soil temperature at 5000 cm depth,TJ5000,ºC,-1,Soil temperature at 5000 cm depth
+Soiltemperature,Soil temperature at 1000 cm depth,TJ1000,ºC,-1,Soil temperature at 1000 cm depth
+Soiltemperature,Soil temperature at 700 cm depth,TJ700,ºC,-1,Soil temperature at 700 cm depth
+Soiltemperature,Soil temperature at 1100 cm depth,TJ1100,ºC,-1,Soil temperature at 1100 cm depth
+Soiltemperature,Soil temperature at 1500 cm depth,TJ1500,ºC,-1,Soil temperature at 1500 cm depth
+Soiltemperature,Soil temperature at 6000 cm depth,TJ6000,ºC,-1,Soil temperature at 6000 cm depth
+Soiltemperature,Soil temperature at 7000 cm depth,TJ7000,ºC,-1,Soil temperature at 7000 cm depth
+Soiltemperature,Soil temperature at 8000 cm depth,TJ8000,ºC,-1,Soil temperature at 8000 cm depth
+Soiltemperature,Soil temperature at 9000 cm depth,TJ9000,ºC,-1,Soil temperature at 9000 cm depth
+Soiltemperature,Soil temperature at 9500 cm depth,TJ9500,ºC,-1,Soil temperature at 9500 cm depth
+Soiltemperature,Soil temperature at 120 cm depth,X1TJ120,ºC,-1,Soil temperature at 120 cm depth
+Soiltemperature,Soil temperature at 40 cm depth,X1TJ40,ºC,-1,Soil temperature at 40 cm depth
+Soiltemperature,Soil temperature at 80 cm depth,X1TJ80,ºC,-1,Soil temperature at 80 cm depth
+Soiltemperature,Soil temperature at 20 cm depth,X1TJ20,ºC,-1,Soil temperature at 20 cm depth
+Soiltemperature,Soil temperature at 200 cm depth,X1TJ200,ºC,-1,Soil temperature at 200 cm depth
+Soiltemperature,Soil temperature at 250 cm depth,X1TJ250,ºC,-1,Soil temperature at 250 cm depth
+Soiltemperature,Soil temperature at 300 cm depth,X1TJ300,ºC,-1,Soil temperature at 300 cm depth
+Soiltemperature,Soil temperature at 350 cm depth,X1TJ350,ºC,-1,Soil temperature at 350 cm depth
+Soiltemperature,Soil temperature at 900 cm depth,X1TJ900,ºC,-1,Soil temperature at 900 cm depth
+Soiltemperature,Soil temperature at 400 cm depth,X1TJ400,ºC,-1,Soil temperature at 400 cm depth
+Soiltemperature,Soil temperature at 500 cm depth,X1TJ500,ºC,-1,Soil temperature at 500 cm depth
+Soiltemperature,Soil temperature at 700 cm depth,X1TJ700,ºC,-1,Soil temperature at 700 cm depth
+Soiltemperature,Soil temperature at 1000 cm depth,X1TJ1000,ºC,-1,Soil temperature at 1000 cm depth
+Soiltemperature,Soil temperature at 1100 cm depth,X1TJ1100,ºC,-1,Soil temperature at 1100 cm depth
+Soiltemperature,Soil temperature at 1300 cm depth,X1TJ1300,ºC,-1,Soil temperature at 1300 cm depth
+Soiltemperature,Soil temperature at 1500 cm depth,X1TJ1500,ºC,-1,Soil temperature at 1500 cm depth
+Weather,15 minutes Present weather,WAWA_015,kode,10047,15 minutes Present Weather Code
+Soiltemperature,Soil temperature at 160 cm depth,X1TJ160,ºC,-1,Soil temperature at 160 cm depth
+Precipition,-,RTS_1,antall,130,Time with precipition as snow number of minutes last hour
+Clouds,Clouds (CB/TCU),CC2,code,306,Additional cloud information for group HS2/NS2; tells if CB (cumulonimbus) or TCU (towering cumulus) are present.
+Clouds,Clouds (CB/TCU),CC3,code,307,Additional cloud information for group HS3/NS3; tells if CB (cumulonimbus) or TCU (towering cumulus) are present.
+Humidity,Minimum relative humidity,UN,%,264,Minimum relative humidity
+Weather,Present weather,V3,code,33,Weather at time of observation, code (number or letter) for different types of weather; up to three codes may be given (V1-V3).
+Weather,Past weather,V4,code,34,Weather during six or twelve hours before time of observation, code (number or letter) for different types of weather; up to four codes may be given (V4-V7)
+Weather,Past weather (intensity),V4S,code,35,Intencity of weather given by V4, e.g. heavy (rain) or light (showers of snow).
+Weather,Past weather (intensity),V6S,code,39,Intencity of weather given by V6, e.g. heavy (rain) or light (showers of snow).
+Temperature,Air temperature (2),X2TA,ºC,-1,Air temperature - sensor 2
+Water level,Water level,WL,meters,138,Water level given relative lower astronomical tide (LAT)
+Air pressure,Air pressure (QNH),PH,hPa,172,Air pressure (QNH) reduced to sea level according to the ICAO standard - (rounded down to nearest hPa)
+Soiltemperature,Soil temperature,TJ0,ºC,-1,Soil temperature at 0 cm depth
+Wind,Mean wind last hour,FM,m/s,85,Mean value of wind observations last hour (10 meters above ground)
+Air pressure,Average air pressure, station level,POM,hPa,174,Air pressure at station (QFE), mean value of period
+Wind,Maximum gust last 10 minutes),FG_010,m/s,84,Maximum gust (3 seconds) last 10 minutes (10 meters above ground)
+Wind,Maximum gust (last hour),FG_1,m/s,90,Maximum gust (3 seconds) last hour (10 meters above ground)
+Radiation,Radiation,QD,Wh/m2,196,Radiation, diffuse, "accumulated" last hour
+Clouds,Cloud base,HLN,meters,56,Lowest measured height of 'first' cloud base in meters, for one hour.
+Precipitation,Intensity of precipitation,RR_01,mm,105,Amount of precipitation last minute
+Precipitation,Precipitation (1 hour),RR_1,mm,106,Amount of precipitation last hour
+Precipitation,Precipitation 3 hours,RR_3,mm,107,Precipitation, increase last 3 hours in mm
+Precipitation,Precipitation (6 hours),RR_6,mm,108,Amount of precipitation last 6 hours
+Precipitation,Precipitation,RR_X,mm,117,Amount of precipitation during a not specified time period
+Precipitation,Precipitation,RR_010,mm,118,Amount of precipitation last 10 minutes
+Field condition,Field condition,EE0,code,-1,Code used until end of 1981
+Radiation,Wave length area,QOA,W/m2,205,Wave length area 300-3.000 nm
+Temperature,Snow temperature,TSX75,ºC,237,Snow temperature in °C, maximum minute value last hour depth=75
+Temperature,Snow temperature,TSX175,ºC,237,Snow temperature in °C, maximum minute value last hour depth=175
+Temperature,Snow temperature,TSX125,ºC,237,Snow temperature in °C, maximum minute value last hour depth=125
+Temperature,Snow temperature,TSX25,ºC,237,Snow temperature in °C, maximum minute value last hour depth=25
+Wind,Maximum gust (2 meters above ground),FG2_1,m/s,87,Maximum gust (3 seconds) last hour (2 meters above ground)
+Vind,Maximum mean wind speed (2 meter above ground),FX2_1,m/s,87,Max. wind speed (2 m above ground) - standard value: Highest 10 minutes mean wind
+Radiation,Wave length area,QLO,Wh/m2,206,Longwave radiation
+Precipitation,Precipitation,RT_010,mm,328,Amount of precipitation last 10 minutes
+Soiltemperature,Soil temperature at 200 cm depth,TJ200,ºC,-1,Soil temperature at 200 cm depth
+Soiltemperature,Soil temperature at 2000 cm depth,TJ2000,ºC,-1,Soil temperature at 2000 cm depth
+Soiltemperature,Soil temperature at 40 cm depth,TJ40,ºC,-1,Soil temperature at 40 cm depth
+Soiltemperature,Soil temperature at 400 cm depth,TJ400,ºC,-1,Soil temperature at 400 cm depth
+Soiltemperature,Soil temperature at 4000 cm depth,TJ4000,ºC,-1,Soil temperature at 4000 cm depth
+Soiltemperature,Soil temperature at 80 cm depth,TJ80,ºC,-1,Soil temperature at 80 cm depth
+Soiltemperature,Soil temperature at 900 cm depth,TJ900,ºC,-1,Soil temperature at 900 cm depth
+Temperature,Maximum grass temperature (2),X2TGX,ºC,-1,Maximum grass temperature - sensor 2
+Sea ice,True bearing of principal ice edge,DI,code,6,True bearing of principal ice edge (given in eight sectors)
+Weather,Weather information,IX,code,10,Code indicating if weather types are included in the synop message (1 = types included, 2 = no significant weather, 3 = weather info is lacking) 
+Air pressure,Air pressure at sea level,PR,hPa,178,Air pressure reduced to sea level (QFF)
+Visibility,Visibility,VV,meters,273,Visibility in poorest direction, listed in meters, converted from synop code (max 75 km) or metar code (max 10 km).
+Air pressure,Maximum air pressure, station level,POX,hPa,176,Air pressure at station (QFE), maximum value of period
+Snow,Maximum snow depth,SAX,cm,-1,Monthly value: Maximum målte observed snow depth
+Waves,Wave direction,DDM2,degrees,-1,Secondary wave, Mean Direction (MIROS)
+Icing,Icing,ES,cm,101,Icing
+Snow,Snow depth,SS_24,cm,114,Snow depth, increase last 24 hours in cm
+Clouds,Cloud cover, lowest clouds,NH,octas,14,Amount (0-8, Code -3 = cloud cover can not be estimated due to fog, drifting snow etc. Code -3 is presented as '.')of all low clouds (CL), or - if no low clouds - amount of middle clouds (CM).
+Clouds,Cloud cover,NS2,code,26,Cloud cover (in octas) at height HS2 (metar code FEW, SCT, BKN or OVC converted to octas (2,4,6,8)) Cloud cover not known, code=-3, presented as '.'
+Clouds,Cloud cover,NS4,code,28,Cloud cover (in octas) at height HS4 (metar code FEW, SCT, BKN or OVC converted to octas (2,4,6,8)). Cloud cover not known, code=-3, presented as '.'
+Wind,Wind speed (10 meters above ground),FF,m/s,81,Wind speed (10 meters above ground) - standard value: mean value for last 10 minutes before time of observation
+Temperature,Maximum temperature (12 hours),TAX_12,ºC,216,Highest observed temperature last 12 hours
+Clouds,Cloud cover,NS3,code,27,Cloud cover (in octas) at height HS3 (metar code FEW, SCT, BKN or OVC converted to octas (2,4,6,8)) Cloud cover not known, code=-3, presented as '.'
+Clouds,Cloud cover,NS1,code,25,Cloud cover (in octas) at height HS1 (metar code FEW, SCT, BKN or OVC converted to octas (2,4,6,8)) Cloud cover not known, code=-3, presented as '.'
+Humidity,Relative humidity,UH,percent,261,Hygrometric value, incorrected
+Temperature,Minimum grass temperature,TGN_12,ºC,224,Temperature 10 cm above ground level, minimum value last 12 hours
+Precipitation,Precipitation period,ITR,number,12,Number of 6-hour-periods that are included in the precipitation amount.
+Waves,Mean wave period - instrumental,PWA,seconds,154,Mean wave period, instrumentally measured during ca 20 minutes
+Soiltemperature,Soil temperature at 10 cm depth,TJ10,ºC,-1,Soil temperature at 10 cm depth
+Soiltemperature,Mean soil temperature at 50 cm depth,TJM50,ºC,227,Mean soil temperature at 50 cm depth
+Weather,Present weather,WW,code,41,Weather at time of observation, given by synop code 00-99.
+Temperature,Barometer temperature,TP,ºC,229,Barometer temperature
+Humidity,Relative air humidity,UU,percent,262,Relative humidity of the air at hour of observation
+Temperature,Grass temperature (2),X2TG,ºC,-1,Grass temperature - sensor 2
+Temperature,Grass temperature (3),X3TG,ºC,-1,Grass temperature - sensor 3
+Temperature,Mean grass temperature (2),X2TGM,ºC,-1,Mean grass temperature - sensor 2
+Temperature,Minimum grass temperature (2),X2TGN,ºC,-1,Minimum grass temperature - sensor 2
+Temperature,Maximum grass temperature (3),X3TGX,ºC,-1,Maximum grass temperature - sensor 3
+Radiation,Longwave radiation (maximum),QLX,W/m2,199,Longwave radiation (wave length > ca 3000 nm), maximum last hour
+Wind,Maximum mean wind speed (last hour),FX_1,m/s,87,Highest 10 minutes average wind for the last hour (10 meters above ground)
+Metadata,Position of vessel (latitude),MLAT,degrees,401,Position of the vessel (geographical latitude)
+Metadata,Position of vessel (longtitude),MLON,degrees,402,Position of the vessel (geographical longtitude)
+Metadata,Speed of vessel,MSPEED,m/s,404,The vessel's average speed last three hours, converted from code
+Sunshine,Sunshine last hour,OT_1,minutes,121,Number of minutes (within the hour) with sunshine
+Sunshine,Sunshine last 24 hours,OT_24,hours,122,Number of hours (one decimal) with sunshine last 24 hours
+Air pressure,Air pressure at instrument level,PB,hPa,171,Air pressure as read from barometer (not reduced to the reference height of the station)
+Radiation,Global radiation,QOX,W/m2,201,Global radiation, maximum minute value during last hour
+Precipitation,Precipitation time,RT_1,minutes,123,Number of minutes (within the hour) with precipitation of any kind
+Temperature,Grass temperature,TGM,ºC,222,Temperature 10 cm above ground level, mean of 60 minute-values (TGs) from the last hour
+Temperature,Maksimum grass temperature,TGX,ºC,225,Temperature 10 cm above ground level, maximum value last hour
+Temperature,Minimum temperature (peak),TNT,ºC,228,Minimum thermometer, peak value (for control purposes only)
+Temperature,Maximum temperature (peak),TXT,ºC,246,Maximum thermometer, peak value (for control purposes only)
+Sea ice,Ice on ocean,XIS,code,11,Ice on ocean
+Temperature,Snow temperature,TSA25,ºC,234,Snow temperature in °C, now value depth=25 cm
+Temperature,Snow temperature,TSA75,ºC,234,Snow temperature in °C, now value depth=75 cm
+Temperature,Snow temperature,TSA125,ºC,234,Snow temperature in °C, now value depth=125 cm
+Temperature,Snow temperature,TSA175,ºC,234,Snow temperature in °C, now value depth=175 cm
+Temperatur,Snow temperature,TSN75,ºC,236,Snow temperature in °C, minimum minute value last hour depth=75cm
+Temperature,Air temperature,TA_DELTA,ºC,10224,Vertical differens i temperature
+Temperature,Temperature, 10m,TA10,ºC,-1,Temperature 10m hight
+Soiltemperature,Mean soil temperature (-10 cm),TJM,ºC,227,Soil temperature at 10 cm depth, mean of 60 minute-values (TJ10s) from the last hour
+Temperature,Road temperature,TV,ºC,238,Temperature from sensor milled into the road
+Temperature,Mean road temperature,TVM,ºC,239,Temperature from sensor milled into the road, mean of 60 minute-values (TVs) from the last hour
+Air pressure,Baromeric tendency,PP,hPa,177,Barometer tendency, i.e change last three hours
+Weather,Past weather,WD2,code,45,Additional information about the weather since last main observation.
+Clouds,Clouds (CB/TCU),CC1,code,305,Additional cloud information for group HS1/NS1; tells if CB (cumulonimbus) or TCU (towering cumulus) are present.
+Temperature,Minimum temperature (12 hours),TAN_12,ºC,214,Lowest observed temperature last 12 hours
+Clouds,Cloudbase,HS4,code,304,Height of cloud base 4 (clouds in group NS4), converted from feet or meter to code
+Soiltemperature,Soil temperature at 25 cm depth,TJ25,ºC,-1,Soil temperature at 25 cm depth
+Radiation,Total radiation,QE,Wh/m2,197,Total radiation (independent of wave length)
+Soiltemperature,Soil temperature at 15 cm depth,TJ15,ºC,-1,Soil temperature at 15 cm depth
+Temperature,Air temperature, 25m,TA25,ºC,-1,Air temperature at time of observation height=25m
+Wind,Status wind sensor,STATFFDD,code,10513,Status wind sensor
+Field condition,Field condition,EE,code,-1,Code used from 2013
+Weather,Past weather,WD1,code,44,Additional information about the weather since last main observation.
+Wind,Time (FX),KLFX,time,1026,Time when FX occured (HHmm)
+Snow,Minimum snow depth,SAN,cm,-1,Monthly value: Minimum observed snow depth
+Temperature,Maximum sea temperature,TWX,ºC,245,The highest sea temperature of the month
+Temperature,Air temperature (3),X3TA,ºC,-1,Air temperature - sensor 3
+Temperature,Air temperature (4),X4TA,ºC,-1,Air temperature - sensor 4
+Temperature,Air temperature (5),X5TA,ºC,-1,Air temperature - sensor 5
+Temperature,Air temperature (6),X6TA,ºC,-1,Air temperature - sensor 6
+Temperatur,Snow temperature,TSN125,ºC,236,Snow temperature in °C, minimum minute value last hour depth=125cm
+Temperatur,Snow temperature,TSN25,ºC,236,Snow temperature in °C, minimum minute value last hour depth=25cm
+Temperatur,Snow temperature,TSN175,ºC,236,Snow temperature in °C, minimum minute value last hour depth=175cm
+Temperature,Maximum temperature (24 hours),TAX_24,ºC,252,Maximum temperature (24 hours)
+Temperature,Maximum road temperature,TVX,ºC,241,Temperature from sensor milled into the road, maximum value last hour
+Temperature,Mean sea temperature,TWM,ºC,243,Arithmetic mean of each day's sea temperature
+Temperature,Freshwater temperature,TWF,ºC,250,Temperature at water surface (lakes)
+Weather,Present weather,V1,code,31,Weather at time of observation, code (number or letter) for different types of weather; up to three codes may be given (V1-V3).
+Weather,Past weather,V5,code,36,Weather during six or twelve hours before time of observation, code (number or letter) for different types of weather; up to four codes may be given (V4-V7)
+Weather,Past weather,V7,code,40,Weather during six or twelve hours before time of observation, code (number or letter) for different types of weather; up to four codes may be given (V4-V7)
+Visibility,MOR visibility,VMOR,meters,271,MOR visibility in meters, now value 10 minutes, calculated (with algoritm)
+Weather,Past weather,WA1,code,47,Weather since last main observation
+Weather,Past weather,WA2,code,48,Weather since last main observation
+Sea ice,Concentration or arrangement of sea ice,CI,code,4,Concentration or arrangement of sea ice (pack ice)
+Wind,Wind direction (FG),DG,degrees,63,Wind direction at strongest gust (FG)
+Wind,Wind direction (vectorised),DG_1,degrees,78,Wind direction, vectorised in degrees (belongs to FG_1)
+Wind,Wind direction (FX_1),DX_1,degrees,73,Wind direction of strongest 10 minutes wind last hour (FX_1)
+Wind,Wind direction (FX_3),DX_3,degrees,74,Wind direction of strongest 10 minutes wind last three hours (FX_3)
+Evaporation,Evaporation from open water,EV_24,mm,103,Evaporated water last 24 hours in mm
+Wind,Maximum mean wind speed (last 3 hours),FX_3,m/s,95,Highest 10 minutes average wind for the last 3 hours (10 meters above ground)
+Clouds,Cloudbase,HS2,code,302,Height of cloud base 2 (clouds in group NS2), converted from feet or meter to code
+Wind,Time (FG),KLFG,time,1025,Time when FG occurred (HHmm)
+Weather,Past weather,W1,code,42,Highest code for weather since last main observation time (code 0 - 9)
+Clouds,Cloud base,HL,meters,55,Height of lowest cloud base, reported with code, converted to meters. Code -3 = cloud cover can not be estimated due to fog, drifting snow etc. Code -3 is presented as '.'  (in synop code=9))
+Temperature,Snow temperature,TSA,ºC,234,Snow temperature in °C, now value
+Snow,Water equivalent of melted snow,RWA,mm,116,Water equivalent of melted snow
+Snow,Water equivalent of melted snow,RW,mm,115,Water equivalent of melted snow
+Precipitation,Precipitation (12 hours),RR_12,mm,109,Amount of precipitation last 12 hours
+Humidity,Leaf wetness,BT,minutes,3,Minutes of leaf wetness last hour (agricultural stations)
+Wind,Average wind direction (cf FM),DDM,degrees,64,Average wind direction last hour (cf FM)
+Humidity,Maximum relative humidity,UX,percent,265,Maximum relative humidity
+Temperature,Mean temperature (2),X2TAM,ºC,-1,Mean temperature - sensor 2
+Clouds,Cloudbase,HS3,code,303,Height of cloud base 3 (clouds in group NS3), converted from feet or meter to code
+Wind,Wind direction (FX),DX,degrees,67,Wind direction of strongest 10 minutes wind (FX)
+Snow,State of the ground (E'),EM,code,7,Snow or ice on ground
+Radiation,Global radiation,QA,minutes,191,Radiation, albedo, last hour QR/Q0 (forholdstall)
+Clouds,Cloudbase,HS1,code,301,Height of cloud base 1 (clouds in group NS1), converted from feet or meter to code
+Waves,Wave height - observed,HW,meters,131,Significant wave height - visually or manually observed
+Waves,Wave height - swell 1,HW1,meters,132,Height of swell system 1
+Waves,Wave height - swell 2,HW2,meters,133,Height of swell system 2
+Icing,Ice accretion on ships,IZ,code,-1,Cause of icing on ships (rain, fog, ocean spray etc)
+Metadata,Direction of vessel,MDIR,code,403,The vessel's main direction last three hours
+Air pressure,Minimum air pressure, station level,PON,hPa,175,Air pressure at station (QFE), minimum value of period
+Waves,Mean wave period - observed,PW,seconds,151,Mean wave period, visually estimated
+Waves,Mean wave period for swell,PW1,seconds,152,Mean wave period, swell system 1
+Waves,Mean wave period for swell,PW2,seconds,153,Mean wave period, swell system 2
+Precipitation,Total precipitation,RA,mm,104,Automatic station: Total precipitation in container (accumulated since last emptying)
+Precipitation,Precipitation,RRVIPP,vipp,329,Pluviometervipp

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--definition of simple datatypes-->
+  <xs:simpleType name="DataType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="From">
+    <xs:restriction base="xs:dateTime">
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="To">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="Created">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="LocationId">
+    <xs:restriction base="xs:integer">
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LocationType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="ElementId">
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="QualityId">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="Value">
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Fault">
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+  <!--definition of complex datatypes-->
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element name="fault" type="Fault" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="metdata">
+    <xs:sequence>
+      <xs:element name="timeStamp" type="TimeStamp" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="type" use="required" type="DataType"/>
+    <xs:attribute name="created" type="Created"/>
+  </xs:complexType>
+  <xs:complexType name="TimeStamp">
+    <xs:sequence>
+      <xs:element name="location" type="Location" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="from" use="required" type="From"/>
+    <xs:attribute name="to" type="To"/>
+  </xs:complexType>
+  <xs:complexType name="Location">
+    <xs:sequence>
+      <xs:element name="weatherElement" type="WeatherElement" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="LocationId" use="required"/>
+    <xs:attribute name="type" type="LocationType"/>
+  </xs:complexType>
+  <xs:complexType name="WeatherElement">
+    <xs:sequence>
+      <xs:element name="value" type="Value"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="ElementId" use="required"/>
+    <xs:attribute name="quality" type="QualityId"/>
+  </xs:complexType>
+  <!--Now define the root element in the xml file -->
+  <xs:element name="Metdata" type="metdata">
+  </xs:element>
+</xs:schema>

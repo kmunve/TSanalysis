@@ -1,0 +1,346 @@
+#Gruppe,#Undergruppe,#Kode,#Enhet,#Nummer,#Beskrivelse
+Nedbør,Nedbør (24 timer),RR_24,mm,110,Nedbørmengde siste 24 timer
+Nedbør,Nedbør,RR_X,mm,117,Nedbørmengde i en uspesifisert tidsperiode
+Snø,Snødybde,SA,cm,112,Snødybde, totalt fra bakken, måles normalt på morgenen. Kode = -1 betyr snøbart, presenteres som ".", -3 = "umulig å måle"
+Snø,Snødekke,SD,kodetall,18,Oppgis med kodetall 1 - 4: 1 - 3 betyr at deler av marka er snødekt, og 4 at området rundt stasjonen er helt snødekt. Kode = -1 betyr "ikke snø", presenterast som "."
+Vær,Værslag i perioden,V4,kode,34,Været i seks- eller tolvtimersperioden før observasjonstida, tall- eller bokstavkode for ulike værslag, inntil fire forekomster (V4-V7)
+Vær,Værslag i perioden (intensitet),V4S,kode,35,Værintensitet knytta til værslag gitt ved V4, f.eks kraftig (regn) eller lette (snøbyger).
+Vær,Værslag i perioden,V5,kode,36,Været i seks- eller tolvtimersperioden før observasjonstida, tall- eller bokstavkode for ulike værslag, inntil fire forekomster (V4-V7)
+Vær,Værslag i perioden (intensitet),V5S,kode,37,Værintensitet knytta til værslag gitt ved V5, f.eks kraftig (regn) eller lette (snøbyger).
+Vær,Værslag i perioden,V6,kode,38,Været i seks- eller tolvtimersperioden før observasjonstida, tall- eller bokstavkode for ulike værslag, inntil fire forekomster (V4-V7)
+Vær,Værslag i perioden (intensitet),V6S,kode,39,Værintensitet knytta til værslag gitt ved V6, f.eks kraftig (regn) eller lette (snøbyger).
+Temperatur,Lufttemperatur,TA,ºC,211,Lufttemperatur ved observasjonstiden
+Temperatur,Duggpunktstemperatur,TD,ºC,217,Duggpunktstemperatur (den temperaturen lufta må avkjøles til før skydannelse (metning) inntreffer)
+Temperatur,Veibanetemperatur,TV,ºC,238,Temperatur fra sensor frest ned i veibanen
+Fuktighet,Relativ luftfuktighet,UU,prosent,262,Relativ luftfuktighet ved observasjonstida
+Vind,Vindretning (FF),DD,grader,61,Generell vindretning siste 10 minutter (refererer til vindhastighet FF), definert som retningen vinden kommer fra, der f.eks nord er 360º og øst 90º. Kode -3 betyr variabel vindretning.
+Vind,Vindhastighet (10 meter over bakken),FF,m/s,81,Vindhastighet (10 meter over bakken) - standardverdi: middelverdi for siste 10 minutter før observasjonstida
+Lufttrykk,Karakteristikk av lufttrykk,AA,kodetall,1,Barometertendensens karakteristikk oppgitt i kodetall (0-8) etter bevegelsesmåten (stigende, synkende, stabilt)
+Vind,Midlere vindretning (FM),DDM,grader,64,Midlere vindretning siste time (jf FM)
+Vind,Vindretning (FG),DG,grader,63,Vindretning ved sterkeste vindkast (FG)
+Vind,Vindretning (FX),DX,grader,67,Vindretning ved kraftigste middelvind (FX)
+Vind,Vindretning (FX_1),DX_1,grader,73,Vindretning ved kraftigste middelvind siste time (FX_1)
+Vind,Kraftigste vindkast (siste 10 min),FG_010,m/s,84,Kraftigste vindkast (3 sekunder) siste 10 minutter (10 meter over bakken)
+Vind,Kraftigste vindkast (siste time),FG_1,m/s,90,Kraftigste vindkast (3 sekunder) siste time (10 meter over bakken)
+Vind,Middelvind siste time,FM,m/s,85,Middelverdi av siste times vindmålinger (10 meter over bakken)
+Vind,Kraftigste middelvind (siste time),FX_1,m/s,87,Høyeste timinutters middelvind for siste time (10 meter over bakken)
+Lufttrykk,Lufttrykk (QNH),PH,hPa,172,Lufttrykk (QNH, nåverdi) redusert til havets nivå etter ICAO standard - avrundes ned til nærmeste hPa(HectoPascal). Brukes i luftfarten.
+Lufttrykk,Lufttrykk i stasjonsnivå,PO,hPa,173,Lufttrykk redusert til stasjonens referansehøyde (QFE, nåverdi)
+Lufttrykk,Midlere lufttrykk, stasjonsnivå,POM,hPa,174,Lufttrykk på stasjonen (QFE), middelverdi for perioden
+Lufttrykk,Laveste lufttrykk, stasjonsnivå,PON,hPa,175,Lufttrykk på stasjonen (QFE), laveste verdi for perioden
+Lufttrykk,Høyeste lufttrykk, stasjonsnivå,POX,hPa,176,Lufttrykk på stasjonen (QFE), høyeste verdi for perioden
+Lufttrykk,Barometertendens,PP,hPa,177,Barometertendensens størrelse, dvs. endring i de siste 3 timene
+Lufttrykk,Lufttrykk i havnivå,PR,hPa,178,Lufttrykk redusert til havets nivå (QFF, nåverdi)
+Nedbør,Total nedbør,RA,mm,104,Automatstasjon: Total nedbørmengde i bøtta (samlemengde siden sist tømming)
+Nedbør,Nedbør (1 time),RR_1,mm,106,Nedbørmengde siste time
+Nedbør,Nedbør (12 timer),RR_12,mm,109,Nedbørmengde siste 12 timer
+Nedbør,Nedbørtid,RT_1,minutt,123,Antallet minutt i løpet av en time da det er registrert nedbør av noe slag
+Temperatur,Middeltemperatur,TAM,ºC,212,"Timeverdi: Aritmetisk middel av minuttverdier Døgnverdi: Aritmetisk middel av 24 timeverdier (kl 00-00), evt formelbasert middelverdi ut fra færre observasjoner (kl 18-18)Månedsverdi: Aritmetisk middel av døgn-TAM "
+Temperatur,Minimumstemperatur,TAN,ºC,213,Laveste registrerte temperatur i timen/døgnet (kl 18-18)/måneden
+Temperatur,Minimumstemperatur (12 timer),TAN_12,ºC,214,Laveste registrerte temperatur siste 12 timer
+Temperatur,Maksimumstemperatur,TAX,ºC,215,Høyeste registrerte temperatur i timen/døgnet (kl 18-18)/måneden
+Temperatur,Maksimumstemperatur (12 timer),TAX_12,ºC,216,Høyeste registrerte temperatur siste 12 timer
+Fuktighet,Midlere relativ luftfuktighet,UM,prosent,263,Midlere relativ luftfuktighet, timesverdi automat???
+Skyer,Type høye skyer,CH,kodetall,22,Skytype, høye skyer (underside over ca 6000 meter), oppgis i kodetall 0-9 (Ci, Cs, Cc, se skyatlas)
+Skyer,Type lave skyer,CL,kodetall,23,Skytype, lave skyer (underside 0 - ca 2500 meter), oppgis i kodetall 0-9 (Cu, Cb, St, Sc, se skyatlas)
+Skyer,Type midlere skyer,CM,kodetall,24,Skytype, mellomhøye skyer (underside ca 2500-6000 meter pluss nedbørskylag), oppgis i kodetall 0-9 (As, Ac, Ns, se skyatlas)
+Vind,Kraftigste middelvind,FX,m/s,86,Høyeste vindhastighet (10 meter over bakken) - standardverdi: høyeste timinutters middelvind for tida etter stasjonens forrige hovedobservasjon (normalt 6 timer, kan være 12 timer særlig ved obs kl 06 utc)
+Vind,Kraftigste middelvind (beaufort),FXB,Beaufort,-1,Høyeste vindhastighet (10 meter over bakken) - verdi FX oppgitt etter beaufortskalaen
+Skyer,Skyhøyde,HL,meter,55,Høyde til undersida av laveste sky, meldes i kode, konverteres til meter.  Kode -3 = mengde av skyer er ikke mulig å se pga tåke, snøfokk eller lignende. -3 presenteres som '.'  (i synop kode=9))
+Skyer,Skydekke, laveste skyer,NH,åttedeler,14,Mengden (0-8, -3=mengden av skyer er ikke kjent pga tåke, snøfokk eller lignende, - presenteres som '.') av alle lave skyer (CL), evt mengden av midlere skyer (CM) om det ikke forekommer lave skyer
+Skyer,Skydekke,NN,åttedeler,15,Samlet skydekke, kodetall 0-8 (0 = skyfritt, 1-8 = åttedeler av himmelen. Kode -3 = mengden av skyer kan ikke bedømmes pga tåke, snøfokk eller lignende. -3 presenteres som '.'  (i synop kode=9))
+Vær,Været ved observasjonstida,V1,kode,31,Været ved observasjonstida, tall- eller bokstavkode for ulike værslag, inntil tre forekomster (V1-V3)
+Vær,Været ved observasjonstida,V2,kode,32,Været ved observasjonstida, tall- eller bokstavkode for ulike værslag, inntil tre forekomster (V1-V3)
+Vær,Været ved observasjonstida,V3,kode,33,Været ved observasjonstida, tall- eller bokstavkode for ulike værslag, inntil tre forekomster (V1-V3)
+Vær,Værslag i perioden,V7,kode,40,Været i seks- eller tolvtimersperioden før observasjonstida, tall- eller bokstavkode for ulike værslag, inntil fire forekomster (V4-V7)
+Sikt,Synsvidde (sikt),VV,meter,273,Sikt i dårligste retning, oppgis i meter, konvertert fra synopkode (maks 75 km) eller metar (maks 10 km)
+Vær,Været siden forrige observasjon,W1,kodetall,42,Høyeste kode for været siden forrige hovedobservasjonstid (kode 0-9)
+Vær,Været ved observasjonstida,WW,kode,41,Været ved observasjonstida, gitt ved synopkode 00-99
+Intensitet,Nedbørintensitet,RR_01,mm,105,Nedbørmengde siste minutt
+Markas tilstand,Markas tilstand,EE,kode,-1,Kode benyttet f.o.m 2013
+Markas tilstand,Markas tilstand,EE0,kode,-1,Kode benyttet t.o.m 1981
+Snø,Markas tilstand (E'),EM,kodetall,7,Markas tilstand (snø- og isdekke)
+Nedbør,Nedbørmåling,IR,kodetall,9,Kodetall som viser om nedbørmengde er med i synopmeldingen (1 = nedbør med, 3 = nedbør ikke falt, 4 = nedbør ikke målt) 
+Nedbør,Måleperiode for nedbør,ITR,antall,12,Antall 6-timers perioder som nedbørmålingen omfatter
+Vær,Værinformasjon,IX,kodetall,10,Kodetall som viser om værslag er med i synopmeldingen (1 = værslag med, 2 = ikke vær av betydning, 3 = væropplysninger mangler) 
+Nedbør,Nedbør (6 timer),RR_6,mm,108,Nedbørmengde siste 6 timer
+Bølger,Sjøgang,SG,kodetall,19,Sjøgang (observerte, ikke målte bølger) etter en skala fra 0 til 9
+Vær,Været siden forrige observasjon,W2,kodetall,43,Nest høyeste kode for været siden forrige hovedobservasjonstid (kode 0-9)
+Vær,Været siden forrige hovedobservasjon,WD1,kode,44,Tilleggsopplysning om været siden forrige hovedobservasjon
+Vær,Været siden forrige hovedobservasjon,WD2,kode,45,Tilleggsopplysning om været siden forrige hovedobservasjon
+Vær,Været siden forrige hovedobservasjon,WD3,kode,46,Tilleggsopplysning om været siden forrige hovedobservasjon
+Vind,Tidsrom (FX) ,ITZ,kodetall,13,Kodetall som viser omtrent hvor mange timer før observasjonen den maksimale middelvinden (FX) inntraff
+Skyer,Skymengde,NS1,kode,25,Skymengden (i 8-deler) i skylaget angitt ved høyde HS1 (metarkode FEW, SCT, BKN eller OVC kodet i 8-deler). Ukjent skydekke, kode=-3, presenteres som '.'
+Temperatur,Laveste gresstemperatur (12 timer),TGN_12,ºC,224,Temperatur målt 10 cm over bakkenivå, laveste verdi siste tolv timer
+Temperatur,Minimumstemperatur (topp),TNT,ºC,228,Minimumstermometerets topp (kontrollverdi)
+Temperatur,Maksimumstemperatur (topp),TXT,ºC,246,Maksimumstermometerets topp (kontrollverdi)
+Fuktighet,Relativ fuktighet,UH,prosent,261,Direkte avlest hygrometerverdi, ukorrigert
+Nedbør,Nedbørtid,RTS_1,minutt,130,Nedbør,  antall minutt siste time
+Lufttrykk,Lufttrykk i instrumenthøyde,PB,hPa,171,Lufttrykk avlest på barometer (ikke korrigert til stasjonens referansehøyde)
+Temperatur,Barometer temperatur,TP,ºC,229,Barometer temperatur
+Intensitet,Intensitet,RRVIPP,vipp,329,Pluviometervipp
+Vind,Vindhastighet (2 meter over bakken),FF2,m/s,-1,Vindhastighet (2 meter over bakken) - middelverdi for siste 10 minutter før observasjonstida
+Jordtemperatur,Midlere jordtemperatur i 10 cm dybde,TJM10,ºC,227,Midlere jordtemperatur i 10 cm dybde
+Jordtemperatur,Midlere jordtemperatur i 20 cm dybde,TJM20,ºC,227,Midlere jordtemperatur i 20 cm dybde
+Fuktighet,Maksimum relativ luftfuktighet,UX,%,265,Maksimum relativ luftfuktighet, timesverdi automat???
+Nedbør,Nedbør,RR_010,mm,118,Nedbørmengde siste 10 minutter
+Nedbør,Nedbør,RT_010,mm,328,Nedbørtilvekst siste 10 minutter
+Temperatur,Lufttemperatur (1),X1TA,ºC,-1,Lufttemperatur - sensor 1
+Temperatur,-,X1TAN,ºC,-1,Minimumstemperatur sensor 1
+Temperatur,-,X1TAN_12,ºC,-1,Minimumstemperatur siste 12 timer sensor 1
+Temperatur,Maksimumstemperatur (2),X1TAX,ºC,-1,Maksimumstemperatur - sensor 1
+Temperatur,-,X1TAX_12,ºC,-1,Temperatur i ºC, maximum siste 24 timer sensor 1
+Skyer,Skytype (CB/TCU),CC1,kode,305,Tilleggsopplysning for skytype i gruppe HS1/NS1; angir om det er CB (cumulonimbus) eller TCU (towering cumulus)
+Vind,Kraftigste vindkast,FG,m/s,83,Kraftigste vindkast (3 sekunder) siden siste hovedobservasjon (10 meter over bakken)
+Skyer,Skyhøyde,HS1,kode,301,Høyde til skybase 1 (skyer angitt ved mengden NS1), konvertert fra fot/meter til kode
+Bølger,Bølgehøyde - instrumentell,HWA,meter,134,Signifikant bølgehøyde - instrumentell måling
+Vind,Tidspunkt (FG),KLFG,tid,1025,Klokkeslett da FG inntraff (HHmm)
+Vind,Tidspunkt (FX),KLFX,tid,1026,Klokkeslett da FX inntraff (HHmm)
+Bølger,Bølgeperiode - instrumentell,PWA,sekund,154,Gjennomsnittlig bølgeperiode, instrumentell måling over ca 20 minutter
+Vind,Vindretning,X1DD,grader,-1,Vind retning, 10 min. middel.
+Vind,Vindhastighet (10 meter over bakken),X1FF,m/s,-1,Vindhastighet, 10 min middel
+Temperatur,Middeltemperatur (2),X1TAM,ºC,-1,Middeltemperatur - sensor 1
+Temperatur,Lufttemperatur (2),X2TA,ºC,-1,Lufttemperatur - sensor 2
+Temperatur,Middeltemperatur (2),X2TAM,ºC,-1,Middeltemperatur - sensor 2
+Temperatur,Lufttemperatur (3),X3TA,ºC,-1,Lufttemperatur - sensor 3
+Sol,Sol siste 24 timer,OT_24,timer,122,Antall timer (en desimal) med sol siste 24 timer
+Temperatur,Minimumstemperatur,TAN_24,ºC,-1,Temperatur i ºC, minimum minuttverdi siste 24 timer
+Fuktighet,Bladfuktighet siste time,BT,minutt,3,Antall minutter bladfuktighet siste time (landbruksparameter)
+Vind,Kraftigste vindkast 2 meter over bakken,FG2_1,m/s,87,Høyeste vindkast siste time (2 meter over bakken)
+Stråling,Kortbølget(global) stråling,QSI,W/m2,-1,Kortbølget stråling(global) ovenfra, midlet over siste time
+Batterispenning,Batterispenning,BAT,volt,281,Batterispenning
+Vind,Tidspunkt,KLFG_1,tid,-1,Klokkeslett da FG inntraff (HHmm)  hel time
+Vind,Tidspunkt,KLFX_1,tid,1026,Klokkeslett da FX inntraff (HHmm) hel time
+Snø,Status snødybde sensor,STATSA,cm,-1,Status snødybde sensor SR50/SR50A nåverdi
+Jordtemperatur,Jordtemperatur i 120 CM,TJ120,ºC,226,Jordtemperatur i 120 cm dybde
+Jordtemperatur,Jordtemperatur i 160 CM,TJ160,ºC,226,Jordtemperatur i 160 cm dybde
+Jordtemperatur,Jordtemperatur i 20 cm dybde,TJ20,ºC,-1,Jordtemperatur i 20 cm dybde
+Jordtemperatur,Jordtemperatur i 200 CM,TJ200,ºC,226,Jordtemperatur i 200 cm dybde
+Jordtemperatur,Jordtemperatur i 250 CM,TJ250,ºC,226,Jordtemperatur i 250 cm dybde
+Jordtemperatur,Jordtemperatur i 300 CM,TJ300,ºC,226,Jordtemperatur i 300 cm dybde
+Jordtemperatur,Jordtemperatur i 350 CM,TJ350,ºC,226,Jordtemperatur i 350 cm dybde
+Jordtemperatur,Jordtemperatur i 40 CM,TJ40,ºC,226,Jordtemperatur i 40 cm dybde
+Jordtemperatur,Jordtemperatur i 400 CM,TJ400,ºC,226,Jordtemperatur i 400 cm dybde
+Jordtemperatur,Jordtemperatur i 450 CM,TJ450,ºC,226,Jordtemperatur i 450 cm dybde
+Jordtemperatur,Jordtemperatur i 500 CM,TJ500,ºC,226,Jordtemperatur i 500 cm dybde
+Jordtemperatur,Jordtemperatur i 550 CM,TJ550,ºC,226,Jordtemperatur i 550 cm dybde
+Jordtemperatur,Jordtemperatur i 600 CM,TJ600,ºC,226,Jordtemperatur i 600 cm dybde
+Jordtemperatur,Jordtemperatur i 650 CM,TJ650,ºC,226,Jordtemperatur i 650 cm dybde
+Jordtemperatur,Jordtemperatur i 670 CM,TJ670,ºC,226,Jordtemperatur i 670 cm dybde
+Jordtemperatur,Jordtemperatur i 700 CM,TJ700,ºC,226,Jordtemperatur i 700 cm dybde
+Jordtemperatur,Jordtemperatur i 750 CM,TJ750,ºC,226,Jordtemperatur i 750 cm dybde
+Jordtemperatur,Jordtemperatur i 80 CM,TJ80,ºC,226,Jordtemperatur i 80 cm dybde
+Jordtemperatur,Jordtemperatur i 800 CM,TJ800,ºC,226,Jordtemperatur i 800 cm dybde
+Jordtemperatur,Jordtemperatur i 850 CM,TJ850,ºC,226,Jordtemperatur i 850 cm dybde
+Nedbør,Nedbør 3 timer,RR_3,mm,107,Nedbør, tilvekst siste 3 timer i mm
+Temperatur,Gresstemperatur,TG,ºC,221,Temperatur målt 10 cm over bakkenivå
+Temperatur,Gressminimumstemperatur,TGN,ºC,223,Laveste registrerte temperatur i timen/døgnet/måneden, målt 10 cm over bakken
+Sol,Sol siste time,OT_1,minutter,121,Antall minutter med sol siste time
+Temperatur,Sjøtemperatur,TW,ºC,242,Sjøtemperatur i °C, nær vannoverflaten
+Vind,Vindretning (FF),DD2,grader,61,Generell vindretning siste 10 minutter i 2m høyde(refererer til vindhastighet FF2), definert som retningen vinden kommer fra, der f.eks nord er 360º og øst 90º. Kode -3 betyr variabel vindretning.
+Bølger,Bølgeretning,DDM2,grader,-1,Midlere bølgeretning til sekundærbølge (MIROS)
+Vind,Vindretning (vektoriell),DG2_1,grader,78,Vindretning, vektoriell i grader (tilhører FG2_1) i 2 m høyde
+Vind,Vindretning (FX_1),DX2_1,grader,73,Vindretning ved kraftigste middelvind siste time (FX2_1) i 2 meter høyde
+Vind,Middelvind siste time,FM2,m/s,85,Middelverdi av siste times vindmålinger (2 meter over bakken)
+Vind,Kraftigste middelvind (siste time),FX2_1,m/s,87,Høyeste timinutters middelvind for siste time (2 meter over bakken)
+Jordtemperatur,Midlere jordtemperatur i 50 cm dybde,TJM50,ºC,227,Midlere jordtemperatur i 50 cm dybde
+Jordtemperatur,Midlere jordtemperatur i 10 cm dybde,TJM100,ºC,227,Midlere jordtemperatur i 100 cm dybde
+Jordtemperatur,Midlere jordtemperatur i 50 cm dybde,TJM5,ºC,227,Midlere jordtemperatur i 5 cm dybde
+Fordampning,Fordampning fra fri vannflate,EV_1,mm,102,Fordampet vannmengde siste time i mm
+Stråling,Global stråling,QA,minutt,191,Stråling, albedo, siste time QR/Q0 (forholdstall)
+Stråling,Stråling,QD,Wh/m2,196,Stråling, diffus, "akkumulert" siste time
+Stråling,Stråling,QF,Wh/m2,204,Fotosyntetisk aktiv stråling
+Stråling,Strålingsbalanse,QOB,Wh/m2,203,Strålingsbalanse
+Jordtemperatur,Midlere jordtemperatur (-10 cm),TJM,ºC,227,Jordtemperatur i 10 cm dybde, middel av siste times 60 minuttverdier
+Skyer,Skyhøyde,HS2,kode,302,Høyde til skybase 2 (skyer angitt ved mengden NS2), konvertert fra fot/meter til kode
+Skyer,Skyhøyde,HS3,kode,303,Høyde til skybase 3 (skyer angitt ved mengden NS3), konvertert fra fot/meter til kode
+Skyer,Skyhøyde,HS4,kode,304,Høyde til skybase 4 (skyer angitt ved mengden NS4), konvertert fra fot/meter til kode
+Skyer,Skymengde,NS2,kode,26,Skymengden (i 8-deler) i skylaget angitt ved høyde HS2 (metarkode FEW, SCT, BKN eller OVC kodet i 8-deler). Ukjent skydekke, kode=-3, presenteres som '.'
+Skyer,Skymengde,NS3,kode,27,Skymengden (i 8-deler) i skylaget angitt ved høyde HS3 (metarkode FEW, SCT, BKN eller OVC kodet i 8-deler). Ukjent skydekke, kode=-3, presenteres som '.'
+Skyer,Skymengde,NS4,kode,28,Skymengden (i 8-deler) i skylaget angitt ved høyde HS4 (metarkode FEW, SCT, BKN eller OVC kodet i 8-deler). Ukjent skydekke, kode=-3, presenteres som '.'
+Vær,Været ved observasjonstida,WAWA,kode,49,Været ved observasjonstida, automatvær???
+Temperatur,Midlere sjøtemperatur,TWM,ºC,243,Aritmetisk middel av sjøtemperaturen (TW) for hvert døgn
+Temperatur,Laveste sjøtemperatur,TWN,ºC,244,Månedens laveste sjøtemperatur (TW)
+Temperatur,Høyeste sjøtemperatur,TWX,ºC,245,Månedens høyeste sjøtemperatur (TW)
+Stråling,Langbølget stråling ovenfra, nåverdi,QLI,Wh/m2,210,Langbølget stråling ovenfra midlet over siste time
+Stråling,Kortbølget stråling,QSO,W/m2,2070,Kortbølget stråling nedenfra, midlet over siste time
+Vind,Status vindsensor,STATFFDD,kode,10513,Status vindsensor
+Temperatur,Virtuell temperatur 1 minutt,TVIRT,grader C,10096,Virtuell temperatur middel 1 minutt
+Temperatur,Virtuell min temperatur 1 minutt,TVIRTN,grader C,10096,Virtuell min temperatur middel 1 minutt
+Temperatur,Virtuell max temperatur 1 minutt,TVIRTX,grader C,10096,Virtuell max temperatur middel 1 minutt
+Vind,Vindretning (FX),X1DX_1,grader,67,Vindretning ved kraftigste middelvind (FX) sensor 1
+Vind,Vindkast,X1FG_010,m/s,-1,Sterkeste vindkast (3 sek. middel) siste 10 min
+Vind,Tidspunkt,X1KLFG_1,tid,-1,Klokkeslett da FG inntraff (HHmm)  hel time sensor 1
+Vind,Tidspunkt,X1KLFX_1,tid,1026,Klokkeslett da FX inntraff (HHmm) hel time sensor 1
+Vind,Status vindsensor,X1STATFFDD,kode,10513,Status vindsensor sensor 1
+Vind,Midlere vindretning (FM),X1DM,grader,64,Midlere vindretning siste time (jf FM) sensor 1
+Vind,Vindretning (FX),X1DX,grader,67,Vindretning ved kraftigste middelvind (FX) sensor 1
+Vind,Kraftigste vindkast,X1FG,m/s,83,Kraftigste vindkast (3 sekunder) siden siste hovedobservasjon (10 meter over bakken) sensor 1
+Vind,Middelvind siste time,X1FM,m/s,85,Middelverdi av siste times vindmålinger (10 meter over bakken) sensor 1
+Vind,Største vindhastighet (10 min middel),X1FX,m/s,-1,Største vindhastighet siste 3 timer (10 min middel)
+Snø,Smeltevannsum,RW,mm,115,Mengde snø som har smeltet (målt som vann)
+Snø,Smeltevannsum,RWA,mm,116,Smeltevannsum
+Fuktighet,Relativ fuktighet, 60 minutters middel,X1UM,prosent,-1,Relativ fuktighet, 60 minutters middel
+Fuktighet,Relativ luftfuktighet,X1UU,prosent,-1,Relativ luftfuktighet ved obseravsjonstida
+Vind,Vindretning (vektoriell),DG_1,grader,78,Vindretning, vektoriell i grader (tilhører FG_1)
+Temperatur,Midlere gresstemperatur,TGM,ºC,222,Temperatur målt 10 cm over bakkenivå, middel av siste times 60 minuttverdier
+Temperatur,Høyeste gresstemperatur,TGX,ºC,225,Temperatur målt 10 cm over bakkenivå, høyeste verdi siste time
+Temperatur,Maksimumstemperatur (24 timer),TAX_24,ºC,252,Maksimumstemperatur (24 timer)
+Snø,Snødybde,SIGNSTR_SHM,kode,112,-
+Jordtemperatur,Jordtemperatur i 10 cm dybde,TJ10,ºC,-1,Jordtemperatur i 10 cm dybde
+Jordtemperatur,Jordtemperatur i 100 cm dybde,TJ100,ºC,-1,Jordtemperatur i 100 cm dybde
+Jordtemperatur,Jordtemperatur i 5 cm dybde,TJ5,ºC,-1,Jordtemperatur i 5 cm dybde
+Jordtemperatur,Jordtemperatur i 50 cm dybde,TJ50,ºC,-1,Jordtemperatur i 50 cm dybde
+Bølger,Retning dønningssystem 1,DW1,grader,65,Retning dønningssystemet kommer fra (HW1)
+Bølger,Retning dønningssystem 2,DW2,grader,66,Retning dønningssystemet kommer fra (HW2)
+Bølger,Bølgehøyde - dønning 1,HW1,meter,132,Høyde på dønningssystem 1
+Metadata,Fartøyets posisjon (bredde),MLAT,grader,401,Fartøyets posisjon (geografisk bredde)
+Metadata,Fartøyets posisjon (lengde),MLON,grader,402,Fartøyets posisjon (geografisk lengde)
+Bølger,Bølgeperiode for dønninger,PW1,sekund,152,Gjennomsnittlig bølgeperiode for dønningssystem 1
+Metadata,Fartøyets retning,MDIR,kodetall,403,Fartøyets hovedretning siste tre timer
+Metadata,Fartøyets  hastighet,MSPEED,m/s,404,Fartøyets midlere fart siste tre timer, konvertert fra kodetall
+Sjøis,Mengde av isfjell (navigasjonsfare),BI,kodetall,2,Mengde av isfjell (navigasjonsfare)
+Sjøis,Iskonsentrasjon og -mengde,CI,kodetall,4,Iskonsentrasjon og -mengde (pakkis)
+Sjøis,Retning til iskanten,DI,kodetall,6,Retning (åtte sektorer) til viktigste iskant
+Ising,Ising,ES,cm,101,Ising
+Bølger,Bølgehøyde - visuelt observert,HW,meter,131,Signifikant bølgehøyde - visuell eller manuell observasjon
+Bølger,Bølgehøyde - dønning 2,HW2,meter,133,Høyde på dønningssystem 2
+Ising,Årsak til ising på skip,IZ,kodetall,-1,Om ising skyldes tåke, regn, sjøsprøyt osv
+Bølger,Bølgeperiode - visuelt observert,PW,sekund,151,Gjennomsnittlig bølgeperiode, visuelt estimert
+Bølger,Bølgeperiode for dønninger,PW2,sekund,153,Gjennomsnittlig bølgeperiode for dønningssystem 2
+Ising,Endring i ising,RS,kodetall,17,Om det er økende eller minkende ising, og hvor fort endringen skjer
+Sjøis,Sjøisens alder,SI,kodetall,20,Alder og tykkelse på sjøisen
+Sjøis,Sjøis rundt skipet (trend),ZI,kodetall,21,Hvordan issituasjonen er og forventet utvikling neste tre timer
+Sjøis,Sjøis,XIS,kode,11,Sjøis
+Stråling,	Bølgelengdeområde,QLO,Wh/m2,206,Langbølget stråling nedenfra midlet over siste time
+Stråling,Langbølget stråling,QNET,Wh/m2,-1,Nettostråling midlet over siste time
+Snø,Midlere snødybde,SAM,cm,-1,Månedsverdi: Aritmetisk middel av daglig snødybde
+Snø,Minste snødybde,SAN,cm,-1,Månedsverdi: Laveste målte snødybde
+Snø,Største snødybde,SAX,cm,-1,Månedsverdi: Høyeste målte snødybde
+Fuktighet,Minimum relativ luftfuktighet,UN,prosent,264,Minimum relativ luftfuktighet, timesverdi automat???
+Stråling,Kortbølget(global) stråling,QSI_010,W/m2,2072,Kortbølget stråling(global) ovenfra, midlet over siste ti minutter
+Ising,-,IK,Indeks,-1,Isingsindeks
+Skyer,Skytype (CB/TCU),CC2,kode,306,Tilleggsopplysning for skytype i gruppe HS2/NS2; angir om det er CB (cumulonimbus) eller TCU (towering cumulus)
+Skyer,Skytype (CB/TCU),CC3,kode,307,Tilleggsopplysning for skytype i gruppe HS3/NS3; angir om det er CB (cumulonimbus) eller TCU (towering cumulus)
+Snø,Snødybde,SS_24,cm,114,Snødybde, tilvekst siste 24 timer i cm
+Fordampning,Fordampning fra fri vannflate,EV_24,mm,103,Fordampet vannmengde siste 24 timer i mm
+Temperatur,Midlere jordtemperatur i 10 cm dybde,X1TJM10,ºC,-1,Midlere jordtemperatur i 10 cm dybde
+Temperatur,Midlere jordtemperatur i 20 cm dybde,X1TJM20,ºC,-1,Midlere jordtemperatur i 20 cm dybde
+Temperatur,Midlere jordtemperatur i 50 cm dybde,X1TJM50,ºC,-1,Midlere jordtemperatur i 50 cm dybde
+Temperatur,Instrumenttemperatur,TIQL,grader C,10225,Instrumenttemperatur stråling
+Stråling,Kortbølget stråling,X1QSI,W/m2,-1,Kortbølget stråling ovenfra, midlet over siste time sensor 1
+Stråling,Stråling,QE,Wh/m2,197,Stråling mot horisontalplan (uavhengig av bølgelengde)
+Temperatur,Snøtemperatur,TSA,ºC,234,Snøtemperatur i °C, nåverdi
+Temperatur,Midlere veibanetemperatur,TVM,ºC,239,Temperatur fra sensor frest ned i veibanen, middel av siste times 60 minuttverdier
+Temperatur,Laveste veibanetemperatur,TVN,ºC,240,Temperatur fra sensor frest ned i veibanen, laveste verdi siste time
+Temperatur,Høyeste veibanetemperatur,TVX,ºC,241,Temperatur fra sensor frest ned i veibanen, høyeste verdi siste time
+Vind,Vindretning (FX_3),DX_3,grader,74,Vindretning ved kraftigste middelvind siste tre timer (FX_3)
+Vind,Kraftigste middelvind (siste 3 timer),FX_3,m/s,95,Høyeste timinutters middelvind for siste 3 timer (10 meter over bakken)
+Vær,Været siden forrige hovedobservasjon,WA1,kode,47,Været siden forrige hovedobservasjon, automatvær???
+Vær,Været siden forrige hovedobservasjon,WA2,kode,48,Været siden forrige hovedobservasjon, automatvær???
+Jordtemperatur,Jordtemperatur,TJ0,ºC,-1,Jordtemperatur i 0 cm dybde
+Jordtemperatur,Jordtemperatur i 1 CM,TJ1,ºC,226,Jordtemperatur i 1 cm dybde
+Jordtemperatur,Jordtemperatur i 15 cm dybde,TJ15,ºC,-1,Jordtemperatur i 15 cm dybde
+Jordtemperatur,Jordtemperatur i 25 cm dybde,TJ25,ºC,-1,Jordtemperatur i 25 cm dybde
+Jordtemperatur,Jordtemperatur i 45 CM,TJ45,ºC,226,Jordtemperatur i 45 cm dybde
+Jordtemperatur,Jordtemperatur i 95 CM,TJ95,ºC,226,Jordtemperatur i 95 cm dybde
+Nedbør,Nedbør,X1RR,mm,-1,Døgn- eller månedssum for nedbør (nedbørdøgn 07-07) sensor 1
+Skyer,Skybasis,HLN,meter,56,Minste målte høyde til 'første'skybase i meter, over én time.
+Sikt,MOR sikt,VMOR,meter,271,MOR i sikt i meter, nåverdi 10 minutt beregnet (etter algoritme)
+Stråling,Langbølget stråling (maksimum),QLX,W/m2,199,Stråling mot horisontalplan (bølgelengde > ca 3000 nm), maksimumsverdi siste time
+Stråling,Global stråling,QOX,W/m2,201,Global stråling, største minuttverdi siste time.
+Temperatur,Minimumstemperatur,X2TAN,ºC,213,Laveste registrerte temperatur i timen/døgnet (kl 18-18)/måneden sensor 1
+Temperatur,Maksimumstemperatur (2),X2TAX,ºC,-1,Maksimumstemperatur - sensor 2
+Jordtemperatur,Midlere jordtemperatur (-10 cm),TJM2,ºC,227,Jordtemperatur i 2 cm dybde, middel av siste times 60 minuttverdier
+Fordampning,Fordampning fra fri vannflate,X1EV_1,mm,102,Fordampet vannmengde siste time i mm sensor 1
+Nedbør,Nedbør,X1RR_1,mm,106,Nedbørsum siste time 12 timer
+Nedbør,Nedbør (1 time),X2RR_1,mm,106,Nedbørmengde siste time sensor 1
+Temperatur,Lufttemperatur, 25m,TA25,ºC,-1,Lufttemperatur ved observasjonstida høyde=25m
+Temperatur,Lufttemperatur,TA_DELTA,ºC,10224,Vertikal temperaturdifferanse
+Stråling,	Bølgelengdeområde,QOA,W/m2,205,Globalstråling, nåverdi
+Stråling,Kortbølget(global) stråling,QSI_01,W/m2,2073,Kortbølget stråling(global) ovenfra, midlet over siste minutt
+Nedbør,Nedbør,X1RR_12,mm,109,Nedbørmengde siste 12 timer sensor 1
+Vannstand,Vannstand,WL,meter,138,Vannstand relatert til laveste astronomiske tidevann
+Temperatur,Temperaturdifferanse,TDIF,ºC,-1,Temperaturdifferanse
+Temperatur,Temperatur, 10m,TA10,ºC,-1,Temperatur i 10m høyde
+Vær,Været siste 15 min.,WAWA_015,kode,10047,Været siste 15 minutter
+Stråling,Langbølget stråling,QLINETINST_01,W/m2,-1,Differansen mellom innkommende langbølget stråling ovenfra og instrumentets egenstråling, midlet over siste minutt.
+Stråling,Langbølget stråling ovenfra, nåverdi,QLI_01,Wh/m2,210,Langbølget stråling ovenfra midlet over siste minutt
+Stråling,Langbølget stråling,QLONETINST_01,W/m2,-1,Differansen mellom innkommende langbølget stråling nedenfra og instrumentets egenstråling, midlet over siste minutt.
+Stråling,	Bølgelengdeområde,QLO_01,Wh/m2,2102,Langbølget stråling nedenfra midlet over siste minutt
+Stråling,Kortbølget stråling,QSO_01,W/m2,2070,Kortbølget stråling nedenfra, midlet over siste minutt
+Jordtemperatur,Jordtemperatur i 1000 CM,TJ1000,ºC,226,Jordtemperatur i 1000 cm dybde
+Jordtemperatur,Jordtemperatur i 1100 CM,TJ1100,ºC,226,Jordtemperatur i 1100 cm dybde
+Jordtemperatur,Jordtemperatur i 1200 CM,TJ1200,ºC,226,Jordtemperatur i 1200 cm dybde
+Jordtemperatur,Jordtemperatur i 1300 CM,TJ1300,ºC,226,Jordtemperatur i 1300 cm dybde
+Jordtemperatur,Jordtemperatur i 1400 cm dybde,TJ1400,ºC,226,Jordtemperatur i 1400 cm dybde
+Jordtemperatur,Jordtemperatur i 1500 CM,TJ1500,ºC,226,Jordtemperatur i 1500 cm dybde
+Jordtemperatur,Jordtemperatur i 1750 CM,TJ1750,ºC,226,Jordtemperatur i 1750 cm dybde
+Jordtemperatur,Jordtemperatur i 2000 CM,TJ2000,ºC,226,Jordtemperatur i 2000 cm dybde
+Jordtemperatur,Jordtemperatur i 2500 CM,TJ2500,ºC,226,Jordtemperatur i 2500 cm dybde
+Jordtemperatur,Jordtemperatur i 3000 CM,TJ3000,ºC,226,Jordtemperatur i 3000 cm dybde
+Jordtemperatur,Jordtemperatur i 3500 CM,TJ3500,ºC,226,Jordtemperatur i 3500 cm dybde
+Jordtemperatur,Jordtemperatur i 4000 CM,TJ4000,ºC,226,Jordtemperatur i 4000 cm dybde
+Jordtemperatur,Jordtemperatur i 4500 CM,TJ4500,ºC,226,Jordtemperatur i 4500 cm dybde
+Jordtemperatur,Jordtemperatur i 5000 CM,TJ5000,ºC,226,Jordtemperatur i 5000 cm dybde
+Jordtemperatur,Jordtemperatur i 5250 CM,TJ5250,ºC,227,Jordtemperatur i 5250 cm dybde
+Jordtemperatur,Jordtemperatur i 900 CM,TJ900,ºC,226,Jordtemperatur i 900 cm dybde
+Jordtemperatur,Jordtemperatur i 950 CM,TJ950,ºC,226,Jordtemperatur i 950 cm dybde
+Stråling,Reflektert stråling, nåverdi,QRA,W/m2,209,Stråling, reflektert
+Temperatur,Snøtemperatur,TSA125,ºC,234,Snøtemperatur i °C, nåverdi dybde=125 cm
+Temperatur,Snøtemperatur,TSA175,ºC,234,Snøtemperatur i °C, nåverdi dybde=175 cm
+Temperatur,Snøtemperatur,TSA25,ºC,234,Snøtemperatur i °C, nåverdi dybde=25 cm
+Temperatur,Snøtemperatur,TSA75,ºC,234,Snøtemperatur i °C, nåverdi dybde 75 cm
+Temperatur,Snøtemperatur,TSN125,ºC,236,Snøtemperatur i °C, minimum  minuttverdi i timen dybde=125
+Temperatur,Snøtemperatur,TSN175,ºC,236,Snøtemperatur i °C, minimum  minuttverdi i timen dybde=175 cm
+Temperatur,Snøtemperatur,TSN25,ºC,236,Snøtemperatur i °C, minimum  minuttverdi i timen dybde=25 cm
+Temperatur,Snøtemperatur,TSN75,ºC,236,Snøtemperatur i °C, minimum  minuttverdi i timen dybde=75 cm
+Temperatur,Snøtemperatur,TSX125,ºC,237,Snøtemperatur i °C, maksimum  minuttverdi i timen
+Temperatur,Snøtemperatur,TSX175,ºC,237,Snøtemperatur i °C, maksimum  minuttverdi i timen
+Temperatur,Snøtemperatur,TSX25,ºC,237,Snøtemperatur i °C, maksimum  minuttverdi i timen
+Temperatur,Snøtemperatur,TSX75,ºC,237,Snøtemperatur i °C, maksimum  minuttverdi i timen
+Nedbør,Nedbør,X1RR_24,mm,110,Nedbørmengde siste 24 timer sensor 1
+Temperatur,Ferskvannstemperatur,TWF,ºC,250,Temperatur nær vannoverflata (innsjø)
+Temperatur,Gresstemperatur (2),X1TG,ºC,-1,Gresstemperatur - sensor 1
+Temperatur,Midlere gresstemperatur (2),X1TGM,ºC,-1,Midlere gresstemperatur - sensor 1
+Temperatur,Minimum gresstemperatur (2),X1TGN,ºC,-1,Minimum gresstemperatur - sensor 1
+Temperatur,Maksimum gresstemperatur (2),X1TGX,ºC,-1,Maksimum gresstemperatur - sensor 1
+Temperatur,Gresstemperatur (2),X2TG,ºC,-1,Gresstemperatur - sensor 2
+Temperatur,Midlere gresstemperatur (2),X2TGM,ºC,-1,Midlere gresstemperatur - sensor 2
+Temperatur,Minimum gresstemperatur (2),X2TGN,ºC,-1,Minimum gresstemperatur - sensor 2
+Temperatur,Maksimum gresstemperatur (2),X2TGX,ºC,-1,Maksimum gresstemperatur - sensor 2
+Temperatur,Gresstemperatur (3),X3TG,ºC,-1,Gresstemperatur - sensor 3
+Temperatur,Midlere gresstemperatur (3),X3TGM,ºC,-1,Midlere gresstemperatur - sensor 3
+Temperatur,Minimum gresstemperatur (3),X3TGN,ºC,-1,Minimum gresstemperatur - sensor 3
+Temperatur,Maksimum gresstemperatur (2),X3TGX,ºC,-1,Maksimum gresstemperatur - sensor 3
+Jordtemperatur,Jordtemperatur i 10000 CM,TJ10000,ºC,226,Jordtemperatur i 10000 cm dybde
+Jordtemperatur,Jordtemperatur i 6000 CM,TJ6000,ºC,226,Jordtemperatur i 6000 cm dybde
+Jordtemperatur,Jordtemperatur i 7000 CM,TJ7000,ºC,226,Jordtemperatur i 7000 cm dybde
+Jordtemperatur,Jordtemperatur i 8000 CM,TJ8000,ºC,226,Jordtemperatur i 8000 cm dybde
+Jordtemperatur,Jordtemperatur i 8500 CM,TJ8500,ºC,226,Jordtemperatur i 8500 cm dybde
+Jordtemperatur,Jordtemperatur i 9000 CM,TJ9000,ºC,226,Jordtemperatur i 9000 cm dybde
+Jordtemperatur,Jordtemperatur i 9500 CM,TJ9500,ºC,226,Jordtemperatur i 9500 cm dybde
+Jordtemperatur,Jordtemperatur i 9750 cm dybde,TJ9750,ºC,-1,Jordtemperatur i 9750 cm dybde
+Jordtemperatur,Jordtemperatur i 1000 CM,X1TJ1000,ºC,226,Jordtemperatur i 1000 cm dybde
+Jordtemperatur,Jordtemperatur i 1100 CM,X1TJ1100,ºC,226,Jordtemperatur i 1100 cm dybde
+Jordtemperatur,Jordtemperatur i 120 CM,X1TJ120,ºC,226,Jordtemperatur i 120 cm dybde
+Jordtemperatur,Jordtemperatur i 1300 CM,X1TJ1300,ºC,226,Jordtemperatur i 1300 cm dybde
+Jordtemperatur,Jordtemperatur i 1500 CM,X1TJ1500,ºC,226,Jordtemperatur i 1500 cm dybde
+Jordtemperatur,Jordtemperatur i 160 CM,X1TJ160,ºC,226,Jordtemperatur i 160 cm dybde
+Jordtemperatur,Jordtemperatur i 20 cm dybde,X1TJ20,ºC,-1,Jordtemperatur i 20 cm dybde
+Jordtemperatur,Jordtemperatur i 200 CM,X1TJ200,ºC,226,Jordtemperatur i 200 cm dybde
+Jordtemperatur,Jordtemperatur i 250 CM,X1TJ250,ºC,226,Jordtemperatur i 250 cm dybde
+Jordtemperatur,Jordtemperatur i 300 CM,X1TJ300,ºC,226,Jordtemperatur i 300 cm dybde
+Jordtemperatur,Jordtemperatur i 350 CM,X1TJ350,ºC,226,Jordtemperatur i 350 cm dybde
+Jordtemperatur,Jordtemperatur i 40 CM,X1TJ40,ºC,226,Jordtemperatur i 40 cm dybde
+Jordtemperatur,Jordtemperatur i 400 CM,X1TJ400,ºC,226,Jordtemperatur i 400 cm dybde
+Jordtemperatur,Jordtemperatur i 500 CM,X1TJ500,ºC,226,Jordtemperatur i 500 cm dybde
+Jordtemperatur,Jordtemperatur i 700 CM,X1TJ700,ºC,226,Jordtemperatur i 700 cm dybde
+Jordtemperatur,Jordtemperatur i 80 CM,X1TJ80,ºC,226,Jordtemperatur i 80 cm dybde
+Jordtemperatur,Jordtemperatur i 900 CM,X1TJ900,ºC,226,Jordtemperatur i 900 cm dybde
+Temperatur,Lufttemperatur (4),X4TA,ºC,-1,Lufttemperatur - sensor 4
+Temperatur,Lufttemperatur (5),X5TA,ºC,-1,Lufttemperatur - sensor 5
+Temperatur,Lufttemperatur (6),X6TA,ºC,-1,Lufttemperatur - sensor 6
+Sol,Sol siste minuttet,OT_01,sekunder,2121,Antall sekunder med sol siste minutt
+-,Ventilatorstatus,STATVENT,kode,-1,-
+Temperatur,Instrumenttemperatur,TIQS,grader C,10228,Instrumenttemperatur kortbølget stråling
