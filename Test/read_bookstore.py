@@ -4,7 +4,7 @@
 from lxml import etree
 
 
-tree = etree.parse(open('bookstore.xml'))
+tree = etree.parse(open('Data/bookstore.xml'))
 #root = tree.getroot()
 
 r = tree.xpath("//book[@category='WEB']")
