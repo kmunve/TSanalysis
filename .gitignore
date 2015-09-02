@@ -1,0 +1,14 @@
+# Compiled python files
+*.pyc
+
+# Image files
+*.jpg
+*jpeg
+*.png
+
+# HTML files
+*.htm
+*.html
+
+# Specifitc files
+Thumbs.db
