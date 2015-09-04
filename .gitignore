@@ -10,5 +10,8 @@
 *.htm
 *.html
 
+# netCDF files
+*.nc
+
 # Specifitc files
 Thumbs.db
