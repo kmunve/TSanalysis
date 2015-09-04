@@ -11,4 +11,4 @@ fimex --input.file=./Data/arome_metcoop_default2_5km_latest.nc --input.type=netc
 --extract.reduceTime.start=2015-09-04T06:00:00 --extract.reduceTime.end=2015-09-05T06:00:00 \
 --extract.reduceToBoundingBox.south=59.55 --extract.reduceToBoundingBox.north=60.02 \
 --extract.reduceToBoundingBox.east=7.47 --extract.reduceToBoundingBox.west=9.02 \
---output.file=rauland.nc --output.type=nc4
+--output.file=Data/rauland.nc --output.type=nc4
