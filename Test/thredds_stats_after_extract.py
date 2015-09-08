@@ -47,42 +47,33 @@ lon = nc.variables['longitude']
 times = nc.variables['time']
 jd = netCDF4.num2date(times[:], times.units)
 
-# Extract specific data
-
-precip = nc.variables['precipitation_amount']
-print (precip.shape)
-precip_acc = nc.variables['precipitation_amount_acc']
-print(precip_acc[:].shape)
+# Extract specific data and remove unnecessary dimensions
+precip = nc.variables['precipitation_amount'][:].squeeze()
+precip_acc = nc.variables['precipitation_amount_acc'][:].squeeze()
 
 
 #ipdb.set_trace()
 
 # sum up precip for 24 h after spin-up time
-precip_sum = np.sum(precip[:], axis=0)
+precip_sum = np.sum(precip, axis=0)
 
-precip_thresh_00 = np.where(precip_sum < 0.5)
-precip_thresh_05 = np.where(precip_sum > 5.0)
-precip_thresh_10 = np.where(precip_sum > 10.0)
-precip_thresh_20 = np.where(precip_sum > 20.0)
-precip_thresh_30 = np.where(precip_sum > 30.0)
+thresholds = {'0.01': 0., '5.0': 0., '10.0': 0., '20.0': 0., '40.0': 0.,}
+precip_thres = np.empty_like(thresholds)
+for t in thresholds.keys():
+    _pt = np.where(precip_sum > np.float(t))
+    thresholds[t] = (np.float(_pt[0].size) / np.float(precip_sum.size))*100.
 
-
-print(precip_thresh_20[0].size)
-print(precip_sum.size)
-
-pt00 = (np.float(precip_thresh_00[0].size) / np.float(precip_sum.size))*100.
-pt05 = (np.float(precip_thresh_05[0].size) / np.float(precip_sum.size))*100.
-pt10 = (np.float(precip_thresh_10[0].size) / np.float(precip_sum.size))*100.
-pt20 = (np.float(precip_thresh_20[0].size) / np.float(precip_sum.size))*100.
-pt30 = (np.float(precip_thresh_30[0].size) / np.float(precip_sum.size))*100.
-
-print("05", (np.float(precip_thresh_05[0].size) / np.float(precip_sum.size))*100.)
-print("10", (np.float(precip_thresh_10[0].size) / np.float(precip_sum.size))*100.)
-print("20", (np.float(precip_thresh_20[0].size) / np.float(precip_sum.size))*100.)
-print("30", (np.float(precip_thresh_30[0].size) / np.float(precip_sum.size))*100.)
+thresholds_acc = {'0.01': 0., '5.0': 0., '10.0': 0., '20.0': 0., '40.0': 0.,}
+precip_thres_acc = np.empty_like(thresholds)
+for t in thresholds_acc.keys():
+    _pt = np.where(precip_acc[-1,:,:] > np.float(t))
+    thresholds_acc[t] = (np.float(_pt[0].size) / np.float(precip_sum.size))*100.
 
 #ipdb.set_trace()
 
-
-plt.bar([0, 5, 10, 20, 30], [pt00, pt05, pt10, pt20, pt30])
+plt.bar(np.array(thresholds.keys(), dtype=np.float), thresholds.values(), width=1.2, color='red')
+plt.hold(True)
+plt.bar(np.array(thresholds_acc.keys(), dtype=np.float), thresholds_acc.values())
+plt.figure()
+plt.imshow(precip_sum); plt.colorbar()
 plt.show()
