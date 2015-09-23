@@ -14,6 +14,7 @@ fimex --input.file=http://thredds.met.no/thredds/dodsC/arome25/arome_metcoop_def
 --extract.selectVariables=air_temperature_2m \
 --extract.selectVariables=land_area_fraction \
 --extract.selectVariables=altitude \
+--extract.selectVariables=time \
 --extract.reduceTime.start=2015-09-04T07:00:00 --extract.reduceTime.end=2015-09-05T06:00:00 \
 --extract.reduceToBoundingBox.south=59.55 --extract.reduceToBoundingBox.north=60.02 \
 --extract.reduceToBoundingBox.west=7.47 --extract.reduceToBoundingBox.east=9.02 \
@@ -30,6 +31,7 @@ fimex --input.file=http://thredds.met.no/thredds/dodsC/arome25/arome_metcoop_def
 --extract.selectVariables=air_temperature_2m \
 --extract.selectVariables=land_area_fraction \
 --extract.selectVariables=altitude \
+--extract.selectVariables=time \
 --extract.reduceTime.start=2015-09-04T07:00:00 --extract.reduceTime.end=2015-09-05T06:00:00 \
 --extract.reduceToBoundingBox.south=67.82 --extract.reduceToBoundingBox.north=68.48 \
 --extract.reduceToBoundingBox.west=12.70 --extract.reduceToBoundingBox.east=15.57 \

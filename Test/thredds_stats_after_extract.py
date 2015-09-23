@@ -1,14 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-__author__ = 'kmu'
+
+__author__   = 'kmunve'
+__created__  = datetime.datetime(2015, 7, 1)
+__modified__ = datetime.datetime(2015, 7, 1)
+__version__  = "1.0"
+__status__   = "Development"
+
 
 """
 Retrieve data from netcdf files from thredds.met.no.
 Extract data within an area using fimex: see extract.sh
 Load and do some statistics.
 """
-import ipdb
+#import ipdb
 #import matplotlib
 #matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -28,7 +34,7 @@ def nc_info(nc_data):
 
 # Access netcdf file via OpenDAP
 #filename = 'http://thredds.met.no/thredds/dodsC/arome25/arome_metcoop_default2_5km_latest.nc'
-filename = './Data/rauland_t.nc'
+filename = './Data/lofoten_t.nc'
 nc = netCDF4.Dataset(filename)
 
 # Get content
@@ -50,8 +56,10 @@ print(land_cells)
 
 #ipdb.set_trace()
 
-times = nc.variables['time']
-jd = netCDF4.num2date(times[:], times.units)
+
+# TODO: extract time variable from thredds
+#times = nc.variables['time']
+#jd = netCDF4.num2date(times[:], times.units)
 
 # Extract specific data and remove unnecessary dimensions
 precip = nc.variables['precipitation_amount'][:].squeeze()
@@ -97,9 +105,9 @@ for t in thresholds_high.keys():
 
 #ipdb.set_trace()
 
-plt.bar(np.array(thresholds_high.keys(), dtype=np.float), thresholds_high.values(), width= 1.2, color='red')
+plt.bar(np.array(thresholds_high.keys(), dtype=np.float), thresholds_high.values(), width=1.2, color='red')
 plt.hold(True)
-plt.bar(np.array(thresholds_mid.keys(), dtype=np.float), thresholds_mid.values(), width= 1.0, color='blue')
+plt.bar(np.array(thresholds_mid.keys(), dtype=np.float), thresholds_mid.values(), width=1.0, color='blue')
 plt.bar(np.array(thresholds_low.keys(), dtype=np.float), thresholds_low.values(), color='green')
 plt.figure()
 plt.imshow(np.flipud(precip_sum)); plt.colorbar()

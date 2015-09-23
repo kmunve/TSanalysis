@@ -7,7 +7,7 @@ __author__: Karsten Müller, kmunve
 Converts the XML return from a wsklima.getData() call to a Python dictionary.
 For more info on wsklime see eklima.met.no.
 
-Structure of the returned Pytho dictionary
+Structure of the returned Python dictionary
 A dictionary with a key for each station:
     stat_dict['<station-id>']
         ...containing a dictionary with the follwoing keys:
