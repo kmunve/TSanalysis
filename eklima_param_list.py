@@ -7,7 +7,7 @@ Returns a list of available meteorological parameters from www.eklima.no
 CSV files with English and Norwegian terms are created.
 """
 from lxml import etree
-from wsklima_getdata import wsKlimaRequest
+from wsklima_requests import wsKlimaRequest
 
 
 def hourly_params():

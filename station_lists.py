@@ -9,7 +9,7 @@ Todo:
 - export station list to Google kmz-file
 """
 from lxml import etree
-from wsklima_getdata import wsKlimaRequest
+from wsklima_requests import wsKlimaRequest
 
 
 def hourly_rr_ta_uu_ff_dd_po():

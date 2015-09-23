@@ -31,7 +31,6 @@ class wsKlimaRequest():
 
         self._create_wsklima_url()
 
-
     def _create_wsklima_url(self):
 
         if self.wsmethod == 'getMetData':
@@ -41,12 +40,14 @@ class wsKlimaRequest():
             self.wsklima_url = "{0}?invoke=getMetData&timeserietypeID={1}&format={2}&from={3}&to={4}&stations={5}&elements={6}&hours={7}&months={8}&username={9}".format(self.base_url, self.params['timeserietypeID'], self.params['format'], self.params['from'], self.params['to'], ",".join(map(str, self.params['stations'])), ",".join(map(str, self.params['elements'])), ",".join(map(str, self.params['hours'])), self.params['months'], self.params['username'])
 
         elif self.wsmethod == 'getStationsFromTimeserieTypeElemCodes':
-            # Use this method if at least one of the elements in elem_codes should be measured. If all elements should be measured at the station use 'getStationsFromTimeserieTypeStationsElemCode'.
+            # Use this method if at least one of the elements in elem_codes should be measured. If all elements should
+            # be measured at the station use 'getStationsFromTimeserieTypeStationsElemCode'.
             # params = timeserietypeID, elem_codes, username
             self.wsklima_url = "{0}?invoke=getStationsFromTimeserieTypeElemCodes&timeserietypeID={1}&elem_codes={2}&username={3}".format(self.base_url, self.params['timeserietypeID'], ",".join(map(str, self.params['elem_codes'])), self.params['username'])
 
         elif self.wsmethod == 'getStationsFromTimeserieTypeStationsElemCode':
-            # Use this method if all elements in elem_codes should be measured. If at least one should be measured at the station use 'getStationsFromTimeserieTypeElemCodes'.
+            # Use this method if all elements in elem_codes should be measured. If at least one should be measured at
+            # the station use 'getStationsFromTimeserieTypeElemCodes'.
             # params = timeserietypeID, elem_codes, username, stations
             self.wsklima_url = "{0}?invoke=getStationsFromTimeserieTypeStationsElemCode&timeserietypeID={1}&stations={4}&elem_codes={2}&username={3}".format(self.base_url, self.params['timeserietypeID'], ",".join(map(str, self.params['elem_codes'])), self.params['username'], ",".join(map(str, self.params['stations'])))
 
@@ -58,16 +59,12 @@ class wsKlimaRequest():
             # params = language, elem_codes
             self.wsklima_url = "{0}?invoke=getElementsProperties&language={1}&elem_codes={2}".format(self.base_url, self.params['language'], ",".join(map(str, self.params['elem_codes'])))
 
-
         else:
             print "Could not create url!"
-
-
 
     def get(self):
         ### Returns a requests.Response object
         return requests.get(self.wsklima_url)
-
 
     def _output_example(self):
         if self.wsmethod == 'getStationsFromTimeserieTypeElemCodes':
@@ -103,6 +100,7 @@ class wsKlimaRequest():
         else:
             print "No valid method given!"
 
+
 def test_getStationsFromTimeserieTypeElemCodes():
     wr = wsKlimaRequest('getStationsFromTimeserieTypeElemCodes', {'timeserietypeID': 2, 'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF'], 'username': ""}).get()
     print wr.text
@@ -126,6 +124,7 @@ def test_getMetData(save=False):
         _f.close()
         print 'Data written to %s' % fname
     print wr.url
+
 
 # return XSD formated scheme
 def test_getMetDataValue():

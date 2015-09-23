@@ -3,7 +3,7 @@
 
 # Image files
 *.jpg
-*jpeg
+*.jpeg
 *.png
 
 # HTML files
@@ -13,5 +13,10 @@
 # netCDF files
 *.nc
 
-# Specifitc files
+# Data files
+*.csv
+*.txt
+
+# Specific files or folders
 Thumbs.db
+.idea

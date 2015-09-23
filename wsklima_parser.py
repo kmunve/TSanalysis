@@ -18,7 +18,7 @@ A dictionary with a key for each station:
 
 Usage:
 
-Get XML file from eklima.met.no, e.g. by using wsklima_getdata.py or
+Get XML file from eklima.met.no, e.g. by using wsklima_requests.py or
 http://eklima.met.no/met/MetService?operation=getMetData
 
 Hand the XML file to parse_getData(xml_data)
