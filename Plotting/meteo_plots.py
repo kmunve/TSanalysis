@@ -13,7 +13,7 @@ def _temperature_plot(values, xticks=None, p_title=None, p_xlabel='Time', p_ylab
     """
 
     TODO: add a check if the values are in Kelvin, Fahrenheit, or Celsius and adjust plot parameters accordingly.
-
+    TODO: rotate xlabels and change format to YYYY-MM-DD:HH
     :param values:
     :param xlabels:
     :return:
