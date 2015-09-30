@@ -4,6 +4,7 @@
 import pylab as plt
 import netCDF4
 from nc_index_by_coordinate import tunnel_fast
+from Plotting.meteo_plots import temperature_plot
 
 """
 Test to use the tunnel_fast function to extract point data from a netcdf grid.
@@ -30,8 +31,10 @@ times = netCDF4.num2date(time_v[9:43], time_v.units)
 
 ncfile.close()
 
-plt.plot(times, ta2m)
-plt.show()
+temperature_plot(ta2m, times)
+
+#plt.plot(times, ta2m)
+#plt.show()
 
 
 
