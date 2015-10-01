@@ -29,7 +29,7 @@ cnc.forc_time_step_v[:] = 3600.0
 
 for point in xrange(no_points):
     print(point, point_index[point][0], point_index[point][1])
-    cnc.tair_v[:, point] = thredds_file.variables['air_temperature_2m'][:, 0, point_index[point][0], point_index[point][1]]
+    cnc.tair_v[:, point] = thredds_file.variables[cnc.crocus_arome_lut[cnc.tair_v.name]][:, 0, point_index[point][0], point_index[point][1]]
 
 time_v = thredds_file.variables['time']
 cnc.time_v[:] = time_v[:]

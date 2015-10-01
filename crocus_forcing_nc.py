@@ -32,126 +32,103 @@ class CrocusForcing:
             ###########
             # Scalars #
             ###########
-            self.forc_time_step_v = self.rootgrp.createVariable('FORC_TIME_STEP','f8')
+            self.forc_time_step_v = self.rootgrp.createVariable('FORC_TIME_STEP','f8',fill_value=self.fill_value)
             self.forc_time_step_v.units = 's'
             self.forc_time_step_v.long_name = 'Forcing_Time_Step'
-            self.forc_time_step_v._FillValue = self.fill_value
 
             ######
             # 1D #
             ######
-            self.time_v = self.rootgrp.createVariable('time','f8',('time',))
+            self.time_v = self.rootgrp.createVariable('time','f8',('time',),fill_value=self.fill_value)
             # depends on FORC_TIME_STP units
             self.time_v.units = 'hours/seconds since '
             self.time_v.long_name = 'time'
             self.time_v.arome_name = 'time'
-            self.time_v._FillValue = self.fill_value
 
             # TODO: add arome_name attribute too all variables
-            self.lat_v = self.rootgrp.createVariable('LAT','f8',('Number_of_points',))
+            self.lat_v = self.rootgrp.createVariable('LAT','f8',('Number_of_points',),fill_value=self.fill_value)
             self.lat_v.units = 'degrees_north'
             self.lat_v.long_name = 'latitude'
-            self.lat_v._FillValue = self.fill_value
 
-            self.lon_v = self.rootgrp.createVariable('LON','f8',('Number_of_points',))
+            self.lon_v = self.rootgrp.createVariable('LON','f8',('Number_of_points',),fill_value=self.fill_value)
             self.lon_v.units = 'degrees_east'
             self.lon_v.long_name = 'longitude'
-            self.lon_v._FillValue = self.fill_value
 
-            self.aspect_v = self.rootgrp.createVariable('aspect', 'f8', ('Number_of_points'))
+            self.aspect_v = self.rootgrp.createVariable('aspect', 'f8', ('Number_of_points'),fill_value=self.fill_value)
             self.aspect_v.units = 'degrees from north'
             self.aspect_v.long_name = 'slope aspect'
-            self.aspect_v._FillValue = self.fill_value
 
-            self.slope_v = self.rootgrp.createVariable('slope','f8',('Number_of_points',))
+            self.slope_v = self.rootgrp.createVariable('slope','f8',('Number_of_points',),fill_value=self.fill_value)
             self.slope_v.units = 'degrees from horizontal'
             self.slope_v.long_name = 'slope angle'
-            self.slope_v._FillValue = self.fill_value
 
-            self.uref_v = self.rootgrp.createVariable('UREF','f8',('Number_of_points',))
+            self.uref_v = self.rootgrp.createVariable('UREF','f8',('Number_of_points',),fill_value=self.fill_value)
             self.uref_v.units = 'm'
             self.uref_v.long_name = 'Reference_Height_for_Wind'
-            self.uref_v._FillValue = self.fill_value
 
-            self.zref_v = self.rootgrp.createVariable('ZREF','f8',('Number_of_points',))
+            self.zref_v = self.rootgrp.createVariable('ZREF','f8',('Number_of_points',),fill_value=self.fill_value)
             self.zref_v.units = 'm'
             self.zref_v.long_name = 'Reference_Height'
-            self.zref_v._FillValue = self.fill_value
 
-            self.zs_v = self.rootgrp.createVariable('ZS','f8',('Number_of_points',))
+            self.zs_v = self.rootgrp.createVariable('ZS','f8',('Number_of_points',),fill_value=self.fill_value)
             self.zs_v.units = 'm'
             self.zs_v.long_name = 'altitude'
-            self.zs_v._FillValue = self.fill_value
 
             ######
             # 2D #
             ######
-            self.co2_air_v = self.rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',))
+            self.co2_air_v = self.rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.co2_air_v.units = 'kg/m3'
             self.co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
-            self.co2_air_v._FillValue = self.fill_value
 
-            self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',))
+            self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',),fill_value=self.fill_value)
             self.dir_sw_down_v.units = 'W/m2'
             self.dir_sw_down_v.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
-            self.dir_sw_down_v._FillValue = self.fill_value
 
-            self.hum_rel_v = self.rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',))
+            self.hum_rel_v = self.rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.hum_rel_v.units = '%'
             self.hum_rel_v.long_name = 'Relative Humidity'
-            self.hum_rel_v._FillValue = self.fill_value
 
-            self.lw_down_v = self.rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',))
+            self.lw_down_v = self.rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.lw_down_v.units = 'W/m2'
             self.lw_down_v.long_name = 'Surface_Incident_Longwave_Radiation'
-            self.lw_down_v._FillValue = self.fill_value
 
-            self.neb_v = self.rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',))
+            self.neb_v = self.rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.neb_v.units = 'between 0 and 1'
             self.neb_v.long_name = 'Nebulosity'
-            self.neb_v._FillValue = self.fill_value
 
-            self.ps_surf_v = self.rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',))
+            self.ps_surf_v = self.rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.ps_surf_v.units = 'Pa'
             self.ps_surf_v.long_name = 'Surface_Pressure'
-            self.ps_surf_v._FillValue = self.fill_value
 
-            self.q_air_v = self.rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',))
+            self.q_air_v = self.rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.q_air_v.units = 'Kg/Kg'
             self.q_air_v.long_name = 'Near_Surface_Specific_Humidity'
-            self.q_air_v._FillValue = self.fill_value
 
-            self.rain_fall_v = self.rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',))
+            self.rain_fall_v = self.rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.rain_fall_v.units = 'kg/m2/s'
             self.rain_fall_v.long_name = 'Rainfall_Rate'
-            self.rain_fall_v._FillValue = self.fill_value
 
-            self.sca_sw_down_v = self.rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',))
+            self.sca_sw_down_v = self.rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.sca_sw_down_v.units = 'W/m2'
             self.sca_sw_down_v.long_name = 'Surface_Incident_Diffuse_Shortwave_Radiation'
-            self.sca_sw_down_v._FillValue = self.fill_value
 
-            self.snow_fall_v = self.rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',))
+            self.snow_fall_v = self.rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.snow_fall_v.units = 'kg/m2/s'
             self.snow_fall_v.long_name = 'Snowfall_Rate'
-            self.snow_fall_v._FillValue = self.fill_value
 
-            self.tair_v = self.rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',))
+            self.tair_v = self.rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.tair_v.units = 'K'
             self.tair_v.long_name = 'Near_Surface_Air_Temperature'
-            self.tair_v._FillValue = self.fill_value
             self.tair_v.arome_name = 'air_temperature_2m'
 
-            self.wind_v = self.rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',))
+            self.wind_v = self.rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.wind_v.units = 'm/s'
             self.wind_v.long_name = 'Wind_Speed'
-            self.wind_v._FillValue = self.fill_value
 
-            self.wind_dir_v = self.rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',))
+            self.wind_dir_v = self.rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.wind_dir_v.units = 'deg'
             self.wind_dir_v.long_name = 'Wind_Direction'
-            self.wind_dir_v._FillValue = self.fill_value
-
 
         else:
             self.rootgrp = Dataset(filename, 'a')
@@ -161,7 +138,7 @@ class CrocusForcing:
         # TODO: cross-check units
         # TODO: cross-check time conversions and time reference
         # Look-up between Crocus FORCING.nc and arome_metcoop*test*.nc
-        self.crocus_arome_var = {'time': 'time', # seconds since : seconds since
+        self.crocus_arome_lut = {'time': 'time', # seconds since : seconds since
                                 'LAT': 'latitude', # degrees_north : degrees_north - ok
                                 'LON': 'longitude', # degrees_east : degrees_east - ok
                                 'Psurf': 'surface_air_pressure', # Pa : Pa - ok
