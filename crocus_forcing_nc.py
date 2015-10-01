@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+
 """
 Create a forcing netcdf file for the snow pack model Crocus.
 """
@@ -8,141 +11,143 @@ from netCDF4 import Dataset
 
 def init_from_file(filename):
     # create a file (Dataset object, also the root group).
-    f = Dataset(filename, 'r')
-    print f.file_format
-    print f.dimensions['Number_of_points']
-    print f.dimensions['time']
-    print f.variables.keys()
+    f = Dataset(filename, mode='r')
+    print(f.file_format)
+    print(f.dimensions['Number_of_points'])
+    print(f.dimensions['time'])
+    print(f.variables.keys())
     for var in f.ncattrs():
-        print var, getattr(f, var)
-    print f.variables['Wind']
-    print f.variables['Wind'].units
+        print(var, getattr(f, var))
+    print(f.variables['Wind'])
+    print(f.variables['Wind'].units)
     f.variables['Wind'][:] = []
-    print f.variables['Wind']
+    print(f.variables['Wind'])
     f.close()
-
 
 
 def init_forcing_nc(no_points=1):
     """
     Input no_points: Number of points used in the model grid
+
+    *_dim* indicates a netcdf-dimension
+    *_v* indicates a netcdf-variable
     """
     # create a file (Dataset object, also the root group).
     rootgrp = Dataset('FORCING.nc', 'w', format='NETCDF3_CLASSIC')
     print(rootgrp.file_format)
 
-# dimensions.
-    time = rootgrp.createDimension('time', None)
-    number_of_points = rootgrp.createDimension('Number_of_points', no_points)
-#lat = rootgrp.createDimension('lat', 73)
-#lon = rootgrp.createDimension('lon', 144)
-    print rootgrp.dimensions
+    ##############
+    # Dimensions #
+    ##############
+    time_dim = rootgrp.createDimension('time', None)
+    number_of_points_dim = rootgrp.createDimension('Number_of_points', no_points)
 
-    print time.isunlimited()
-    print number_of_points.isunlimited()
+    print(rootgrp.dimensions)
 
-# variables.
-    # Scalars:
+    print(time_dim.isunlimited())
+    print(number_of_points_dim.isunlimited())
 
-    FORC_TIME_STEP = rootgrp.createVariable('FORC_TIME_STEP','f8')
-    FORC_TIME_STEP.units = 's'
-    FORC_TIME_STEP.long_name = 'Forcing_Time_Step'
+    #############
+    # Variables #
+    #############
 
+    ###########
+    # Scalars #
+    ###########
+    forc_time_step_v = rootgrp.createVariable('FORC_TIME_STEP','f8')
+    forc_time_step_v.units = 's'
+    forc_time_step_v.long_name = 'Forcing_Time_Step'
 
-    # 1D
-
-    time = rootgrp.createVariable('time','f8',('time',))
+    ######
+    # 1D #
+    ######
+    time_v = rootgrp.createVariable('time','f8',('time',))
     # depends on FORC_TIME_STP units
-    time.units = 'hours/seconds since '
-    time.long_name = 'time'
+    time_v.units = 'hours/seconds since '
+    time_v.long_name = 'time'
 
-    LAT = rootgrp.createVariable('LAT','f8',('Number_of_points',))
-    LAT.units = 'degrees_north'
-    LAT.long_name = 'latitude'
+    lat_v = rootgrp.createVariable('LAT','f8',('Number_of_points',))
+    lat_v.units = 'degrees_north'
+    lat_v.long_name = 'latitude'
 
-    LON = rootgrp.createVariable('LON','f8',('Number_of_points',))
-    LON.units = 'degrees_east'
-    LON.long_name = 'longitude'
+    lon_v = rootgrp.createVariable('LON','f8',('Number_of_points',))
+    lon_v.units = 'degrees_east'
+    lon_v.long_name = 'longitude'
 
-    aspect = rootgrp.createVariable('aspect', 'f8', ('Number_of_points'))
-    aspect.units = 'degrees from north'
-    aspect.long_name = 'slope aspect'
+    aspect_v = rootgrp.createVariable('aspect', 'f8', ('Number_of_points'))
+    aspect_v.units = 'degrees from north'
+    aspect_v.long_name = 'slope aspect'
 
-    slope = rootgrp.createVariable('slope','f8',('Number_of_points',))
-    slope.units = 'degrees from horizontal'
-    slope.long_name = 'slope angle'
+    slope_v = rootgrp.createVariable('slope','f8',('Number_of_points',))
+    slope_v.units = 'degrees from horizontal'
+    slope_v.long_name = 'slope angle'
 
-    UREF = rootgrp.createVariable('UREF','f8',('Number_of_points',))
-    UREF.units = 'm'
-    UREF.long_name = 'Reference_Height_for_Wind'
+    uref_v = rootgrp.createVariable('UREF','f8',('Number_of_points',))
+    uref_v.units = 'm'
+    uref_v.long_name = 'Reference_Height_for_Wind'
 
-    ZREF = rootgrp.createVariable('ZREF','f8',('Number_of_points',))
-    ZREF.units = 'm'
-    ZREF.long_name = 'Reference_Height'
+    zref_v = rootgrp.createVariable('ZREF','f8',('Number_of_points',))
+    zref_v.units = 'm'
+    zref_v.long_name = 'Reference_Height'
 
-    ZS = rootgrp.createVariable('ZS','f8',('Number_of_points',))
-    ZS.units = 'm'
-    ZS.long_name = 'altitude'
+    zs_v = rootgrp.createVariable('ZS','f8',('Number_of_points',))
+    zs_v.units = 'm'
+    zs_v.long_name = 'altitude'
 
+    ######
+    # 2D #
+    ######
+    co2_air_v = rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',))
+    co2_air_v.units = 'kg/m3'
+    co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
 
-    # 2D
+    dir_sw_down_v = rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',))
+    dir_sw_down_v.units = 'W/m2'
+    dir_sw_down_v.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
 
-    CO2air = rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',))
-    CO2air.units = 'kg/m3'
-    CO2air.long_name = 'Near_Surface_CO2_Concentration'
+    hum_rel_v = rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',))
+    hum_rel_v.units = '%'
+    hum_rel_v.long_name = 'Relative Humidity'
 
-    DIR_SWdown = rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',))
-    DIR_SWdown.units = 'W/m2'
-    DIR_SWdown.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
+    lw_down_v = rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',))
+    lw_down_v.units = 'W/m2'
+    lw_down_v.long_name = 'Surface_Incident_Longwave_Radiation'
 
-    HUMREL = rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',))
-    HUMREL.units = '%'
-    HUMREL.long_name = 'Relative Humidity'
+    neb_v = rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',))
+    neb_v.units = 'between 0 and 1'
+    neb_v.long_name = 'Nebulosity'
 
-    LWdown = rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',))
-    LWdown.units = 'W/m2'
-    LWdown.long_name = 'Surface_Incident_Longwave_Radiation'
+    ps_surf_v = rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',))
+    ps_surf_v.units = 'Pa'
+    ps_surf_v.long_name = 'Surface_Pressure'
 
-    NEB = rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',))
-    NEB.units = 'between 0 and 1'
-    NEB.long_name = 'Nebulosity'
+    q_air_v = rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',))
+    q_air_v.units = 'Kg/Kg'
+    q_air_v.long_name = 'Near_Surface_Specific_Humidity'
 
-    PSurf = rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',))
-    PSurf.units = 'Pa'
-    PSurf.long_name = 'Surface_Pressure'
+    rain_fall_v = rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',))
+    rain_fall_v.units = 'kg/m2/s'
+    rain_fall_v.long_name = 'Rainfall_Rate'
 
-    Qair = rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',))
-    Qair.units = 'Kg/Kg'
-    Qair.long_name = 'Near_Surface_Specific_Humidity'
+    sca_sw_down_v = rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',))
+    sca_sw_down_v.units = 'W/m2'
+    sca_sw_down_v.long_name = 'Surface_Incident_Diffuse_Shortwave_Radiation'
 
-    Rainf = rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',))
-    Rainf.units = 'kg/m2/s'
-    Rainf.long_name = 'Rainfall_Rate'
+    snow_fall_v = rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',))
+    snow_fall_v.units = 'kg/m2/s'
+    snow_fall_v.long_name = 'Snowfall_Rate'
 
-    SCA_SWdown = rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',))
-    SCA_SWdown.units = 'W/m2'
-    SCA_SWdown.long_name = 'Surface_Incident_Diffuse_Shortwave_Radiation'
+    tair_v = rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',))
+    tair_v.units = 'K'
+    tair_v.long_name = 'Near_Surface_Air_Temperature'
 
-    Snowf = rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',))
-    Snowf.units = 'kg/m2/s'
-    Snowf.long_name = 'Snowfall_Rate'
+    wind_v = rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',))
+    wind_v.units = 'm/s'
+    wind_v.long_name = 'Wind_Speed'
 
-    Tair = rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',))
-    Tair.units = 'K'
-    Tair.long_name = 'Near_Surface_Air_Temperature'
-
-    Wind = rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',))
-    Wind.units = 'm/s'
-    Wind.long_name = 'Wind_Speed'
-
-    Wind_DIR = rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',))
-    Wind_DIR.units = 'deg'
-    Wind_DIR.long_name = 'Wind_Direction'
-
-
-#     = rootgrp.createVariable('','f8',('Number_of_points',))
-#    .units = ''
-#    .long_name = ''
+    wind_dir_v = rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',))
+    wind_dir_v.units = 'deg'
+    wind_dir_v.long_name = 'Wind_Direction'
 
     rootgrp.close()
 
@@ -161,22 +166,22 @@ def populate_forcing_nc(df):
 
     # Fill the time variable
     nc.variables['time'].units, nc.variables['time'][:] = get_nc_time(df.index)
-    print nc.variables['time']
+    print(nc.variables['time'])
 
     for col in df.columns:
         if col in id_dict.keys():
-            print df[col], nc.variables[id_dict[col]]
+            print(df[col], nc.variables[id_dict[col]])
             nc.variables[id_dict[col]] = df[col]
-            print nc.variables[id_dict[col]]
+            print(nc.variables[id_dict[col]])
 
     nc.close()
 
 def get_nc_time(df_index):
 
     #
-    print df_index[0]
+    print(df_index[0])
     tinterval = df_index[1]-df_index[0]
-    print tinterval
+    print(tinterval)
     # find out if it is hours or seconds that are most convinient
     tstart = df_index[0]
     return unit_str, time_array
