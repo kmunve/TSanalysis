@@ -5,25 +5,211 @@ from __future__ import print_function
 """
 Create a forcing netcdf file for the snow pack model Crocus.
 """
-import datetime as dt
-from netCDF4 import Dataset
+
+from netCDF4 import Dataset, num2date
+
+class CrocusForcing:
+
+    def __init__(self, no_points=1, filename=None):
+        if filename is None:
+            # Set general parameters
+            self.fill_value = -9999999.0
 
 
-def init_from_file(filename):
-    # create a file (Dataset object, also the root group).
-    f = Dataset(filename, mode='r')
-    print(f.file_format)
-    print(f.dimensions['Number_of_points'])
-    print(f.dimensions['time'])
-    print(f.variables.keys())
-    for var in f.ncattrs():
-        print(var, getattr(f, var))
-    print(f.variables['Wind'])
-    print(f.variables['Wind'].units)
-    f.variables['Wind'][:] = []
-    print(f.variables['Wind'])
-    f.close()
+            # create a file (Dataset object, also the root group).
+            self.rootgrp = Dataset('FORCING.nc', 'w', format='NETCDF3_CLASSIC')
 
+            ##############
+            # Dimensions #
+            ##############
+            self.time_dim = self.rootgrp.createDimension('time', None)
+            self.number_of_points_dim = self.rootgrp.createDimension('Number_of_points', no_points)
+
+            #############
+            # Variables #
+            #############
+
+            ###########
+            # Scalars #
+            ###########
+            self.forc_time_step_v = self.rootgrp.createVariable('FORC_TIME_STEP','f8')
+            self.forc_time_step_v.units = 's'
+            self.forc_time_step_v.long_name = 'Forcing_Time_Step'
+            self.forc_time_step_v._FillValue = self.fill_value
+
+            ######
+            # 1D #
+            ######
+            self.time_v = self.rootgrp.createVariable('time','f8',('time',))
+            # depends on FORC_TIME_STP units
+            self.time_v.units = 'hours/seconds since '
+            self.time_v.long_name = 'time'
+            self.time_v.arome_name = 'time'
+            self.time_v._FillValue = self.fill_value
+
+            # TODO: add arome_name attribute too all variables
+            self.lat_v = self.rootgrp.createVariable('LAT','f8',('Number_of_points',))
+            self.lat_v.units = 'degrees_north'
+            self.lat_v.long_name = 'latitude'
+            self.lat_v._FillValue = self.fill_value
+
+            self.lon_v = self.rootgrp.createVariable('LON','f8',('Number_of_points',))
+            self.lon_v.units = 'degrees_east'
+            self.lon_v.long_name = 'longitude'
+            self.lon_v._FillValue = self.fill_value
+
+            self.aspect_v = self.rootgrp.createVariable('aspect', 'f8', ('Number_of_points'))
+            self.aspect_v.units = 'degrees from north'
+            self.aspect_v.long_name = 'slope aspect'
+            self.aspect_v._FillValue = self.fill_value
+
+            self.slope_v = self.rootgrp.createVariable('slope','f8',('Number_of_points',))
+            self.slope_v.units = 'degrees from horizontal'
+            self.slope_v.long_name = 'slope angle'
+            self.slope_v._FillValue = self.fill_value
+
+            self.uref_v = self.rootgrp.createVariable('UREF','f8',('Number_of_points',))
+            self.uref_v.units = 'm'
+            self.uref_v.long_name = 'Reference_Height_for_Wind'
+            self.uref_v._FillValue = self.fill_value
+
+            self.zref_v = self.rootgrp.createVariable('ZREF','f8',('Number_of_points',))
+            self.zref_v.units = 'm'
+            self.zref_v.long_name = 'Reference_Height'
+            self.zref_v._FillValue = self.fill_value
+
+            self.zs_v = self.rootgrp.createVariable('ZS','f8',('Number_of_points',))
+            self.zs_v.units = 'm'
+            self.zs_v.long_name = 'altitude'
+            self.zs_v._FillValue = self.fill_value
+
+            ######
+            # 2D #
+            ######
+            self.co2_air_v = self.rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',))
+            self.co2_air_v.units = 'kg/m3'
+            self.co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
+            self.co2_air_v._FillValue = self.fill_value
+
+            self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',))
+            self.dir_sw_down_v.units = 'W/m2'
+            self.dir_sw_down_v.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
+            self.dir_sw_down_v._FillValue = self.fill_value
+
+            self.hum_rel_v = self.rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',))
+            self.hum_rel_v.units = '%'
+            self.hum_rel_v.long_name = 'Relative Humidity'
+            self.hum_rel_v._FillValue = self.fill_value
+
+            self.lw_down_v = self.rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',))
+            self.lw_down_v.units = 'W/m2'
+            self.lw_down_v.long_name = 'Surface_Incident_Longwave_Radiation'
+            self.lw_down_v._FillValue = self.fill_value
+
+            self.neb_v = self.rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',))
+            self.neb_v.units = 'between 0 and 1'
+            self.neb_v.long_name = 'Nebulosity'
+            self.neb_v._FillValue = self.fill_value
+
+            self.ps_surf_v = self.rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',))
+            self.ps_surf_v.units = 'Pa'
+            self.ps_surf_v.long_name = 'Surface_Pressure'
+            self.ps_surf_v._FillValue = self.fill_value
+
+            self.q_air_v = self.rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',))
+            self.q_air_v.units = 'Kg/Kg'
+            self.q_air_v.long_name = 'Near_Surface_Specific_Humidity'
+            self.q_air_v._FillValue = self.fill_value
+
+            self.rain_fall_v = self.rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',))
+            self.rain_fall_v.units = 'kg/m2/s'
+            self.rain_fall_v.long_name = 'Rainfall_Rate'
+            self.rain_fall_v._FillValue = self.fill_value
+
+            self.sca_sw_down_v = self.rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',))
+            self.sca_sw_down_v.units = 'W/m2'
+            self.sca_sw_down_v.long_name = 'Surface_Incident_Diffuse_Shortwave_Radiation'
+            self.sca_sw_down_v._FillValue = self.fill_value
+
+            self.snow_fall_v = self.rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',))
+            self.snow_fall_v.units = 'kg/m2/s'
+            self.snow_fall_v.long_name = 'Snowfall_Rate'
+            self.snow_fall_v._FillValue = self.fill_value
+
+            self.tair_v = self.rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',))
+            self.tair_v.units = 'K'
+            self.tair_v.long_name = 'Near_Surface_Air_Temperature'
+            self.tair_v._FillValue = self.fill_value
+            self.tair_v.arome_name = 'air_temperature_2m'
+
+            self.wind_v = self.rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',))
+            self.wind_v.units = 'm/s'
+            self.wind_v.long_name = 'Wind_Speed'
+            self.wind_v._FillValue = self.fill_value
+
+            self.wind_dir_v = self.rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',))
+            self.wind_dir_v.units = 'deg'
+            self.wind_dir_v.long_name = 'Wind_Direction'
+            self.wind_dir_v._FillValue = self.fill_value
+
+
+        else:
+            self.rootgrp = Dataset(filename, 'a')
+
+
+
+        # TODO: cross-check units
+        # TODO: cross-check time conversions and time reference
+        # Look-up between Crocus FORCING.nc and arome_metcoop*test*.nc
+        self.crocus_arome_var = {'time': 'time', # seconds since : seconds since
+                                'LAT': 'latitude', # degrees_north : degrees_north - ok
+                                'LON': 'longitude', # degrees_east : degrees_east - ok
+                                'Psurf': 'surface_air_pressure', # Pa : Pa - ok
+                                'Tair': 'air_temperature_2m', # : K : K - ok
+                                'HUMREL': 'relative_humidity_2m', # % : 1
+                                'LWdown': 'integral_of_surface_downwelling_longwave_flux_in_air_wrt_time', # W/m2 : W s/m^2
+                                'NEB': '', # 0-1 :
+                                'Qair': 'specific_humidity_ml', # Kg/Kg : Kg/Kg - need to address lowest model level !?
+                                'Rainf': 'rainfall_amount_pl', # kg/m2/s : kg/m2 - need to address PL and rate
+                                'SCA_SWdown': '', # W/m2 :
+                                'DIR_SWdown': 'integral_of_surface_downwelling_shortwave_flux_in_air_wrt_time', # W/m2 : W s/m2 - need to adjust for rate
+                                'CO2_air': '', # kg/m3 :
+                                'Snowf': 'snowfall_amount_pl', # kg/m2/s : kg/m2 - need to address PL and rate (divide by 3600 if hourly)
+                                'theorSW': '', # W/m2 :
+                                'UREF': '', # m :
+                                'Wind': '', # m/s :
+                                'Wind_DIR': '', # deg :
+                                'aspect': '', # degrees from north :
+                                'slope': '', # degrees from horizontal :
+                                'ZREF': '', # m :
+                                'ZS': '' # m :
+                                }
+    def close(self):
+        """
+        Closes netCDF file after writing.
+        """
+        self.rootgrp.close()
+
+    def set_variable(self, var):
+        pass
+
+    def init_from_file(self, filename):
+        """
+        TODO: adjust or remove
+        """
+        # create a file (Dataset object, also the root group).
+        f = Dataset(filename, mode='r')
+        print(f.file_format)
+        print(f.dimensions['Number_of_points'])
+        print(f.dimensions['time'])
+        print(f.variables.keys())
+        for var in f.ncattrs():
+            print(var, getattr(f, var))
+        print(f.variables['Wind'])
+        print(f.variables['Wind'].units)
+        f.variables['Wind'][:] = []
+        print(f.variables['Wind'])
+        f.close()
 
 def init_forcing_nc(no_points=1):
     """
@@ -150,6 +336,8 @@ def init_forcing_nc(no_points=1):
     wind_dir_v.long_name = 'Wind_Direction'
 
     rootgrp.close()
+
+
 
 
 def populate_forcing_nc(df):
@@ -407,4 +595,6 @@ def test_tutorial():
 
 if __name__ == "__main__":
     #init_from_file('FORCING.nc')
-    init_forcing_nc()
+    #init_forcing_nc()
+    fnc = CrocusForcing()
+    fnc.close()
