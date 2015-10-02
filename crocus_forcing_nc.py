@@ -10,12 +10,12 @@ from netCDF4 import Dataset, num2date
 
 class CrocusForcing:
 
-    def __init__(self, no_points=1, filename=None, opt_param={}):
+    def __init__(self, no_points=1, filename=None, opt_param=[]):
         '''
 
         :param no_points: the number of points/stations that should be modeled
         :param filename: if given an existing file will be opened to append data
-        :param opt_param: dictionary containing optional parameters that can be set
+        :param opt_param: list containing optional parameters that can be set
         These are:
         - relative humidity (HUMREL)
         - nebulosity (NEB)
@@ -44,7 +44,7 @@ class CrocusForcing:
             ###########
             # Scalars #
             ###########
-            self.forc_time_step_v = self.rootgrp.createVariable('FORC_TIME_STEP','f8',fill_value=self.fill_value)
+            self.forc_time_step_v = self.rootgrp.createVariable('FRC_TIME_STP','f8',fill_value=self.fill_value)
             self.forc_time_step_v.units = 's'
             self.forc_time_step_v.long_name = 'Forcing_Time_Step'
 
@@ -96,7 +96,7 @@ class CrocusForcing:
                 self.co2_air_v.units = 'kg/m3'
                 self.co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
 
-            self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',),fill_value=self.fill_value)
+            self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.dir_sw_down_v.units = 'W/m2'
             self.dir_sw_down_v.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
 
@@ -235,7 +235,7 @@ def init_forcing_nc(no_points=1):
     ###########
     # Scalars #
     ###########
-    forc_time_step_v = rootgrp.createVariable('FORC_TIME_STEP','f8')
+    forc_time_step_v = rootgrp.createVariable('FRC_TIME_STP','f8')
     forc_time_step_v.units = 's'
     forc_time_step_v.long_name = 'Forcing_Time_Step'
 
