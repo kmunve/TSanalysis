@@ -10,10 +10,22 @@ from netCDF4 import Dataset, num2date
 
 class CrocusForcing:
 
-    def __init__(self, no_points=1, filename=None):
+    def __init__(self, no_points=1, filename=None, opt_param={}):
+        '''
+
+        :param no_points: the number of points/stations that should be modeled
+        :param filename: if given an existing file will be opened to append data
+        :param opt_param: dictionary containing optional parameters that can be set
+        These are:
+        - relative humidity (HUMREL)
+        - nebulosity (NEB)
+        - wind direction (Wind_DIR)
+        :return: creates FORCING.nc
+        '''
         if filename is None:
             # Set general parameters
             self.fill_value = -9999999.0
+
 
 
             # create a file (Dataset object, also the root group).
@@ -54,13 +66,15 @@ class CrocusForcing:
             self.lon_v.units = 'degrees_east'
             self.lon_v.long_name = 'longitude'
 
-            self.aspect_v = self.rootgrp.createVariable('aspect', 'f8', ('Number_of_points'),fill_value=self.fill_value)
-            self.aspect_v.units = 'degrees from north'
-            self.aspect_v.long_name = 'slope aspect'
+            if 'aspect' in opt_param:
+                self.aspect_v = self.rootgrp.createVariable('aspect', 'f8', ('Number_of_points'),fill_value=self.fill_value)
+                self.aspect_v.units = 'degrees from north'
+                self.aspect_v.long_name = 'slope aspect'
 
-            self.slope_v = self.rootgrp.createVariable('slope','f8',('Number_of_points',),fill_value=self.fill_value)
-            self.slope_v.units = 'degrees from horizontal'
-            self.slope_v.long_name = 'slope angle'
+            if 'slope' in opt_param:
+                self.slope_v = self.rootgrp.createVariable('slope','f8',('Number_of_points',),fill_value=self.fill_value)
+                self.slope_v.units = 'degrees from horizontal'
+                self.slope_v.long_name = 'slope angle'
 
             self.uref_v = self.rootgrp.createVariable('UREF','f8',('Number_of_points',),fill_value=self.fill_value)
             self.uref_v.units = 'm'
@@ -77,25 +91,28 @@ class CrocusForcing:
             ######
             # 2D #
             ######
-            self.co2_air_v = self.rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
-            self.co2_air_v.units = 'kg/m3'
-            self.co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
+            if 'CO2air' in opt_param:
+                self.co2_air_v = self.rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
+                self.co2_air_v.units = 'kg/m3'
+                self.co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
 
             self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('Number_of_points',),fill_value=self.fill_value)
             self.dir_sw_down_v.units = 'W/m2'
             self.dir_sw_down_v.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
 
-            self.hum_rel_v = self.rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
-            self.hum_rel_v.units = '%'
-            self.hum_rel_v.long_name = 'Relative Humidity'
+            if 'HUMREL' in opt_param:
+                self.hum_rel_v = self.rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
+                self.hum_rel_v.units = '%'
+                self.hum_rel_v.long_name = 'Relative Humidity'
 
             self.lw_down_v = self.rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.lw_down_v.units = 'W/m2'
             self.lw_down_v.long_name = 'Surface_Incident_Longwave_Radiation'
 
-            self.neb_v = self.rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
-            self.neb_v.units = 'between 0 and 1'
-            self.neb_v.long_name = 'Nebulosity'
+            if 'NEB' in opt_param:
+                self.neb_v = self.rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
+                self.neb_v.units = 'between 0 and 1'
+                self.neb_v.long_name = 'Nebulosity'
 
             self.ps_surf_v = self.rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.ps_surf_v.units = 'Pa'
@@ -126,9 +143,10 @@ class CrocusForcing:
             self.wind_v.units = 'm/s'
             self.wind_v.long_name = 'Wind_Speed'
 
-            self.wind_dir_v = self.rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
-            self.wind_dir_v.units = 'deg'
-            self.wind_dir_v.long_name = 'Wind_Direction'
+            if 'Wind_DIR' in opt_param:
+                self.wind_dir_v = self.rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
+                self.wind_dir_v.units = 'deg'
+                self.wind_dir_v.long_name = 'Wind_Direction'
 
         else:
             self.rootgrp = Dataset(filename, 'a')
