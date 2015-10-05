@@ -1,0 +1,24 @@
+{
+'time': 'time', # seconds since : seconds since
+'LAT': 'latitude', # degrees_north : degrees_north - ok
+'LON': 'longitude', # degrees_east : degrees_east - ok
+'Psurf': 'surface_air_pressure', # Pa : Pa - ok
+'Tair': 'air_temperature_2m', # : K : K - ok
+'HUMREL': 'relative_humidity_2m', # % : 1
+'LWdown': 'integral_of_surface_downwelling_longwave_flux_in_air_wrt_time', # W/m2 : W s/m^2
+'NEB': '', # 0-1 :
+'Qair': 'specific_humidity_ml', # Kg/Kg : Kg/Kg - need to address lowest model level !?
+'Rainf': 'rainfall_amount_pl', # kg/m2/s : kg/m2 - need to address PL and rate
+'SCA_SWdown': '', # W/m2 :
+'DIR_SWdown': 'integral_of_surface_downwelling_shortwave_flux_in_air_wrt_time', # W/m2 : W s/m2 - need to adjust for rate
+'CO2_air': '', # kg/m3 :
+'Snowf': 'snowfall_amount_pl', # kg/m2/s : kg/m2 - need to address PL and rate (divide by 3600 if hourly)
+'theorSW': '', # W/m2 :
+'UREF': '', # m :
+'Wind': '', # m/s :
+'Wind_DIR': '', # deg :
+'aspect': '', # degrees from north :
+'slope': '', # degrees from horizontal :
+'ZREF': '', # m :
+'ZS': '' # m :
+}

@@ -7,11 +7,14 @@ Create a forcing netcdf file for the snow pack model Crocus.
 """
 
 from netCDF4 import Dataset, num2date
+from string import Template
 
 class CrocusForcing:
 
     def __init__(self, no_points=1, filename=None, opt_param=[]):
         '''
+        TODO: add a plotting routine to view all parameters.
+
 
         :param no_points: the number of points/stations that should be modeled
         :param filename: if given an existing file will be opened to append data
@@ -187,6 +190,37 @@ class CrocusForcing:
 
     def set_variable(self, var):
         pass
+
+    def create_options_nam(self):
+        '''
+
+        * Returns: OPTIONs.nam file
+
+        TODO: adapt for multiple points
+        '''
+        option_file = open('OPTIONS.nam', 'w')
+        option_template = Template(open('./Test/Data/OPTIONS.nam.tpl', 'r').read())
+        # Read the lines from the template, substitute the values, and write to the new config file
+        _date = self.time_v.units.split(' ')[2]
+        _time = self.time_v.units.split(' ')[3]
+
+        subst = dict(LAT=str(self.lat_v[0]),
+                     LON=str(self.lon_v[0]),
+                     NO_POINTS=1,
+                     ZS=950,
+                     YEAR=_date.split('-')[0],
+                     MONTH=_date.split('-')[1],
+                     DAY=_date.split('-')[2],
+                     XTIME=float(_time.split(':')[0])*3600.,
+                     )
+
+        _sub_str = option_template.substitute(subst)
+        option_file.write(_sub_str)
+
+        # Close the files
+        option_file.close()
+        #option_template.close()
+
 
     def init_from_file(self, filename):
         """

@@ -15,21 +15,25 @@ __author__ = 'kmu'
 # Create artificial parameters
 
 # Create the time line
-t_start = datetime(2015, 12, 01, 02)
-t_stop = datetime(2016, 03, 31)
+t_start = datetime(2013, 9, 01, 02)
+t_stop = datetime(2013, 12, 31)
 dt = timedelta(hours=1)
-t_units = 'hours since 2015-12-01 02:00:00'
+t_units = 'hours since 2013-09-01 02:00:00'
 time_arr = np.arange(t_start, t_stop, dt)
 time_v = date2num(time_arr.tolist(), t_units)
 
 n = len(time_arr)
+n_arr = np.arange(n, dtype=float)
 
-mask1 = np.where(time_arr < datetime(2016, 01, 31)) #accumulate
-mask2 = np.where(time_arr >= datetime(2016, 01, 31))#melt
+mask1 = np.where(time_arr < datetime(2013, 10, 31)) #accumulate
+mask2 = np.where(time_arr >= datetime(2013, 10, 31))#melt
 
+'''
 tair = np.zeros_like(time_arr, dtype=float)
 tair[mask1] += 270.0 # in Kelvin
 tair[mask2] += 275.0
+'''
+tair = np.linspace(265.0, 280.0, n, dtype=float)
 
 p_surf = np.zeros_like(time_arr, dtype=float)
 p_surf += 90000.0 # Pa
@@ -43,13 +47,15 @@ rainf = np.zeros_like(time_arr, dtype=float)
 snowf = np.zeros_like(time_arr, dtype=float)
 snowf[mask1] += 3.0e-03
 
-# TODO: make a sin wave for the sw and a cos wave for the lw
-dir_sw_down = np.zeros_like(time_arr, dtype=float)
-dir_sw_down = (np.sin(2*np.pi*1/24.*np.arange(n))+1.)*50.0 # W/m2
-#dir_sw_down[mask2] = (np.sin(2*np.pi*1/24.*np.arange(len(mask2)))+1.)*80.0 # W/m2
+# Short-wave signal with an exponential increase towards the melting season
+sw_amp = 50. # amplitude of the short-wave signal
+dir_sw_down = ((np.sin(2*np.pi*1/24.*n_arr)+1.)*sw_amp) * np.exp(n_arr/(max(n_arr))) # W/m2
 
-lw_down = np.zeros_like(time_arr, dtype=float)
-lw_down = (np.cos(2*np.pi*1/24.*np.arange(n))+100.)* 120.0 # W/m2
+# Long-wave radiation
+lw_amp = 75. # amplitude of the long-wave signal
+lw_offset = - (2*np.pi*3./24.) # offset of the daily LW maximum wrt the SW maximum
+lw_mean = 275. # LW minimum in W/m2
+lw_down = (np.sin(2*np.pi*1/24.*n_arr + lw_offset) * lw_amp) + lw_mean # W/m2
 
 sca_sw_down = np.zeros_like(time_arr, dtype=float)
 
@@ -67,7 +73,7 @@ cnc.forc_time_step_v[:] = dt.seconds
 #cnc.aspect_v[:] = 0.0
 cnc.uref_v[:] = 2.0
 cnc.zref_v[:] = 0.0
-cnc.zs_v[:] = 500.0
+cnc.zs_v[:] = 950.0
 cnc.lat_v[:] = 60.0
 cnc.lon_v[:] = 10.0
 
@@ -94,4 +100,6 @@ cnc.wind_dir_v[:, 0] = wind_dir[:]
 # Others
 cnc.co2_air_v[:, 0] = co2_air
 
+
+cnc.create_options_nam()
 cnc.close()

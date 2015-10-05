@@ -72,6 +72,7 @@ precip_high = nc.variables['precipitation_amount_high_estimate'][:].squeeze()
 
 #ipdb.set_trace()
 
+# TODO: make histogram see np.ravel to flatten array: plt.hist(img.ravel(), lw=0, bins=256);
 # sum up precip for 24 h after spin-up time
 precip_sum = np.ma.array(np.sum(precip, axis=0), mask=land_mask.mask)
 precip_low_sum = np.ma.array(np.sum(precip_low, axis=0), mask=land_mask.mask)
