@@ -3,8 +3,6 @@
 from __future__ import print_function
 
 __author__   = 'kmunve'
-__created__  = datetime.datetime(2015, 7, 1)
-__modified__ = datetime.datetime(2015, 7, 1)
 __version__  = "1.0"
 __status__   = "Development"
 

@@ -71,8 +71,8 @@ cnc = CrocusForcing(opt_param=['Wind_DIR', 'CO2air']) # init Crocus forcing file
 # Set some properties
 cnc.forc_time_step_v[:] = dt.seconds
 #cnc.aspect_v[:] = 0.0
-cnc.uref_v[:] = 2.0
-cnc.zref_v[:] = 0.0
+cnc.uref_v[:] = 10.0
+cnc.zref_v[:] = 2.0
 cnc.zs_v[:] = 950.0
 cnc.lat_v[:] = 60.0
 cnc.lon_v[:] = 10.0
