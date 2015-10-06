@@ -28,7 +28,8 @@ n_arr = np.arange(n, dtype=float)
 mask1 = np.where(time_arr < datetime(2013, 10, 31)) #accumulate
 mask2 = np.where(time_arr >= datetime(2013, 10, 31))#melt
 mask3 = np.where((time_arr >= datetime(2013, 12, 01)) & ((time_arr <= datetime(2013, 12, 03))))
-mask4 = np.where((time_arr >= datetime(2013, 9, 05)) & ((time_arr <= datetime(2013, 9, 15))))
+mask4 = np.where((time_arr >= datetime(2013, 9, 05)) & ((time_arr <= datetime(2013, 9, 10))))
+mask5 = np.where(((time_arr >= datetime(2013, 9, 5)) & (time_arr <= datetime(2013, 9, 10))) | ((time_arr >= datetime(2013, 11, 1)) & (time_arr <= datetime(2013, 11, 5))))
 '''
 tair = np.zeros_like(time_arr, dtype=float)
 tair[mask1] += 270.0 # in Kelvin
@@ -46,7 +47,7 @@ rainf = np.zeros_like(time_arr, dtype=float)
 rainf[mask3[0]] += 1.0e-03
 
 snowf = np.zeros_like(time_arr, dtype=float)
-snowf[mask4[0]] += 3.0e-03
+snowf[mask5[0]] += 1.0e-03
 
 # Short-wave signal with an exponential increase towards the melting season
 sw_amp = 50. # amplitude of the short-wave signal
