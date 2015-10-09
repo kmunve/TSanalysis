@@ -16,7 +16,7 @@ __author__ = 'kmu'
 
 # Create the time line
 t_start = datetime(2013, 9, 01, 02)
-t_stop = datetime(2013, 12, 31)
+t_stop = datetime(2014, 03, 31)
 dt = timedelta(hours=1)
 t_units = 'hours since 2013-09-01 02:00:00'
 time_arr = np.arange(t_start, t_stop, dt)
@@ -35,7 +35,9 @@ tair = np.zeros_like(time_arr, dtype=float)
 tair[mask1] += 270.0 # in Kelvin
 tair[mask2] += 275.0
 '''
-tair = np.linspace(265.0, 280.0, n, dtype=float)
+tair = np.zeros_like(time_arr, dtype=float)
+tair[mask1[0]] = np.linspace(265.0, 273.0, len(mask1[0]), dtype=float)
+tair[mask2[0]] = np.linspace(273.0, 280.0, len(mask2[0]), dtype=float)
 
 p_surf = np.zeros_like(time_arr, dtype=float)
 p_surf += 90000.0 # Pa
@@ -44,7 +46,7 @@ q_air = np.zeros_like(time_arr, dtype=float)
 q_air += 3.0e-03
 
 rainf = np.zeros_like(time_arr, dtype=float)
-rainf[mask3[0]] += 1.0e-03
+#rainf[mask3[0]] += 1.0e-03
 
 snowf = np.zeros_like(time_arr, dtype=float)
 snowf[mask5[0]] += 1.0e-03
