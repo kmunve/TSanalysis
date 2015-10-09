@@ -17,7 +17,13 @@ class wsKlimaRequest():
     def __init__(self, method, params=None):
 
         self.wsmethod = method
-        self.wsmethods = ['getElementsProperties', 'getElementsFromTimeserieType', 'getStationsFromTimeserieTypeElemCodes', 'getStationsFromTimeserieTypeStationsElemCode', 'getMetData', 'getMetDataValue']
+        self.wsmethods = ['getElementsProperties',
+                          'getElementsFromTimeserieType',
+                          'getStationsProperties',
+                          'getStationsFromTimeserieTypeElemCodes',
+                          'getStationsFromTimeserieTypeStationsElemCode',
+                          'getMetData',
+                          'getMetDataValue']
 
 
         if self.wsmethod not in self.wsmethods:
@@ -38,6 +44,9 @@ class wsKlimaRequest():
 
         elif self.wsmethod == 'getMetDataValue':
             self.wsklima_url = "{0}?invoke=getMetData&timeserietypeID={1}&format={2}&from={3}&to={4}&stations={5}&elements={6}&hours={7}&months={8}&username={9}".format(self.base_url, self.params['timeserietypeID'], self.params['format'], self.params['from'], self.params['to'], ",".join(map(str, self.params['stations'])), ",".join(map(str, self.params['elements'])), ",".join(map(str, self.params['hours'])), self.params['months'], self.params['username'])
+
+        elif self.wsmethod == 'getStationsProperties':
+            self.wsklima_url = "{0}?invoke=getStationsProperties&stations={1}&username={2}".format(self.base_url, ",".join(map(str, self.params['stations'])), self.params['username'])
 
         elif self.wsmethod == 'getStationsFromTimeserieTypeElemCodes':
             # Use this method if at least one of the elements in elem_codes should be measured. If all elements should
@@ -138,10 +147,18 @@ def test_getElementsFromTimeserieType():
     print wr.url
 
 
+def test_getStationProperties():
+    import json
+    _s = json.load(open('./Test/Data/crocus_stations.json'))
+
+    wr = wsKlimaRequest('getStationProperties', {'stations': stations, 'username': ""})
+
+
 
 
 if __name__ == "__main__":
 #    test_getStationsFromTimeserieTypeElemCodes()
 #    test_getElementsFromTimeserieType()
-    test_getMetData(save=True)
+#     test_getMetData(save=True)
+    test_getStationProperties()
 #    test_getStationsFromTimeserieTypeStationsElemCode()
