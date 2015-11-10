@@ -10,7 +10,8 @@ Todo:
 """
 from lxml import etree
 from wsklima_requests import wsKlimaRequest
-
+import json
+from lxml import etree
 
 def hourly_rr_ta_uu_ff_dd_po():
     
@@ -40,5 +41,65 @@ def hourly_rr_ta_uu_ff_dd_po():
     fid.close()
 
 
+def crocus_station_list():
+    stat = json.load(open('Test/Data/crocus_stations.json', 'r'))
+    station_list = stat['crocus_stations']
+    print(station_list)
+
+    wr = wsKlimaRequest('getStationsProperties', {'stations': station_list, 'username': ''})
+    rsp = wr.get()
+
+    root = etree.fromstring(rsp.content)
+    #root = data.getroot()
+
+    stations = root.xpath('//return/item')
+
+    """
+    Available properties:
+    amsl
+    department
+    fromDay
+    fromMonth
+    fromYear
+    latDec
+    latLonFmt
+    lonDec
+    municipalityNo
+    name
+    stnr
+    toDay
+    toMonth
+    toYear
+    utm_e
+    utm_n
+    utm_zone
+    wmoNo
+    """
+    for station in stations:
+        amsl = station.xpath('amsl')[0].text
+        department = station.xpath('department')[0].text
+        fromDay = station.xpath('fromDay')[0].text
+        fromMonth = station.xpath('fromMonth')[0].text
+        fromYear = station.xpath('fromYear')[0].text
+        latDec = station.xpath('latDec')[0].text
+        latLonFmt = station.xpath('latLonFmt')[0].text
+        lonDec = station.xpath('lonDec')[0].text
+        municipalityNo = station.xpath('municipalityNo')[0].text
+        name = station.xpath('name')[0].text
+        stnr = station.xpath('stnr')[0].text
+        toDay = station.xpath('toDay')[0].text
+        toMonth = station.xpath('toMonth')[0].text
+        toYear = station.xpath('toYear')[0].text
+        utm_e = station.xpath('utm_e')[0].text
+        utm_n = station.xpath('utm_n')[0].text
+        utm_zone = station.xpath('utm_zone')[0].text
+        wmoNo = station.xpath('wmoNo')[0].text
+        #TODO: write new line to file
+        #TODO: make sure Norwegian letters are correct
+
+
+
+
 if __name__ == "__main__":
-    hourly_rr_ta_uu_ff_dd_po()
+    #hourly_rr_ta_uu_ff_dd_po()
+    crocus_station_list()
