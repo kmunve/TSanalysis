@@ -1,0 +1,21 @@
+{
+  amsl
+  department
+  fromDay
+  fromMonth
+  fromYear
+  latDec
+  latLonFmt
+  lonDec
+  municipalityNo
+  name
+  stnr
+  toDay
+  toMonth
+  toYear
+  utm_e
+  utm_n
+  utm_zone
+  wmoNo
+
+}
