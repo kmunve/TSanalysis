@@ -12,6 +12,7 @@ from lxml import etree
 from wsklima_requests import wsKlimaRequest
 import json
 from lxml import etree
+from crocus_station_db import CrocusStationDB
 
 def hourly_rr_ta_uu_ff_dd_po():
     
@@ -50,7 +51,6 @@ def crocus_station_list():
     rsp = wr.get()
 
     root = etree.fromstring(rsp.content)
-    #root = data.getroot()
 
     stations = root.xpath('//return/item')
 
@@ -75,6 +75,8 @@ def crocus_station_list():
     utm_zone
     wmoNo
     """
+    stations_dict = {}
+
     for station in stations:
         amsl = station.xpath('amsl')[0].text
         department = station.xpath('department')[0].text
@@ -94,12 +96,81 @@ def crocus_station_list():
         utm_n = station.xpath('utm_n')[0].text
         utm_zone = station.xpath('utm_zone')[0].text
         wmoNo = station.xpath('wmoNo')[0].text
+
+        insert_stations_dict(stations_dict,
+                        amsl,
+                        department,
+                        fromDay,
+                        fromMonth,
+                        fromYear,
+                        latDec,
+                        latLonFmt,
+                        lonDec,
+                        municipalityNo,
+                        name,
+                        stnr,
+                        toDay,
+                        toMonth,
+                        toYear,
+                        utm_e,
+                        utm_n,
+                        utm_zone,
+                        wmoNo)
         #TODO: write new line to file
         #TODO: make sure Norwegian letters are correct
 
+    return stations_dict
 
 
+def insert_stations_dict(stations_dict,
+                        amsl,
+                        department,
+                        fromDay,
+                        fromMonth,
+                        fromYear,
+                        latDec,
+                        latLonFmt,
+                        lonDec,
+                        municipalityNo,
+                        name,
+                        stnr,
+                        toDay,
+                        toMonth,
+                        toYear,
+                        utm_e,
+                        utm_n,
+                        utm_zone,
+                        wmoNo):
+
+    stations_dict[stnr] = {}
+    stations_dict[stnr]['amsl'] = int(amsl)
+    stations_dict[stnr]['department'] = department
+    stations_dict[stnr]['fromDay'] = int(fromDay)
+    stations_dict[stnr]['fromMonth'] = int(fromMonth)
+    stations_dict[stnr]['fromYear'] = int(fromYear)
+    stations_dict[stnr]['latDec'] = float(latDec)
+    stations_dict[stnr]['latLonFmt'] = latLonFmt
+    stations_dict[stnr]['lonDec'] = float(lonDec)
+    stations_dict[stnr]['municipalityNo'] = int(municipalityNo)
+    stations_dict[stnr]['name'] = name
+    stations_dict[stnr]['stnr'] = int(stnr)
+    stations_dict[stnr]['toDay'] = int(toDay)
+    stations_dict[stnr]['toMonth'] = int(toMonth)
+    stations_dict[stnr]['toYear'] = int(toYear)
+    stations_dict[stnr]['utm_e'] = int(utm_e)
+    stations_dict[stnr]['utm_n'] = int(utm_n)
+    stations_dict[stnr]['utm_zone'] = int(utm_zone)
+    stations_dict[stnr]['wmoNo'] = int(wmoNo)
 
 if __name__ == "__main__":
     #hourly_rr_ta_uu_ff_dd_po()
-    crocus_station_list()
+    sd = crocus_station_list()
+    print sd['13655']
+    db = CrocusStationDB('./Test/Data/stations.db')
+    #db.create_station_db()
+    it = sd.itervalues()
+    print it
+    for s in it:
+        print s
+        db.insert_station(s)
+    db.close()
