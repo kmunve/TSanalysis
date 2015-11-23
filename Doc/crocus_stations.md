@@ -4,9 +4,14 @@
 
 The following tools are used to work with [eklima](www.eklima.no) stations.
 
-*crocus_stations.json* in folder *Test* contains a list of station-ids of the stations used for Crocus modelling available
-at [xgeo.no](www.xgeo.no).
- 
+### eklima_stations.json
+*eklima_stations.json* in folder *Test* contains a list of station-ids of the stations used for different purposes.
+
+*crocus_stations* is a list over stations where Crocus model results are available at [xgeo.no](www.xgeo.no).
+
+*third_party_stations* is a list over stations from available stations from neither MET, NVE, SVV or JBV.
+
+### stations.db 
 *stations.db* is a SQLite database where the properties of each Crocus station are stored.
 The table *stations* has the following fields:
 
