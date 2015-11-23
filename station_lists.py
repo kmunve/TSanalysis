@@ -1,14 +1,15 @@
 #!/usr/bin/env python
-"""
-Author. kmunve
+# -*- coding: utf-8 -*-
 
+"""
+Author: kmunve
 
 Todo:
 - make diff methods for different station list: all_input, all_but_rad, ta_uu_ff, rr_ta, ...
 - make list over radiation stations
 - export station list to Google kmz-file
 """
-from lxml import etree
+from __future__ import print_function
 from wsklima_requests import wsKlimaRequest
 import json
 from lxml import etree
@@ -18,7 +19,6 @@ def hourly_rr_ta_uu_ff_dd_po():
     
     wr = wsKlimaRequest('getStationsFromTimeserieTypeStationsElemCode', {'stations': [], 'timeserietypeID': 2, 'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF', 'DD', 'PO'], 'username': ""})
     rsp = wr.get()
-
 
     # Parse XML string
     root = etree.fromstring(rsp.content)
@@ -37,7 +37,7 @@ def hourly_rr_ta_uu_ff_dd_po():
             station_list.append(int(element.find('stnr').text))
             fid.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\n".format(element.find('wmoNo').text.encode('utf-8'), element.find('stnr').text, element.find('latDec').text, element.find('lonDec').text, element.find('amsl').text, element.find('name').text.encode('utf-8'), element.find('department').text.encode('utf-8')))
             
-    print "Found {0} stations.\nWritten to {1}".format(len(station_list), outfile)
+    print("Found {0} stations.\nWritten to {1}".format(len(station_list), outfile))
 
     fid.close()
 
@@ -165,12 +165,10 @@ def insert_stations_dict(stations_dict,
 if __name__ == "__main__":
     #hourly_rr_ta_uu_ff_dd_po()
     sd = crocus_station_list()
-    print sd['13655']
+    print(sd['13655'])
     db = CrocusStationDB('./Test/Data/stations.db')
     #db.create_station_db()
-    it = sd.itervalues()
-    print it
-    for s in it:
-        print s
+    for s in sd.itervalues():
+        print(s)
         db.insert_station(s)
     db.close()

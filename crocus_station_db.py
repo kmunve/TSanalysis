@@ -22,73 +22,86 @@ class CrocusStationDB:
         print("DB closed")
 
     def create_station_db(self):
-        # Init table
-        self.cursor.execute('''
-            CREATE TABLE stations(id INTEGER PRIMARY KEY AUTOINCREMENT,
-                stnr INTEGER unique,
-                name TEXT,
-                wmoNo INTEGER,
-                fromDay INTEGER,
-                fromMonth INTEGER,
-                fromYear INTEGER,
-                toDay INTEGER,
-                toMonth INTEGER,
-                toYear INTEGER,
-                latLonFmt TEXT,
-                latDec DOUBLE,
-                lonDec DOUBLE,
-                utm_e INTEGER,
-                utm_n INTEGER,
-                utm_zone INTEGER,
-                amsl INTEGER,
-                municipalityNo INTEGER,
-                department TEXT)
-                ''')
-        self.db.commit()
+        try:
+            # Init table
+            self.cursor.execute('''
+                CREATE TABLE stations(id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    stnr INTEGER unique,
+                    name TEXT,
+                    wmoNo INTEGER,
+                    fromDay INTEGER,
+                    fromMonth INTEGER,
+                    fromYear INTEGER,
+                    toDay INTEGER,
+                    toMonth INTEGER,
+                    toYear INTEGER,
+                    latLonFmt TEXT,
+                    latDec DOUBLE,
+                    lonDec DOUBLE,
+                    utm_e INTEGER,
+                    utm_n INTEGER,
+                    utm_zone INTEGER,
+                    amsl INTEGER,
+                    municipalityNo INTEGER,
+                    department TEXT)
+                    ''')
+            self.db.commit()
+        except Exception as e:
+            # Roll back any change if something goes wrong
+            self.db.rollback()
+            raise e
+        finally:
+            # Close the db connection
+            self.db.close()
 
     def insert_station(self, station):
-        '''
+        """
 
         :param station: dictionary containing the station properties
         :return: void
-        '''
-        self.cursor.execute('''INSERT INTO stations(amsl,
-                            department,
-                            fromDay,
-                            fromMonth,
-                            fromYear,
-                            latDec,
-                            latLonFmt,
-                            lonDec,
-                            municipalityNo,
-                            name,
-                            stnr,
-                            toDay,
-                            toMonth,
-                            toYear,
-                            utm_e,
-                            utm_n,
-                            utm_zone,
-                            wmoNo)
-                      VALUES(:amsl,
-                            :department,
-                            :fromDay,
-                            :fromMonth,
-                            :fromYear,
-                            :latDec,
-                            :latLonFmt,
-                            :lonDec,
-                            :municipalityNo,
-                            :name,
-                            :stnr,
-                            :toDay,
-                            :toMonth,
-                            :toYear,
-                            :utm_e,
-                            :utm_n,
-                            :utm_zone,
-                            :wmoNo)''', station)
-        self.db.commit()
+        """
+        try:
+            self.cursor.execute('''INSERT INTO stations(amsl,
+                                department,
+                                fromDay,
+                                fromMonth,
+                                fromYear,
+                                latDec,
+                                latLonFmt,
+                                lonDec,
+                                municipalityNo,
+                                name,
+                                stnr,
+                                toDay,
+                                toMonth,
+                                toYear,
+                                utm_e,
+                                utm_n,
+                                utm_zone,
+                                wmoNo)
+                          VALUES(:amsl,
+                                :department,
+                                :fromDay,
+                                :fromMonth,
+                                :fromYear,
+                                :latDec,
+                                :latLonFmt,
+                                :lonDec,
+                                :municipalityNo,
+                                :name,
+                                :stnr,
+                                :toDay,
+                                :toMonth,
+                                :toYear,
+                                :utm_e,
+                                :utm_n,
+                                :utm_zone,
+                                :wmoNo)''', station)
+            self.db.commit()
+        except sqlite3.IntegrityError as err:
+            # Roll back any change if something goes wrong
+            self.db.rollback()
+            print("WARNING:", err, "- ignoring station", station['stnr'])
 
 
 
