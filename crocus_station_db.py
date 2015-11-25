@@ -103,5 +103,18 @@ class CrocusStationDB:
             self.db.rollback()
             print("WARNING:", err, "- ignoring station", station['stnr'])
 
+    def get_all_stations(self):
+        """
+
+        :return:
+        """
+        try:
+            self.cursor.execute('''SELECT id, stnr, name, latDec, lonDec, utm_e, utm_n, amsl FROM stations''')
+            all_rows = self.cursor.fetchall()
+        except Exception as e:
+            raise e
+
+        return all_rows
+
 
 

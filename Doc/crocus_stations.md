@@ -2,6 +2,37 @@
 
 # Station list
 
+## Crocus modeled snow-profiles available on [xgeo.no](http://www.xgeo.no/?p=snoskred)
+
+**TODO**
+
+- Update station list on xgeo.no
+- revise naming on ftp.met.no
+- agree on Crocus version and OPTIONS.nam settings
+
+Check options:
+
+    &NAM_PGD_GRID          CGRID = 'LONLATVAL'
+    
+    &NAM_PREP_ISBA_SNOW    CSNOW = 'CRO',
+                           NSNOW_LAYER = 50,
+                           LSNOW_FRAC_TOT = T
+    &NAM_IO_OFFLINE        LPRINT  = T                       ,
+                           CFORCING_FILETYPE =    'NETCDF'   ,
+                           CSURF_FILETYPE =       'ASCII '   ,
+                           CTIMESERIES_FILETYPE = 'NETCDF'   ,
+                           LRESTART = T                      ,
+                           XTSTEP_OUTPUT = 21600.            ,
+                           XTSTEP_SURF = 900.
+                           
+    &NAM_CROCUSn
+                          LSNOWDRIFT= T,
+                          LSNOWDRIFT_SUBLIM= F,
+                          CSNOWMETAMO = 'C13'
+
+
+## Utilities
+
 The following tools are used to work with [eklima](www.eklima.no) stations.
 
 ### eklima_stations.json
@@ -44,4 +75,4 @@ The database is initiated and maintained within **crocus_station_db.py**, which 
 *wsklima* request. The returned dictionary can be inserted to *stations.db* with *CrocusStationDB.insert_station()*.
 
 
-# Hallo Dagrun
+

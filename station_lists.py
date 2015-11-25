@@ -8,6 +8,8 @@ Todo:
 - make diff methods for different station list: all_input, all_but_rad, ta_uu_ff, rr_ta, ...
 - make list over radiation stations
 - export station list to Google kmz-file
+
+TODO: move to folder util/eklima
 """
 from __future__ import print_function
 from wsklima_requests import wsKlimaRequest

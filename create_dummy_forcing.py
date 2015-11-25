@@ -15,8 +15,8 @@ __author__ = 'kmu'
 # Create artificial parameters
 
 # Create the time line
-t_start = datetime(2013, 9, 01, 02)
-t_stop = datetime(2014, 03, 31)
+t_start = datetime(2013, 9, 1, 2)
+t_stop = datetime(2014, 3, 31)
 dt = timedelta(hours=1)
 t_units = 'hours since 2013-09-01 02:00:00'
 time_arr = np.arange(t_start, t_stop, dt)
@@ -27,8 +27,8 @@ n_arr = np.arange(n, dtype=float)
 
 mask1 = np.where(time_arr < datetime(2013, 10, 31)) #accumulate
 mask2 = np.where(time_arr >= datetime(2013, 10, 31))#melt
-mask3 = np.where((time_arr >= datetime(2013, 12, 01)) & ((time_arr <= datetime(2013, 12, 03))))
-mask4 = np.where((time_arr >= datetime(2013, 9, 05)) & ((time_arr <= datetime(2013, 9, 10))))
+mask3 = np.where((time_arr >= datetime(2013, 12, 1)) & ((time_arr <= datetime(2013, 12, 3))))
+mask4 = np.where((time_arr >= datetime(2013, 9, 5)) & ((time_arr <= datetime(2013, 9, 10))))
 mask5 = np.where(((time_arr >= datetime(2013, 9, 5)) & (time_arr <= datetime(2013, 9, 10))) | ((time_arr >= datetime(2013, 11, 1)) & (time_arr <= datetime(2013, 11, 5))))
 '''
 tair = np.zeros_like(time_arr, dtype=float)
