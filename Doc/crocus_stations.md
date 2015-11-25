@@ -42,3 +42,6 @@ The database is initiated and maintained within **crocus_station_db.py**, which 
 
 *crocus_station_list()*  reads the station-ids in *crocus_stations.json* and retreives the station properties by a 
 *wsklima* request. The returned dictionary can be inserted to *stations.db* with *CrocusStationDB.insert_station()*.
+
+
+# Hallo Dagrun
