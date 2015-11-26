@@ -47,7 +47,6 @@ def hourly_rr_ta_uu_ff_dd_po():
 def crocus_station_list():
     stat = json.load(open('Test/Data/crocus_stations.json', 'r'))
     station_list = stat['crocus_stations']
-    print(station_list)
 
     wr = wsKlimaRequest('getStationsProperties', {'stations': station_list, 'username': ''})
     rsp = wr.get()
@@ -118,8 +117,6 @@ def crocus_station_list():
                         utm_n,
                         utm_zone,
                         wmoNo)
-        #TODO: write new line to file
-        #TODO: make sure Norwegian letters are correct
 
     return stations_dict
 

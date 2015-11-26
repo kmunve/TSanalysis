@@ -2,7 +2,7 @@
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <SOAP-ENV:Body>
 <ns1:getStationsPropertiesResponse xmlns:ns1="http://no/met/metdata/MetService.wsdl" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-<return xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="ns2:Array" xmlns:ns3="http://no.met.metdata/IMetService.xsd" ns2:arrayType="ns3:no_met_metdata_StationProperties[2925]">
+<return xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="ns2:Array" xmlns:ns3="http://no.met.metdata/IMetService.xsd" ns2:arrayType="ns3:no_met_metdata_StationProperties[2937]">
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">564</amsl>
 <department xsi:type="xsd:string">HEDMARK</department>
@@ -909,17 +909,17 @@
 <fromDay xsi:type="xsd:int">28</fromDay>
 <fromMonth xsi:type="xsd:int">11</fromMonth>
 <fromYear xsi:type="xsd:int">2007</fromYear>
-<latDec xsi:type="xsd:double">59.9122</latDec>
+<latDec xsi:type="xsd:double">59.9119</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">11.58</lonDec>
+<lonDec xsi:type="xsd:double">11.5801</lonDec>
 <municipalityNo xsi:type="xsd:int">221</municipalityNo>
 <name xsi:type="xsd:string">AURSKOG II</name>
 <stnr xsi:type="xsd:int">2650</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">308792</utm_e>
-<utm_n xsi:type="xsd:int">6646573</utm_n>
+<utm_e xsi:type="xsd:int">308795</utm_e>
+<utm_n xsi:type="xsd:int">6646539</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1484</wmoNo>
 </item>
@@ -1926,8 +1926,8 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">227</amsl>
 <department xsi:type="xsd:string">AKERSHUS</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
+<fromDay xsi:type="xsd:int">16</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
 <fromYear xsi:type="xsd:int">2014</fromYear>
 <latDec xsi:type="xsd:double">59.914</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
@@ -1966,8 +1966,8 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">231</amsl>
 <department xsi:type="xsd:string">AKERSHUS</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
+<fromDay xsi:type="xsd:int">12</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
 <fromYear xsi:type="xsd:int">2014</fromYear>
 <latDec xsi:type="xsd:double">59.946</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
@@ -2586,8 +2586,8 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">202</amsl>
 <department xsi:type="xsd:string">AKERSHUS</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">4</fromMonth>
+<fromDay xsi:type="xsd:int">13</fromDay>
+<fromMonth xsi:type="xsd:int">5</fromMonth>
 <fromYear xsi:type="xsd:int">1940</fromYear>
 <latDec xsi:type="xsd:double">60.2065</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
@@ -2749,17 +2749,17 @@
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">6</fromMonth>
 <fromYear xsi:type="xsd:int">1958</fromYear>
-<latDec xsi:type="xsd:double">60.0667</latDec>
+<latDec xsi:type="xsd:double">60.0592</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">11.2667</lonDec>
+<lonDec xsi:type="xsd:double">11.2695</lonDec>
 <municipalityNo xsi:type="xsd:int">226</municipalityNo>
 <name xsi:type="xsd:string">EGNERFJELL</name>
 <stnr xsi:type="xsd:int">4870</stnr>
 <toDay xsi:type="xsd:int">1</toDay>
 <toMonth xsi:type="xsd:int">11</toMonth>
 <toYear xsi:type="xsd:int">1988</toYear>
-<utm_e xsi:type="xsd:int">292258</utm_e>
-<utm_n xsi:type="xsd:int">6664708</utm_n>
+<utm_e xsi:type="xsd:int">292367</utm_e>
+<utm_n xsi:type="xsd:int">6663865</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -6355,9 +6355,9 @@
 <municipalityNo xsi:type="xsd:int">412</municipalityNo>
 <name xsi:type="xsd:string">MESNA - TYRIA</name>
 <stnr xsi:type="xsd:int">12800</stnr>
-<toDay xsi:type="xsd:int">0</toDay>
-<toMonth xsi:type="xsd:int">0</toMonth>
-<toYear xsi:type="xsd:int">0</toYear>
+<toDay xsi:type="xsd:int">7</toDay>
+<toMonth xsi:type="xsd:int">10</toMonth>
+<toYear xsi:type="xsd:int">2015</toYear>
 <utm_e xsi:type="xsd:int">266802</utm_e>
 <utm_n xsi:type="xsd:int">6783171</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
@@ -7006,9 +7006,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">1088</amsl>
 <department xsi:type="xsd:string">OPPLAND</department>
-<fromDay xsi:type="xsd:int">24</fromDay>
-<fromMonth xsi:type="xsd:int">12</fromMonth>
-<fromYear xsi:type="xsd:int">2004</fromYear>
+<fromDay xsi:type="xsd:int">19</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">1996</fromYear>
 <latDec xsi:type="xsd:double">61.4183</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">8.8945</lonDec>
@@ -8747,7 +8747,7 @@
 <amsl xsi:type="xsd:int">40</amsl>
 <department xsi:type="xsd:string">ØSTFOLD</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
 <fromYear xsi:type="xsd:int">1955</fromYear>
 <latDec xsi:type="xsd:double">59.3742</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
@@ -9269,17 +9269,17 @@
 <fromDay xsi:type="xsd:int">19</fromDay>
 <fromMonth xsi:type="xsd:int">4</fromMonth>
 <fromYear xsi:type="xsd:int">1974</fromYear>
-<latDec xsi:type="xsd:double">59.6667</latDec>
+<latDec xsi:type="xsd:double">59.6703</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">10.8</lonDec>
+<lonDec xsi:type="xsd:double">10.8107</lonDec>
 <municipalityNo xsi:type="xsd:int">214</municipalityNo>
 <name xsi:type="xsd:string">ÅS - RUSTADSKOGEN</name>
 <stnr xsi:type="xsd:int">17870</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">263485</utm_e>
-<utm_n xsi:type="xsd:int">6621780</utm_n>
+<utm_e xsi:type="xsd:int">264113</utm_e>
+<utm_n xsi:type="xsd:int">6622143</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -9566,9 +9566,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">123</amsl>
 <department xsi:type="xsd:string">OSLO</department>
-<fromDay xsi:type="xsd:int">16</fromDay>
+<fromDay xsi:type="xsd:int">13</fromDay>
 <fromMonth xsi:type="xsd:int">4</fromMonth>
-<fromYear xsi:type="xsd:int">2012</fromYear>
+<fromYear xsi:type="xsd:int">2013</fromYear>
 <latDec xsi:type="xsd:double">59.8955</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.8368</lonDec>
@@ -9808,7 +9808,7 @@
 <department xsi:type="xsd:string">OSLO</department>
 <fromDay xsi:type="xsd:int">30</fromDay>
 <fromMonth xsi:type="xsd:int">5</fromMonth>
-<fromYear xsi:type="xsd:int">2012</fromYear>
+<fromYear xsi:type="xsd:int">2013</fromYear>
 <latDec xsi:type="xsd:double">59.942</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.8972</lonDec>
@@ -9866,8 +9866,8 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">181</amsl>
 <department xsi:type="xsd:string">OSLO</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">6</fromMonth>
+<fromDay xsi:type="xsd:int">30</fromDay>
+<fromMonth xsi:type="xsd:int">5</fromMonth>
 <fromYear xsi:type="xsd:int">2013</fromYear>
 <latDec xsi:type="xsd:double">59.9468</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
@@ -10246,9 +10246,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">25</amsl>
 <department xsi:type="xsd:string">OSLO</department>
-<fromDay xsi:type="xsd:int">2</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2014</fromYear>
+<fromDay xsi:type="xsd:int">30</fromDay>
+<fromMonth xsi:type="xsd:int">12</fromMonth>
+<fromYear xsi:type="xsd:int">2013</fromYear>
 <latDec xsi:type="xsd:double">59.9142</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.7202</lonDec>
@@ -13509,17 +13509,17 @@
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">1</fromMonth>
 <fromYear xsi:type="xsd:int">1895</fromYear>
-<latDec xsi:type="xsd:double">60.9333</latDec>
+<latDec xsi:type="xsd:double">60.9338</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">8.2</lonDec>
+<lonDec xsi:type="xsd:double">8.1932</lonDec>
 <municipalityNo xsi:type="xsd:int">618</municipalityNo>
 <name xsi:type="xsd:string">BJØBERG</name>
 <stnr xsi:type="xsd:int">25160</stnr>
-<toDay xsi:type="xsd:int">1</toDay>
-<toMonth xsi:type="xsd:int">8</toMonth>
+<toDay xsi:type="xsd:int">23</toDay>
+<toMonth xsi:type="xsd:int">9</toMonth>
 <toYear xsi:type="xsd:int">1969</toYear>
-<utm_e xsi:type="xsd:int">131903</utm_e>
-<utm_n xsi:type="xsd:int">6774483</utm_n>
+<utm_e xsi:type="xsd:int">131542</utm_e>
+<utm_n xsi:type="xsd:int">6774577</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -14366,9 +14366,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">25</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
+<fromDay xsi:type="xsd:int">25</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
 <latDec xsi:type="xsd:double">59.7327</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.1973</lonDec>
@@ -14626,10 +14626,10 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">65</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
-<latDec xsi:type="xsd:double">59.7486</latDec>
+<fromDay xsi:type="xsd:int">25</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
+<latDec xsi:type="xsd:double">59.7487</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.2258</lonDec>
 <municipalityNo xsi:type="xsd:int">602</municipalityNo>
@@ -14638,8 +14638,8 @@
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">231841</utm_e>
-<utm_n xsi:type="xsd:int">6633073</utm_n>
+<utm_e xsi:type="xsd:int">231842</utm_e>
+<utm_n xsi:type="xsd:int">6633084</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -14666,30 +14666,30 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">15</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
+<fromDay xsi:type="xsd:int">14</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
 <latDec xsi:type="xsd:double">59.744</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">10.2119</lonDec>
+<lonDec xsi:type="xsd:double">10.2118</lonDec>
 <municipalityNo xsi:type="xsd:int">602</municipalityNo>
 <name xsi:type="xsd:string">DRAMMEN TINGHUS</name>
 <stnr xsi:type="xsd:int">26862</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">231022</utm_e>
-<utm_n xsi:type="xsd:int">6632618</utm_n>
+<utm_e xsi:type="xsd:int">231019</utm_e>
+<utm_n xsi:type="xsd:int">6632619</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">25</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
-<latDec xsi:type="xsd:double">59.7496</latDec>
+<fromDay xsi:type="xsd:int">14</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
+<latDec xsi:type="xsd:double">59.7497</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.195</lonDec>
 <municipalityNo xsi:type="xsd:int">602</municipalityNo>
@@ -14699,17 +14699,17 @@
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
 <utm_e xsi:type="xsd:int">230122</utm_e>
-<utm_n xsi:type="xsd:int">6633309</utm_n>
+<utm_n xsi:type="xsd:int">6633321</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">25</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
-<latDec xsi:type="xsd:double">59.7524</latDec>
+<fromDay xsi:type="xsd:int">25</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
+<latDec xsi:type="xsd:double">59.7523</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.1705</lonDec>
 <municipalityNo xsi:type="xsd:int">602</municipalityNo>
@@ -14718,8 +14718,8 @@
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">228770</utm_e>
-<utm_n xsi:type="xsd:int">6633721</utm_n>
+<utm_e xsi:type="xsd:int">228769</utm_e>
+<utm_n xsi:type="xsd:int">6633710</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -14746,10 +14746,10 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">15</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
-<latDec xsi:type="xsd:double">59.7539</latDec>
+<fromDay xsi:type="xsd:int">5</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
+<latDec xsi:type="xsd:double">59.7538</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.1382</lonDec>
 <municipalityNo xsi:type="xsd:int">602</municipalityNo>
@@ -14758,8 +14758,8 @@
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">226970</utm_e>
-<utm_n xsi:type="xsd:int">6634020</utm_n>
+<utm_e xsi:type="xsd:int">226969</utm_e>
+<utm_n xsi:type="xsd:int">6634009</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -14806,9 +14806,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">5</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
+<fromDay xsi:type="xsd:int">25</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
 <latDec xsi:type="xsd:double">59.7112</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.2688</lonDec>
@@ -14818,8 +14818,8 @@
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">233958</utm_e>
-<utm_n xsi:type="xsd:int">6628737</utm_n>
+<utm_e xsi:type="xsd:int">233957</utm_e>
+<utm_n xsi:type="xsd:int">6628742</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -14926,20 +14926,20 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">230</amsl>
 <department xsi:type="xsd:string">BUSKERUD</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
-<fromYear xsi:type="xsd:int">2013</fromYear>
+<fromDay xsi:type="xsd:int">13</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2012</fromYear>
 <latDec xsi:type="xsd:double">59.7192</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">10.1459</lonDec>
+<lonDec xsi:type="xsd:double">10.1458</lonDec>
 <municipalityNo xsi:type="xsd:int">602</municipalityNo>
 <name xsi:type="xsd:string">DRAMMEN - JARLSBERGVEIEN</name>
 <stnr xsi:type="xsd:int">27015</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">227120</utm_e>
-<utm_n xsi:type="xsd:int">6630132</utm_n>
+<utm_e xsi:type="xsd:int">227114</utm_e>
+<utm_n xsi:type="xsd:int">6630131</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -15084,6 +15084,26 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">70</amsl>
+<department xsi:type="xsd:string">VESTFOLD</department>
+<fromDay xsi:type="xsd:int">1</fromDay>
+<fromMonth xsi:type="xsd:int">7</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">59.4283</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">10.3847</lonDec>
+<municipalityNo xsi:type="xsd:int">701</municipalityNo>
+<name xsi:type="xsd:string">HORTEN - NYKIRKE</name>
+<stnr xsi:type="xsd:int">27120</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">238278</utm_e>
+<utm_n xsi:type="xsd:int">6596828</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">12</amsl>
 <department xsi:type="xsd:string">VESTFOLD</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
@@ -15126,14 +15146,14 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">95</amsl>
 <department xsi:type="xsd:string">VESTFOLD</department>
-<fromDay xsi:type="xsd:int">22</fromDay>
+<fromDay xsi:type="xsd:int">24</fromDay>
 <fromMonth xsi:type="xsd:int">4</fromMonth>
 <fromYear xsi:type="xsd:int">2015</fromYear>
 <latDec xsi:type="xsd:double">59.4198</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.4647</lonDec>
 <municipalityNo xsi:type="xsd:int">701</municipalityNo>
-<name xsi:type="xsd:string">HORTEN</name>
+<name xsi:type="xsd:string">HORTEN II</name>
 <stnr xsi:type="xsd:int">27160</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
@@ -15533,7 +15553,7 @@
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">10.408</lonDec>
 <municipalityNo xsi:type="xsd:int">722</municipalityNo>
-<name xsi:type="xsd:string">NØTTERØY</name>
+<name xsi:type="xsd:string">NØTTERØY - BORGHEIM</name>
 <stnr xsi:type="xsd:int">27460</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
@@ -16744,22 +16764,42 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">10</amsl>
+<amsl xsi:type="xsd:int">3</amsl>
 <department xsi:type="xsd:string">TELEMARK</department>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">59.05</latDec>
+<fromDay xsi:type="xsd:int">31</fromDay>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">59.0537</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">9.7</lonDec>
+<lonDec xsi:type="xsd:double">9.7014</lonDec>
 <municipalityNo xsi:type="xsd:int">805</municipalityNo>
 <name xsi:type="xsd:string">BREVIK</name>
 <stnr xsi:type="xsd:int">30248</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">196149</utm_e>
-<utm_n xsi:type="xsd:int">6557685</utm_n>
+<utm_e xsi:type="xsd:int">196262</utm_e>
+<utm_n xsi:type="xsd:int">6558090</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">5</amsl>
+<department xsi:type="xsd:string">TELEMARK</department>
+<fromDay xsi:type="xsd:int">18</fromDay>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">59.0875</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">9.802</lonDec>
+<municipalityNo xsi:type="xsd:int">805</municipalityNo>
+<name xsi:type="xsd:string">LANGANGEN</name>
+<stnr xsi:type="xsd:int">30249</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">202314</utm_e>
+<utm_n xsi:type="xsd:int">6561393</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -16804,6 +16844,26 @@
 <wmoNo xsi:type="xsd:int">1462</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">5</amsl>
+<department xsi:type="xsd:string">TELEMARK</department>
+<fromDay xsi:type="xsd:int">18</fromDay>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">59.1206</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">9.6495</lonDec>
+<municipalityNo xsi:type="xsd:int">805</municipalityNo>
+<name xsi:type="xsd:string">PORSGRUNN - KLEVSTRAND</name>
+<stnr xsi:type="xsd:int">30258</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">193888</utm_e>
+<utm_n xsi:type="xsd:int">6565756</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">12</amsl>
 <department xsi:type="xsd:string">TELEMARK</department>
 <fromDay xsi:type="xsd:int">22</fromDay>
@@ -16824,42 +16884,42 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">20</amsl>
+<amsl xsi:type="xsd:int">10</amsl>
 <department xsi:type="xsd:string">TELEMARK</department>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">59.13</latDec>
+<fromDay xsi:type="xsd:int">18</fromDay>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">59.1353</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">9.65</lonDec>
+<lonDec xsi:type="xsd:double">9.6385</lonDec>
 <municipalityNo xsi:type="xsd:int">805</municipalityNo>
 <name xsi:type="xsd:string">PORSGRUNN</name>
 <stnr xsi:type="xsd:int">30261</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">194001</utm_e>
-<utm_n xsi:type="xsd:int">6566804</utm_n>
+<utm_e xsi:type="xsd:int">193391</utm_e>
+<utm_n xsi:type="xsd:int">6567446</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">10</amsl>
+<amsl xsi:type="xsd:int">4</amsl>
 <department xsi:type="xsd:string">TELEMARK</department>
 <fromDay xsi:type="xsd:int">30</fromDay>
 <fromMonth xsi:type="xsd:int">10</fromMonth>
 <fromYear xsi:type="xsd:int">1973</fromYear>
-<latDec xsi:type="xsd:double">59.141</latDec>
+<latDec xsi:type="xsd:double">59.1405</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">9.678</lonDec>
+<lonDec xsi:type="xsd:double">9.6663</lonDec>
 <municipalityNo xsi:type="xsd:int">805</municipalityNo>
-<name xsi:type="xsd:string">PORSGRUNN - SANNA</name>
+<name xsi:type="xsd:string">PORSGRUNN - KJØLNES</name>
 <stnr xsi:type="xsd:int">30270</stnr>
-<toDay xsi:type="xsd:int">14</toDay>
-<toMonth xsi:type="xsd:int">10</toMonth>
-<toYear xsi:type="xsd:int">1992</toYear>
-<utm_e xsi:type="xsd:int">195698</utm_e>
-<utm_n xsi:type="xsd:int">6567898</utm_n>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">195025</utm_e>
+<utm_n xsi:type="xsd:int">6567896</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -17295,9 +17355,9 @@
 <municipalityNo xsi:type="xsd:int">807</municipalityNo>
 <name xsi:type="xsd:string">TINNOSDAMMEN</name>
 <stnr xsi:type="xsd:int">30810</stnr>
-<toDay xsi:type="xsd:int">4</toDay>
-<toMonth xsi:type="xsd:int">1</toMonth>
-<toYear xsi:type="xsd:int">2003</toYear>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
 <utm_e xsi:type="xsd:int">164226</utm_e>
 <utm_n xsi:type="xsd:int">6635794</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
@@ -17340,6 +17400,26 @@
 <toYear xsi:type="xsd:int">2002</toYear>
 <utm_e xsi:type="xsd:int">162938</utm_e>
 <utm_n xsi:type="xsd:int">6644813</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">240</amsl>
+<department xsi:type="xsd:string">TELEMARK</department>
+<fromDay xsi:type="xsd:int">3</fromDay>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">59.8103</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">8.9872</lonDec>
+<municipalityNo xsi:type="xsd:int">807</municipalityNo>
+<name xsi:type="xsd:string">BUSNES</name>
+<stnr xsi:type="xsd:int">30875</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">163008</utm_e>
+<utm_n xsi:type="xsd:int">6645590</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -17495,9 +17575,9 @@
 <municipalityNo xsi:type="xsd:int">826</municipalityNo>
 <name xsi:type="xsd:string">STRENGEN</name>
 <stnr xsi:type="xsd:int">31250</stnr>
-<toDay xsi:type="xsd:int">7</toDay>
-<toMonth xsi:type="xsd:int">11</toMonth>
-<toYear xsi:type="xsd:int">2001</toYear>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
 <utm_e xsi:type="xsd:int">130983</utm_e>
 <utm_n xsi:type="xsd:int">6669386</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
@@ -17664,22 +17744,22 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">917</amsl>
+<amsl xsi:type="xsd:int">895</amsl>
 <department xsi:type="xsd:string">TELEMARK</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">10</fromMonth>
 <fromYear xsi:type="xsd:int">1949</fromYear>
-<latDec xsi:type="xsd:double">59.826</latDec>
+<latDec xsi:type="xsd:double">59.8285</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">8.3182</lonDec>
+<lonDec xsi:type="xsd:double">8.323</lonDec>
 <municipalityNo xsi:type="xsd:int">834</municipalityNo>
-<name xsi:type="xsd:string">MØSVANNDAMMEN</name>
+<name xsi:type="xsd:string">MØSVASSDAMMEN</name>
 <stnr xsi:type="xsd:int">31550</stnr>
-<toDay xsi:type="xsd:int">1</toDay>
-<toMonth xsi:type="xsd:int">1</toMonth>
-<toYear xsi:type="xsd:int">1963</toYear>
-<utm_e xsi:type="xsd:int">125768</utm_e>
-<utm_n xsi:type="xsd:int">6650931</utm_n>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">126067</utm_e>
+<utm_n xsi:type="xsd:int">6651181</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -17840,6 +17920,26 @@
 <toYear xsi:type="xsd:int">1919</toYear>
 <utm_e xsi:type="xsd:int">103958</utm_e>
 <utm_n xsi:type="xsd:int">6676469</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">1260</amsl>
+<department xsi:type="xsd:string">HORDALAND</department>
+<fromDay xsi:type="xsd:int">3</fromDay>
+<fromMonth xsi:type="xsd:int">3</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">60.0825</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">7.4247</lonDec>
+<municipalityNo xsi:type="xsd:int">1231</municipalityNo>
+<name xsi:type="xsd:string">HANSBU</name>
+<stnr xsi:type="xsd:int">31680</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">79139</utm_e>
+<utm_n xsi:type="xsd:int">6684766</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -21104,22 +21204,22 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">190</amsl>
+<amsl xsi:type="xsd:int">220</amsl>
 <department xsi:type="xsd:string">AUST-AGDER</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">7</fromMonth>
 <fromYear xsi:type="xsd:int">1895</fromYear>
-<latDec xsi:type="xsd:double">58.7917</latDec>
+<latDec xsi:type="xsd:double">58.7938</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">8.2165</lonDec>
+<lonDec xsi:type="xsd:double">8.2295</lonDec>
 <municipalityNo xsi:type="xsd:int">929</municipalityNo>
 <name xsi:type="xsd:string">TOVDAL</name>
 <stnr xsi:type="xsd:int">38800</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">108346</utm_e>
-<utm_n xsi:type="xsd:int">6536724</utm_n>
+<utm_e xsi:type="xsd:int">109119</utm_e>
+<utm_n xsi:type="xsd:int">6536880</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -26804,22 +26904,22 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">51</amsl>
+<amsl xsi:type="xsd:int">75</amsl>
 <department xsi:type="xsd:string">HORDALAND</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">1</fromMonth>
 <fromYear xsi:type="xsd:int">1930</fromYear>
-<latDec xsi:type="xsd:double">59.991</latDec>
+<latDec xsi:type="xsd:double">59.9913</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">6.024</lonDec>
+<lonDec xsi:type="xsd:double">6.0263</lonDec>
 <municipalityNo xsi:type="xsd:int">1224</municipalityNo>
 <name xsi:type="xsd:string">ROSENDAL</name>
 <stnr xsi:type="xsd:int">48500</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">233</utm_e>
-<utm_n xsi:type="xsd:int">6684413</utm_n>
+<utm_e xsi:type="xsd:int">365</utm_e>
+<utm_n xsi:type="xsd:int">6684428</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -27024,6 +27124,26 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">1212</amsl>
+<department xsi:type="xsd:string">HORDALAND</department>
+<fromDay xsi:type="xsd:int">30</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">60.2263</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">6.4347</lonDec>
+<municipalityNo xsi:type="xsd:int">1227</municipalityNo>
+<name xsi:type="xsd:string">FOLGEFONNA SKISENTER</name>
+<stnr xsi:type="xsd:int">49085</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">26414</utm_e>
+<utm_n xsi:type="xsd:int">6707426</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">1390</amsl>
 <department xsi:type="xsd:string">HORDALAND</department>
 <fromDay xsi:type="xsd:int">27</fromDay>
@@ -27195,9 +27315,9 @@
 <municipalityNo xsi:type="xsd:int">1228</municipalityNo>
 <name xsi:type="xsd:string">TYSSEDAL IA</name>
 <stnr xsi:type="xsd:int">49351</stnr>
-<toDay xsi:type="xsd:int">20</toDay>
-<toMonth xsi:type="xsd:int">10</toMonth>
-<toYear xsi:type="xsd:int">2014</toYear>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
 <utm_e xsi:type="xsd:int">31616</utm_e>
 <utm_n xsi:type="xsd:int">6694983</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
@@ -28406,8 +28526,8 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">12</amsl>
 <department xsi:type="xsd:string">HORDALAND</department>
-<fromDay xsi:type="xsd:int">1</fromDay>
-<fromMonth xsi:type="xsd:int">1</fromMonth>
+<fromDay xsi:type="xsd:int">28</fromDay>
+<fromMonth xsi:type="xsd:int">11</fromMonth>
 <fromYear xsi:type="xsd:int">1949</fromYear>
 <latDec xsi:type="xsd:double">60.383</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
@@ -31609,17 +31729,17 @@
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">1</fromMonth>
 <fromYear xsi:type="xsd:int">1895</fromYear>
-<latDec xsi:type="xsd:double">61.5</latDec>
+<latDec xsi:type="xsd:double">61.5037</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">7.8333</lonDec>
+<lonDec xsi:type="xsd:double">7.8267</lonDec>
 <municipalityNo xsi:type="xsd:int">1426</municipalityNo>
 <name xsi:type="xsd:string">TURTAGRØ</name>
 <stnr xsi:type="xsd:int">55200</stnr>
 <toDay xsi:type="xsd:int">1</toDay>
 <toMonth xsi:type="xsd:int">1</toMonth>
 <toYear xsi:type="xsd:int">1958</toYear>
-<utm_e xsi:type="xsd:int">119034</utm_e>
-<utm_n xsi:type="xsd:int">6839460</utm_n>
+<utm_e xsi:type="xsd:int">118729</utm_e>
+<utm_n xsi:type="xsd:int">6839909</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -31840,6 +31960,26 @@
 <toYear xsi:type="xsd:int">1995</toYear>
 <utm_e xsi:type="xsd:int">89838</utm_e>
 <utm_n xsi:type="xsd:int">6845566</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">243</amsl>
+<department xsi:type="xsd:string">SOGN OG FJORDANE</department>
+<fromDay xsi:type="xsd:int">9</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">61.6517</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">7.2765</lonDec>
+<municipalityNo xsi:type="xsd:int">1426</municipalityNo>
+<name xsi:type="xsd:string">JOSTEDALEN - BREHEIMSENTERET</name>
+<stnr xsi:type="xsd:int">55420</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">91536</utm_e>
+<utm_n xsi:type="xsd:int">6859663</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -33084,22 +33224,22 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">329</amsl>
+<amsl xsi:type="xsd:int">315</amsl>
 <department xsi:type="xsd:string">SOGN OG FJORDANE</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">7</fromMonth>
 <fromYear xsi:type="xsd:int">1895</fromYear>
-<latDec xsi:type="xsd:double">61.419</latDec>
+<latDec xsi:type="xsd:double">61.4203</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">6.3722</lonDec>
+<lonDec xsi:type="xsd:double">6.3758</lonDec>
 <municipalityNo xsi:type="xsd:int">1432</municipalityNo>
 <name xsi:type="xsd:string">HAUKEDAL</name>
 <stnr xsi:type="xsd:int">56960</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">40465</utm_e>
-<utm_n xsi:type="xsd:int">6839926</utm_n>
+<utm_e xsi:type="xsd:int">40675</utm_e>
+<utm_n xsi:type="xsd:int">6840044</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -33360,6 +33500,26 @@
 <toYear xsi:type="xsd:int">1958</toYear>
 <utm_e xsi:type="xsd:int">25161</utm_e>
 <utm_n xsi:type="xsd:int">6850254</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">980</amsl>
+<department xsi:type="xsd:string">SOGN OG FJORDANE</department>
+<fromDay xsi:type="xsd:int">7</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">61.457</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">6.082</lonDec>
+<municipalityNo xsi:type="xsd:int">1431</municipalityNo>
+<name xsi:type="xsd:string">JØLSTER - KVAMSFJELLET</name>
+<stnr xsi:type="xsd:int">57340</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">25655</utm_e>
+<utm_n xsi:type="xsd:int">6846216</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -34602,6 +34762,26 @@
 <utm_n xsi:type="xsd:int">6898224</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1333</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">1020</amsl>
+<department xsi:type="xsd:string">SOGN OG FJORDANE</department>
+<fromDay xsi:type="xsd:int">7</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">61.8902</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">6.1065</lonDec>
+<municipalityNo xsi:type="xsd:int">1443</municipalityNo>
+<name xsi:type="xsd:string">TROLLEDALSEGGA</name>
+<stnr xsi:type="xsd:int">58860</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">33555</utm_e>
+<utm_n xsi:type="xsd:int">6893972</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">118</amsl>
@@ -36904,6 +37084,26 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">990</amsl>
+<department xsi:type="xsd:string">MØRE OG ROMSDAL</department>
+<fromDay xsi:type="xsd:int">2</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">62.93</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">7.925</lonDec>
+<municipalityNo xsi:type="xsd:int">1557</municipalityNo>
+<name xsi:type="xsd:string">GJEMNES - REINSFJELLET</name>
+<stnr xsi:type="xsd:int">62980</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">141311</utm_e>
+<utm_n xsi:type="xsd:int">6997545</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">47</amsl>
 <department xsi:type="xsd:string">MØRE OG ROMSDAL</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
@@ -37160,6 +37360,26 @@
 <toYear xsi:type="xsd:int">1911</toYear>
 <utm_e xsi:type="xsd:int">210013</utm_e>
 <utm_n xsi:type="xsd:int">6951870</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">1550</amsl>
+<department xsi:type="xsd:string">SØR-TRØNDELAG</department>
+<fromDay xsi:type="xsd:int">6</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">62.6352</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">9.392</lonDec>
+<municipalityNo xsi:type="xsd:int">1634</municipalityNo>
+<name xsi:type="xsd:string">TROLLHEIMEN - STORHORNET</name>
+<stnr xsi:type="xsd:int">63630</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">212667</utm_e>
+<utm_n xsi:type="xsd:int">6957448</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -40569,17 +40789,17 @@
 <fromDay xsi:type="xsd:int">17</fromDay>
 <fromMonth xsi:type="xsd:int">4</fromMonth>
 <fromYear xsi:type="xsd:int">1940</fromYear>
-<latDec xsi:type="xsd:double">63.4592</latDec>
+<latDec xsi:type="xsd:double">63.4596</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">10.9352</lonDec>
+<lonDec xsi:type="xsd:double">10.9305</lonDec>
 <municipalityNo xsi:type="xsd:int">1714</municipalityNo>
 <name xsi:type="xsd:string">VÆRNES</name>
 <stnr xsi:type="xsd:int">69100</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">297450</utm_e>
-<utm_n xsi:type="xsd:int">7043185</utm_n>
+<utm_e xsi:type="xsd:int">297219</utm_e>
+<utm_n xsi:type="xsd:int">7043244</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1271</wmoNo>
 </item>
@@ -42349,17 +42569,17 @@
 <fromDay xsi:type="xsd:int">29</fromDay>
 <fromMonth xsi:type="xsd:int">11</fromMonth>
 <fromYear xsi:type="xsd:int">2007</fromYear>
-<latDec xsi:type="xsd:double">63.9676</latDec>
+<latDec xsi:type="xsd:double">63.9678</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">10.2239</lonDec>
+<lonDec xsi:type="xsd:double">10.2237</lonDec>
 <municipalityNo xsi:type="xsd:int">1630</municipalityNo>
 <name xsi:type="xsd:string">ÅFJORD II</name>
 <stnr xsi:type="xsd:int">71780</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">266287</utm_e>
-<utm_n xsi:type="xsd:int">7102164</utm_n>
+<utm_e xsi:type="xsd:int">266279</utm_e>
+<utm_n xsi:type="xsd:int">7102187</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1242</wmoNo>
 </item>
@@ -43704,6 +43924,26 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">302</amsl>
+<department xsi:type="xsd:string">NORDLAND</department>
+<fromDay xsi:type="xsd:int">10</fromDay>
+<fromMonth xsi:type="xsd:int">2</fromMonth>
+<fromYear xsi:type="xsd:int">2014</fromYear>
+<latDec xsi:type="xsd:double">65.22</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">11.9927</lonDec>
+<municipalityNo xsi:type="xsd:int">1812</municipalityNo>
+<name xsi:type="xsd:string">SØMNA - KVALØYFJELLET</name>
+<stnr xsi:type="xsd:int">76240</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">359395</utm_e>
+<utm_n xsi:type="xsd:int">7236325</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">1136</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">19</amsl>
 <department xsi:type="xsd:string">NORDLAND</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
@@ -43969,17 +44209,17 @@
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">9</fromMonth>
 <fromYear xsi:type="xsd:int">1984</fromYear>
-<latDec xsi:type="xsd:double">65.826</latDec>
+<latDec xsi:type="xsd:double">65.8295</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">12.4313</lonDec>
+<lonDec xsi:type="xsd:double">12.4255</lonDec>
 <municipalityNo xsi:type="xsd:int">1820</municipalityNo>
 <name xsi:type="xsd:string">TJØTTA</name>
 <stnr xsi:type="xsd:int">76530</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">382648</utm_e>
-<utm_n xsi:type="xsd:int">7302916</utm_n>
+<utm_e xsi:type="xsd:int">382399</utm_e>
+<utm_n xsi:type="xsd:int">7303317</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1117</wmoNo>
 </item>
@@ -44904,6 +45144,26 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">46</amsl>
+<department xsi:type="xsd:string">BARENTSHAVET</department>
+<fromDay xsi:type="xsd:int">9</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">72.0158</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">20.0543</lonDec>
+<municipalityNo xsi:type="xsd:int">2500</municipalityNo>
+<name xsi:type="xsd:string">GOLIAT FPSO</name>
+<stnr xsi:type="xsd:int">76956</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">673994</utm_e>
+<utm_n xsi:type="xsd:int">7998000</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">-1</amsl>
 <department xsi:type="xsd:string">NORDSJØEN</department>
 <fromDay xsi:type="xsd:int">1</fromDay>
@@ -45421,6 +45681,26 @@
 <utm_e xsi:type="xsd:int">0</utm_e>
 <utm_n xsi:type="xsd:int">0</utm_n>
 <utm_zone xsi:type="xsd:int">0</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">30</amsl>
+<department xsi:type="xsd:string">NORDSJØEN</department>
+<fromDay xsi:type="xsd:int">7</fromDay>
+<fromMonth xsi:type="xsd:int">4</fromMonth>
+<fromYear xsi:type="xsd:int">2014</fromYear>
+<latDec xsi:type="xsd:double">58.8452</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">1.7437</lonDec>
+<municipalityNo xsi:type="xsd:int">2600</municipalityNo>
+<name xsi:type="xsd:string">GUDRUNFELTET</name>
+<stnr xsi:type="xsd:int">77041</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">-261804</utm_e>
+<utm_n xsi:type="xsd:int">6598753</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
@@ -46609,17 +46889,17 @@
 <fromDay xsi:type="xsd:int">15</fromDay>
 <fromMonth xsi:type="xsd:int">3</fromMonth>
 <fromYear xsi:type="xsd:int">2006</fromYear>
-<latDec xsi:type="xsd:double">66.1833</latDec>
+<latDec xsi:type="xsd:double">66.1657</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">14.5667</lonDec>
+<lonDec xsi:type="xsd:double">14.5837</lonDec>
 <municipalityNo xsi:type="xsd:int">1833</municipalityNo>
-<name xsi:type="xsd:string">UMBUKTA VEGSTASJON</name>
+<name xsi:type="xsd:string">E12 UMBUKTA</name>
 <stnr xsi:type="xsd:int">79253</stnr>
-<toDay xsi:type="xsd:int">1</toDay>
-<toMonth xsi:type="xsd:int">11</toMonth>
-<toYear xsi:type="xsd:int">2007</toYear>
-<utm_e xsi:type="xsd:int">480475</utm_e>
-<utm_n xsi:type="xsd:int">7340409</utm_n>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">481228</utm_e>
+<utm_n xsi:type="xsd:int">7338442</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -47509,19 +47789,19 @@
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">1</fromMonth>
 <fromYear xsi:type="xsd:int">1916</fromYear>
-<latDec xsi:type="xsd:double">66.81</latDec>
+<latDec xsi:type="xsd:double">66.8102</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">13.9813</lonDec>
+<lonDec xsi:type="xsd:double">13.9793</lonDec>
 <municipalityNo xsi:type="xsd:int">1837</municipalityNo>
 <name xsi:type="xsd:string">GLOMFJORD</name>
 <stnr xsi:type="xsd:int">80700</stnr>
-<toDay xsi:type="xsd:int">31</toDay>
-<toMonth xsi:type="xsd:int">3</toMonth>
-<toYear xsi:type="xsd:int">2010</toYear>
-<utm_e xsi:type="xsd:int">455237</utm_e>
-<utm_n xsi:type="xsd:int">7410565</utm_n>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">455150</utm_e>
+<utm_n xsi:type="xsd:int">7410589</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
-<wmoNo xsi:type="xsd:int">1113</wmoNo>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">520</amsl>
@@ -47700,6 +47980,26 @@
 <toYear xsi:type="xsd:int">2012</toYear>
 <utm_e xsi:type="xsd:int">463083</utm_e>
 <utm_n xsi:type="xsd:int">7428420</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">600</amsl>
+<department xsi:type="xsd:string">NORDLAND</department>
+<fromDay xsi:type="xsd:int">28</fromDay>
+<fromMonth xsi:type="xsd:int">8</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">67.093</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">14.1663</lonDec>
+<municipalityNo xsi:type="xsd:int">1838</municipalityNo>
+<name xsi:type="xsd:string">SANDHORNØYA - VÅTVIKFJELLET</name>
+<stnr xsi:type="xsd:int">80880</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">463788</utm_e>
+<utm_n xsi:type="xsd:int">7441990</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -49106,21 +49406,21 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">-1</amsl>
 <department xsi:type="xsd:string">NORDLAND</department>
-<fromDay xsi:type="xsd:int">15</fromDay>
-<fromMonth xsi:type="xsd:int">3</fromMonth>
-<fromYear xsi:type="xsd:int">2006</fromYear>
-<latDec xsi:type="xsd:double">67.753</latDec>
+<fromDay xsi:type="xsd:int">0</fromDay>
+<fromMonth xsi:type="xsd:int">0</fromMonth>
+<fromYear xsi:type="xsd:int">0</fromYear>
+<latDec xsi:type="xsd:double">-1.0</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">15.937</lonDec>
+<lonDec xsi:type="xsd:double">-1.0</lonDec>
 <municipalityNo xsi:type="xsd:int">1849</municipalityNo>
 <name xsi:type="xsd:string">KRÅKMOFJELLET VEGSTASJON</name>
 <stnr xsi:type="xsd:int">83503</stnr>
 <toDay xsi:type="xsd:int">1</toDay>
 <toMonth xsi:type="xsd:int">11</toMonth>
 <toYear xsi:type="xsd:int">2007</toYear>
-<utm_e xsi:type="xsd:int">539587</utm_e>
-<utm_n xsi:type="xsd:int">7515626</utm_n>
-<utm_zone xsi:type="xsd:int">33</utm_zone>
+<utm_e xsi:type="xsd:int">0</utm_e>
+<utm_n xsi:type="xsd:int">0</utm_n>
+<utm_zone xsi:type="xsd:int">0</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
@@ -49471,15 +49771,15 @@
 <fromYear xsi:type="xsd:int">2014</fromYear>
 <latDec xsi:type="xsd:double">68.1905</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">17.7892</lonDec>
+<lonDec xsi:type="xsd:double">17.7905</lonDec>
 <municipalityNo xsi:type="xsd:int">1805</municipalityNo>
 <name xsi:type="xsd:string">LOSISTUA</name>
 <stnr xsi:type="xsd:int">84210</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">615610</utm_e>
-<utm_n xsi:type="xsd:int">7566717</utm_n>
+<utm_e xsi:type="xsd:int">615663</utm_e>
+<utm_n xsi:type="xsd:int">7566719</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1091</wmoNo>
 </item>
@@ -50484,23 +50784,23 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">10</amsl>
+<amsl xsi:type="xsd:int">-1</amsl>
 <department xsi:type="xsd:string">NORDLAND</department>
-<fromDay xsi:type="xsd:int">15</fromDay>
-<fromMonth xsi:type="xsd:int">3</fromMonth>
-<fromYear xsi:type="xsd:int">2006</fromYear>
-<latDec xsi:type="xsd:double">67.9453</latDec>
+<fromDay xsi:type="xsd:int">0</fromDay>
+<fromMonth xsi:type="xsd:int">0</fromMonth>
+<fromYear xsi:type="xsd:int">0</fromYear>
+<latDec xsi:type="xsd:double">-1.0</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">13.1292</lonDec>
+<lonDec xsi:type="xsd:double">-1.0</lonDec>
 <municipalityNo xsi:type="xsd:int">1874</municipalityNo>
 <name xsi:type="xsd:string">HAMNØY</name>
 <stnr xsi:type="xsd:int">85653</stnr>
 <toDay xsi:type="xsd:int">31</toDay>
 <toMonth xsi:type="xsd:int">12</toMonth>
 <toYear xsi:type="xsd:int">2007</toYear>
-<utm_e xsi:type="xsd:int">421617</utm_e>
-<utm_n xsi:type="xsd:int">7537952</utm_n>
-<utm_zone xsi:type="xsd:int">33</utm_zone>
+<utm_e xsi:type="xsd:int">0</utm_e>
+<utm_n xsi:type="xsd:int">0</utm_n>
+<utm_zone xsi:type="xsd:int">0</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
@@ -50949,17 +51249,17 @@
 <fromDay xsi:type="xsd:int">1</fromDay>
 <fromMonth xsi:type="xsd:int">1</fromMonth>
 <fromYear xsi:type="xsd:int">1956</fromYear>
-<latDec xsi:type="xsd:double">68.6483</latDec>
+<latDec xsi:type="xsd:double">68.6372</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">15.2828</lonDec>
+<lonDec xsi:type="xsd:double">15.2517</lonDec>
 <municipalityNo xsi:type="xsd:int">1870</municipalityNo>
 <name xsi:type="xsd:string">SORTLAND - KLEIVA</name>
 <stnr xsi:type="xsd:int">86520</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">511491</utm_e>
-<utm_n xsi:type="xsd:int">7615173</utm_n>
+<utm_e xsi:type="xsd:int">510232</utm_e>
+<utm_n xsi:type="xsd:int">7613930</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -51640,6 +51940,26 @@
 <toYear xsi:type="xsd:int">1916</toYear>
 <utm_e xsi:type="xsd:int">555133</utm_e>
 <utm_n xsi:type="xsd:int">7614327</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">1095</amsl>
+<department xsi:type="xsd:string">TROMS</department>
+<fromDay xsi:type="xsd:int">8</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">68.5863</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">16.3608</lonDec>
+<municipalityNo xsi:type="xsd:int">1903</municipalityNo>
+<name xsi:type="xsd:string">SÆTERTINDEN VED TJELDSUNDET</name>
+<stnr xsi:type="xsd:int">87772</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">555442</utm_e>
+<utm_n xsi:type="xsd:int">7608847</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -52802,6 +53122,26 @@
 <utm_n xsi:type="xsd:int">7695990</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1024</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">124</amsl>
+<department xsi:type="xsd:string">TROMS</department>
+<fromDay xsi:type="xsd:int">2</fromDay>
+<fromMonth xsi:type="xsd:int">10</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">69.414</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">18.6773</lonDec>
+<municipalityNo xsi:type="xsd:int">1933</municipalityNo>
+<name xsi:type="xsd:string">MALANGEN - PÅLFINNMOEN</name>
+<stnr xsi:type="xsd:int">90100</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">644226</utm_e>
+<utm_n xsi:type="xsd:int">7704861</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">19</amsl>
@@ -54324,66 +54664,6 @@
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">930</amsl>
-<department xsi:type="xsd:string" xsi:nil="true"/>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">-79.0</latDec>
-<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">-28.1</lonDec>
-<municipalityNo xsi:type="xsd:int">-1</municipalityNo>
-<name xsi:type="xsd:string">THERON MOUNTAINS</name>
-<stnr xsi:type="xsd:int">92114</stnr>
-<toDay xsi:type="xsd:int">31</toDay>
-<toMonth xsi:type="xsd:int">12</toMonth>
-<toYear xsi:type="xsd:int">1993</toYear>
-<utm_e xsi:type="xsd:int">0</utm_e>
-<utm_n xsi:type="xsd:int">0</utm_n>
-<utm_zone xsi:type="xsd:int">0</utm_zone>
-<wmoNo xsi:type="xsd:int">0</wmoNo>
-</item>
-<item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">547</amsl>
-<department xsi:type="xsd:string" xsi:nil="true"/>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">-78.5833</latDec>
-<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">-34.0</lonDec>
-<municipalityNo xsi:type="xsd:int">-1</municipalityNo>
-<name xsi:type="xsd:string">NEW HAVEN</name>
-<stnr xsi:type="xsd:int">92117</stnr>
-<toDay xsi:type="xsd:int">31</toDay>
-<toMonth xsi:type="xsd:int">12</toMonth>
-<toYear xsi:type="xsd:int">1993</toYear>
-<utm_e xsi:type="xsd:int">0</utm_e>
-<utm_n xsi:type="xsd:int">0</utm_n>
-<utm_zone xsi:type="xsd:int">0</utm_zone>
-<wmoNo xsi:type="xsd:int">0</wmoNo>
-</item>
-<item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">375</amsl>
-<department xsi:type="xsd:string" xsi:nil="true"/>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">-77.512</latDec>
-<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">-34.2103</lonDec>
-<municipalityNo xsi:type="xsd:int">-1</municipalityNo>
-<name xsi:type="xsd:string">BLÅENGA</name>
-<stnr xsi:type="xsd:int">92120</stnr>
-<toDay xsi:type="xsd:int">2</toDay>
-<toMonth xsi:type="xsd:int">1</toMonth>
-<toYear xsi:type="xsd:int">1994</toYear>
-<utm_e xsi:type="xsd:int">0</utm_e>
-<utm_n xsi:type="xsd:int">0</utm_n>
-<utm_zone xsi:type="xsd:int">0</utm_zone>
-<wmoNo xsi:type="xsd:int">0</wmoNo>
-</item>
-<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">110</amsl>
 <department xsi:type="xsd:string" xsi:nil="true"/>
 <fromDay xsi:type="xsd:int">0</fromDay>
@@ -54600,6 +54880,26 @@
 <toYear xsi:type="xsd:int">0</toYear>
 <utm_e xsi:type="xsd:int">753175</utm_e>
 <utm_n xsi:type="xsd:int">7804500</utm_n>
+<utm_zone xsi:type="xsd:int">33</utm_zone>
+<wmoNo xsi:type="xsd:int">0</wmoNo>
+</item>
+<item xsi:type="ns3:no_met_metdata_StationProperties">
+<amsl xsi:type="xsd:int">27</amsl>
+<department xsi:type="xsd:string">FINNMARK</department>
+<fromDay xsi:type="xsd:int">24</fromDay>
+<fromMonth xsi:type="xsd:int">9</fromMonth>
+<fromYear xsi:type="xsd:int">2015</fromYear>
+<latDec xsi:type="xsd:double">70.2368</latDec>
+<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
+<lonDec xsi:type="xsd:double">22.0705</lonDec>
+<municipalityNo xsi:type="xsd:int">2014</municipalityNo>
+<name xsi:type="xsd:string">NUVSVÅG</name>
+<stnr xsi:type="xsd:int">92650</stnr>
+<toDay xsi:type="xsd:int">0</toDay>
+<toMonth xsi:type="xsd:int">0</toMonth>
+<toYear xsi:type="xsd:int">0</toYear>
+<utm_e xsi:type="xsd:int">766303</utm_e>
+<utm_n xsi:type="xsd:int">7807768</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
@@ -56789,17 +57089,17 @@
 <fromDay xsi:type="xsd:int">15</fromDay>
 <fromMonth xsi:type="xsd:int">9</fromMonth>
 <fromYear xsi:type="xsd:int">2014</fromYear>
-<latDec xsi:type="xsd:double">69.3</latDec>
+<latDec xsi:type="xsd:double">69.3003</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">25.3463</lonDec>
+<lonDec xsi:type="xsd:double">25.346</lonDec>
 <municipalityNo xsi:type="xsd:int">2021</municipalityNo>
 <name xsi:type="xsd:string">ISKORAS II</name>
 <stnr xsi:type="xsd:int">97710</stnr>
 <toDay xsi:type="xsd:int">0</toDay>
 <toMonth xsi:type="xsd:int">0</toMonth>
 <toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">906479</utm_e>
-<utm_n xsi:type="xsd:int">7722262</utm_n>
+<utm_e xsi:type="xsd:int">906462</utm_e>
+<utm_n xsi:type="xsd:int">7722293</utm_n>
 <utm_zone xsi:type="xsd:int">33</utm_zone>
 <wmoNo xsi:type="xsd:int">1064</wmoNo>
 </item>
@@ -57526,9 +57826,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">27</amsl>
 <department xsi:type="xsd:string">FINNMARK</department>
-<fromDay xsi:type="xsd:int">26</fromDay>
-<fromMonth xsi:type="xsd:int">5</fromMonth>
-<fromYear xsi:type="xsd:int">2009</fromYear>
+<fromDay xsi:type="xsd:int">1</fromDay>
+<fromMonth xsi:type="xsd:int">1</fromMonth>
+<fromYear xsi:type="xsd:int">1973</fromYear>
 <latDec xsi:type="xsd:double">69.4552</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">30.041</lonDec>
@@ -58126,9 +58426,9 @@
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">42</amsl>
 <department xsi:type="xsd:string">SVALBARD</department>
-<fromDay xsi:type="xsd:int">28</fromDay>
-<fromMonth xsi:type="xsd:int">8</fromMonth>
-<fromYear xsi:type="xsd:int">1951</fromYear>
+<fromDay xsi:type="xsd:int">1</fromDay>
+<fromMonth xsi:type="xsd:int">11</fromMonth>
+<fromYear xsi:type="xsd:int">1950</fromYear>
 <latDec xsi:type="xsd:double">78.925</latDec>
 <latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
 <lonDec xsi:type="xsd:double">11.93</lonDec>
@@ -58364,46 +58664,6 @@
 <wmoNo xsi:type="xsd:int">1001</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">24</amsl>
-<department xsi:type="xsd:string" xsi:nil="true"/>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">60.0053</latDec>
-<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">-43.0018</lonDec>
-<municipalityNo xsi:type="xsd:int">-1</municipalityNo>
-<name xsi:type="xsd:string">TORGILSBU</name>
-<stnr xsi:type="xsd:int">99960</stnr>
-<toDay xsi:type="xsd:int">1</toDay>
-<toMonth xsi:type="xsd:int">1</toMonth>
-<toYear xsi:type="xsd:int">1940</toYear>
-<utm_e xsi:type="xsd:int">0</utm_e>
-<utm_n xsi:type="xsd:int">0</utm_n>
-<utm_zone xsi:type="xsd:int">0</utm_zone>
-<wmoNo xsi:type="xsd:int">0</wmoNo>
-</item>
-<item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">3</amsl>
-<department xsi:type="xsd:string" xsi:nil="true"/>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">73.4856</latDec>
-<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">-21.56</lonDec>
-<municipalityNo xsi:type="xsd:int">-1</municipalityNo>
-<name xsi:type="xsd:string">MYGGBUKTA</name>
-<stnr xsi:type="xsd:int">99970</stnr>
-<toDay xsi:type="xsd:int">1</toDay>
-<toMonth xsi:type="xsd:int">6</toMonth>
-<toYear xsi:type="xsd:int">1959</toYear>
-<utm_e xsi:type="xsd:int">0</utm_e>
-<utm_n xsi:type="xsd:int">0</utm_n>
-<utm_zone xsi:type="xsd:int">0</utm_zone>
-<wmoNo xsi:type="xsd:int">0</wmoNo>
-</item>
-<item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">-1</amsl>
 <department xsi:type="xsd:string" xsi:nil="true"/>
 <fromDay xsi:type="xsd:int">0</fromDay>
@@ -58442,26 +58702,6 @@
 <utm_n xsi:type="xsd:int">0</utm_n>
 <utm_zone xsi:type="xsd:int">0</utm_zone>
 <wmoNo xsi:type="xsd:int">0</wmoNo>
-</item>
-<item xsi:type="ns3:no_met_metdata_StationProperties">
-<amsl xsi:type="xsd:int">1277</amsl>
-<department xsi:type="xsd:string" xsi:nil="true"/>
-<fromDay xsi:type="xsd:int">0</fromDay>
-<fromMonth xsi:type="xsd:int">0</fromMonth>
-<fromYear xsi:type="xsd:int">0</fromYear>
-<latDec xsi:type="xsd:double">-72.012</latDec>
-<latLonFmt xsi:type="xsd:string">decimal_degrees</latLonFmt>
-<lonDec xsi:type="xsd:double">2.537</lonDec>
-<municipalityNo xsi:type="xsd:int">-1</municipalityNo>
-<name xsi:type="xsd:string">TROLL I ANTARKTIS</name>
-<stnr xsi:type="xsd:int">99990</stnr>
-<toDay xsi:type="xsd:int">0</toDay>
-<toMonth xsi:type="xsd:int">0</toMonth>
-<toYear xsi:type="xsd:int">0</toYear>
-<utm_e xsi:type="xsd:int">0</utm_e>
-<utm_n xsi:type="xsd:int">0</utm_n>
-<utm_zone xsi:type="xsd:int">0</utm_zone>
-<wmoNo xsi:type="xsd:int">89504</wmoNo>
 </item>
 <item xsi:type="ns3:no_met_metdata_StationProperties">
 <amsl xsi:type="xsd:int">-1</amsl>
@@ -58508,3 +58748,4 @@
 
 </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+
