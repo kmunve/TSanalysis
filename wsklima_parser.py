@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
+import os
 import datetime as dt
 import numpy as np
 from lxml import etree
+from io import StringIO, BytesIO
 
 """
 __author__: kmunve
@@ -89,13 +91,16 @@ def parse_get_data(xml_data):
 
 
 def parse_get_stations_properties(xml_data):
-
-    if type(xml_data) == 'string':
+    #TODO: need to fix the case when a file name is directly passed.
+    # try:
+    #     os.path.isfile(xml_data):
+    #     root = etree.parse(xml_data)
+    if isinstance(xml_data, str):
         root = etree.fromstring(xml_data)
-    elif type(xml_data) == 'file':
-        root = etree.parse(open(xml_data))
+    elif isinstance(xml_data, bytes):
+        root = etree.parse(BytesIO(xml_data))
     else:
-        print("Please provide a string or file object. Got {0}".format(type(xml_data)))
+        print("Please provide a string, file or file object. Got {0}".format(type(xml_data)))
 
     stations = root.xpath('//return/item')
 
@@ -142,7 +147,7 @@ def parse_get_stations_properties(xml_data):
         utm_zone = station.xpath('utm_zone')[0].text
         wmoNo = station.xpath('wmoNo')[0].text
 
-        insert_stations_dict(stations_dict,
+        _insert_stations_dict(stations_dict,
                         amsl,
                         department,
                         fromDay,
@@ -163,6 +168,47 @@ def parse_get_stations_properties(xml_data):
                         wmoNo)
 
     return stations_dict
+
+
+def _insert_stations_dict(stations_dict,
+                        amsl,
+                        department,
+                        fromDay,
+                        fromMonth,
+                        fromYear,
+                        latDec,
+                        latLonFmt,
+                        lonDec,
+                        municipalityNo,
+                        name,
+                        stnr,
+                        toDay,
+                        toMonth,
+                        toYear,
+                        utm_e,
+                        utm_n,
+                        utm_zone,
+                        wmoNo):
+
+    stations_dict[stnr] = {}
+    stations_dict[stnr]['amsl'] = int(amsl)
+    stations_dict[stnr]['department'] = department
+    stations_dict[stnr]['fromDay'] = int(fromDay)
+    stations_dict[stnr]['fromMonth'] = int(fromMonth)
+    stations_dict[stnr]['fromYear'] = int(fromYear)
+    stations_dict[stnr]['latDec'] = float(latDec)
+    stations_dict[stnr]['latLonFmt'] = latLonFmt
+    stations_dict[stnr]['lonDec'] = float(lonDec)
+    stations_dict[stnr]['municipalityNo'] = int(municipalityNo)
+    stations_dict[stnr]['name'] = name
+    stations_dict[stnr]['stnr'] = int(stnr)
+    stations_dict[stnr]['toDay'] = int(toDay)
+    stations_dict[stnr]['toMonth'] = int(toMonth)
+    stations_dict[stnr]['toYear'] = int(toYear)
+    stations_dict[stnr]['utm_e'] = int(utm_e)
+    stations_dict[stnr]['utm_n'] = int(utm_n)
+    stations_dict[stnr]['utm_zone'] = int(utm_zone)
+    stations_dict[stnr]['wmoNo'] = int(wmoNo)
 
 if __name__ == '__main__':
     import pylab

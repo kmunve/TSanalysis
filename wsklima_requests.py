@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+from __future__ import print_function
+import requests
 """
 Author: kmunve
 """
-import requests
+
 
 class wsKlimaRequest():
     """
@@ -27,9 +28,9 @@ class wsKlimaRequest():
 
 
         if self.wsmethod not in self.wsmethods:
-            print "Please choose a valid method:\n"
+            print("Please choose a valid method:\n")
             for _m in self.wsmethods:
-                print _m
+                print(_m)
 
         self.params = params
         self.base_url= 'http://eklima.met.no/met/MetService'
@@ -69,7 +70,7 @@ class wsKlimaRequest():
             self.wsklima_url = "{0}?invoke=getElementsProperties&language={1}&elem_codes={2}".format(self.base_url, self.params['language'], ",".join(map(str, self.params['elem_codes'])))
 
         else:
-            print "Could not create url!"
+            print("Could not create url!")
 
     def get(self):
         ### Returns a requests.Response object
@@ -77,7 +78,7 @@ class wsKlimaRequest():
 
     def _output_example(self):
         if self.wsmethod == 'getStationsFromTimeserieTypeElemCodes':
-            print """Example response from 'getStationsFromTimeserieTypeElemCodes':\n\n
+            print("""Example response from 'getStationsFromTimeserieTypeElemCodes':\n\n
             <?xml version='1.0' encoding='UTF-8'?>
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 <SOAP-ENV:Body>
@@ -104,35 +105,35 @@ class wsKlimaRequest():
 <wmoNo xsi:type="xsd:int">0</wmoNo>
 </item>
 \n
-            """
+            """)
 
         else:
-            print "No valid method given!"
+            print("No valid method given!")
 
 
 def test_getStationsFromTimeserieTypeElemCodes():
     wr = wsKlimaRequest('getStationsFromTimeserieTypeElemCodes', {'timeserietypeID': 2, 'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF'], 'username': ""}).get()
-    print wr.text
-    print wr.url
+    print(wr.text)
+    print(wr.url)
 
 
 def test_getStationsFromTimeserieTypeStationsElemCode():
     wr = wsKlimaRequest('getStationsFromTimeserieTypeStationsElemCode', {'timeserietypeID': 2, 'stations': [],  'elem_codes': ['RR_1', 'RR_24', 'TA', 'UU', 'FF'], 'username': ""})
     rsp = wr.get()              # get the requests.Response
-    print rsp.text
-    print rsp.url
+    print(rsp.text)
+    print(rsp.url)
 
 
 def test_getMetData(save=False):
     wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2015-08-01', 'to': '2015-08-21', 'stations': [54110, 12290,], 'elements': ['TA', 'RR_1', 'RR', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
-    print wr.text
+    print(wr.text)
     if save:
         fname = '54110.xml'
         _f = open(fname, 'w')
         _f.write(wr.text)
         _f.close()
-        print 'Data written to %s' % fname
-    print wr.url
+        print('Data written to %s' % fname)
+    print(wr.url)
 
 
 # return XSD formated scheme
@@ -143,8 +144,8 @@ def test_getMetDataValue():
 
 def test_getElementsFromTimeserieType():
     wr = wsKlimaRequest('getElementsFromTimeserieType', {'timeserietypeID': 2}).get()
-    print wr.text
-    print wr.url
+    print(wr.text)
+    print(wr.url)
 
 
 def test_getStationProperties():

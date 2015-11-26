@@ -16,6 +16,7 @@ from wsklima_requests import wsKlimaRequest
 import json
 from lxml import etree
 from crocus_station_db import CrocusStationDB
+from wsklima_parser import parse_get_stations_properties
 
 def hourly_rr_ta_uu_ff_dd_po():
     
@@ -44,15 +45,35 @@ def hourly_rr_ta_uu_ff_dd_po():
     fid.close()
 
 
+def eklima_station_list():
+    sd = parse_get_stations_properties(r'./Test/Data/getStationsProperties.out.all.xml')
+    db = CrocusStationDB('./Test/Data/all_eklima_stations.db')
+    db.create_station_db()
+    for st in sd.itervalues():
+        print(st)
+        db.insert_station(st)
+    db.close()
+
+
 def crocus_station_list():
     stat = json.load(open('Test/Data/crocus_stations.json', 'r'))
     station_list = stat['crocus_stations']
 
     wr = wsKlimaRequest('getStationsProperties', {'stations': station_list, 'username': ''})
     rsp = wr.get()
+    print(type(rsp.content))
+    sd = parse_get_stations_properties(rsp.content)
 
-    root = etree.fromstring(rsp.content)
+    # sd = crocus_station_list()
+    print(sd['13655'])
+    db = CrocusStationDB('./Test/Data/stations.db')
+    #db.create_station_db()
+    for s in iter(sd.values()):
+        print(s)
+        db.insert_station(s)
+    db.close()
 
+    '''
     stations = root.xpath('//return/item')
 
     """
@@ -160,14 +181,9 @@ def insert_stations_dict(stations_dict,
     stations_dict[stnr]['utm_n'] = int(utm_n)
     stations_dict[stnr]['utm_zone'] = int(utm_zone)
     stations_dict[stnr]['wmoNo'] = int(wmoNo)
-
+    '''
 if __name__ == "__main__":
-    #hourly_rr_ta_uu_ff_dd_po()
-    sd = crocus_station_list()
-    print(sd['13655'])
-    db = CrocusStationDB('./Test/Data/stations.db')
-    #db.create_station_db()
-    for s in sd.itervalues():
-        print(s)
-        db.insert_station(s)
-    db.close()
+    # hourly_rr_ta_uu_ff_dd_po()
+    # eklima_station_list()
+    crocus_station_list()
+
