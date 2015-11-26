@@ -46,10 +46,26 @@ def hourly_rr_ta_uu_ff_dd_po():
 
 
 def eklima_station_list():
+    """
+    Currently I need to change this part in wsklima_parser.py
+
+        def parse_get_stations_properties(xml_data):
+        #TODO: need to fix the case when a file name is directly passed.
+
+
+        if os.path.isfile(xml_data):
+            root = etree.parse(xml_data)
+        elif isinstance(xml_data, str):
+            root = etree.fromstring(xml_data)
+
+
+
+    :return:
+    """
     sd = parse_get_stations_properties(r'./Test/Data/getStationsProperties.out.all.xml')
     db = CrocusStationDB('./Test/Data/all_eklima_stations.db')
-    db.create_station_db()
-    for st in sd.itervalues():
+    # db.create_station_db()
+    for st in iter(sd.values()): # sd.itervalues() in Python 2.7
         print(st)
         db.insert_station(st)
     db.close()
@@ -73,117 +89,9 @@ def crocus_station_list():
         db.insert_station(s)
     db.close()
 
-    '''
-    stations = root.xpath('//return/item')
 
-    """
-    Available properties:
-    amsl
-    department
-    fromDay
-    fromMonth
-    fromYear
-    latDec
-    latLonFmt
-    lonDec
-    municipalityNo
-    name
-    stnr
-    toDay
-    toMonth
-    toYear
-    utm_e
-    utm_n
-    utm_zone
-    wmoNo
-    """
-    stations_dict = {}
-
-    for station in stations:
-        amsl = station.xpath('amsl')[0].text
-        department = station.xpath('department')[0].text
-        fromDay = station.xpath('fromDay')[0].text
-        fromMonth = station.xpath('fromMonth')[0].text
-        fromYear = station.xpath('fromYear')[0].text
-        latDec = station.xpath('latDec')[0].text
-        latLonFmt = station.xpath('latLonFmt')[0].text
-        lonDec = station.xpath('lonDec')[0].text
-        municipalityNo = station.xpath('municipalityNo')[0].text
-        name = station.xpath('name')[0].text
-        stnr = station.xpath('stnr')[0].text
-        toDay = station.xpath('toDay')[0].text
-        toMonth = station.xpath('toMonth')[0].text
-        toYear = station.xpath('toYear')[0].text
-        utm_e = station.xpath('utm_e')[0].text
-        utm_n = station.xpath('utm_n')[0].text
-        utm_zone = station.xpath('utm_zone')[0].text
-        wmoNo = station.xpath('wmoNo')[0].text
-
-        insert_stations_dict(stations_dict,
-                        amsl,
-                        department,
-                        fromDay,
-                        fromMonth,
-                        fromYear,
-                        latDec,
-                        latLonFmt,
-                        lonDec,
-                        municipalityNo,
-                        name,
-                        stnr,
-                        toDay,
-                        toMonth,
-                        toYear,
-                        utm_e,
-                        utm_n,
-                        utm_zone,
-                        wmoNo)
-
-    return stations_dict
-
-
-def insert_stations_dict(stations_dict,
-                        amsl,
-                        department,
-                        fromDay,
-                        fromMonth,
-                        fromYear,
-                        latDec,
-                        latLonFmt,
-                        lonDec,
-                        municipalityNo,
-                        name,
-                        stnr,
-                        toDay,
-                        toMonth,
-                        toYear,
-                        utm_e,
-                        utm_n,
-                        utm_zone,
-                        wmoNo):
-
-    stations_dict[stnr] = {}
-    stations_dict[stnr]['amsl'] = int(amsl)
-    stations_dict[stnr]['department'] = department
-    stations_dict[stnr]['fromDay'] = int(fromDay)
-    stations_dict[stnr]['fromMonth'] = int(fromMonth)
-    stations_dict[stnr]['fromYear'] = int(fromYear)
-    stations_dict[stnr]['latDec'] = float(latDec)
-    stations_dict[stnr]['latLonFmt'] = latLonFmt
-    stations_dict[stnr]['lonDec'] = float(lonDec)
-    stations_dict[stnr]['municipalityNo'] = int(municipalityNo)
-    stations_dict[stnr]['name'] = name
-    stations_dict[stnr]['stnr'] = int(stnr)
-    stations_dict[stnr]['toDay'] = int(toDay)
-    stations_dict[stnr]['toMonth'] = int(toMonth)
-    stations_dict[stnr]['toYear'] = int(toYear)
-    stations_dict[stnr]['utm_e'] = int(utm_e)
-    stations_dict[stnr]['utm_n'] = int(utm_n)
-    stations_dict[stnr]['utm_zone'] = int(utm_zone)
-    stations_dict[stnr]['wmoNo'] = int(wmoNo)
-    '''
 if __name__ == "__main__":
     # hourly_rr_ta_uu_ff_dd_po()
-    # eklima_station_list()
-    crocus_station_list()
+    eklima_station_list()
+    # crocus_station_list()
 

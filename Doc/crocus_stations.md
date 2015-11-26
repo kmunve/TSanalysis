@@ -76,4 +76,6 @@ The database is initiated and maintained within **crocus_station_db.py**, which 
 
 
 
-# Lage en struktur for et snøskred GitHub
+# TODO
+
+Compare upgraded stations to Crocus_station list. - see *crocus_stations.json*
