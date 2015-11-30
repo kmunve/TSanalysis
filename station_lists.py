@@ -83,7 +83,7 @@ def crocus_station_list():
     # sd = crocus_station_list()
     print(sd['13655'])
     db = CrocusStationDB('./Test/Data/stations.db')
-    #db.create_station_db()
+    # db.create_station_db()
     for s in iter(sd.values()):
         print(s)
         db.insert_station(s)
@@ -92,6 +92,6 @@ def crocus_station_list():
 
 if __name__ == "__main__":
     # hourly_rr_ta_uu_ff_dd_po()
-    eklima_station_list()
-    # crocus_station_list()
+    # eklima_station_list()
+    crocus_station_list()
 

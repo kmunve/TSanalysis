@@ -94,9 +94,9 @@ def parse_get_stations_properties(xml_data):
     #TODO: need to fix the case when a file name is directly passed.
 
 
-    if os.path.isfile(xml_data):
-        root = etree.parse(xml_data)
-    elif isinstance(xml_data, str):
+    # if os.path.isfile(xml_data):
+    #     root = etree.parse(xml_data)
+    if isinstance(xml_data, str):
         root = etree.fromstring(xml_data)
     elif isinstance(xml_data, bytes):
         root = etree.parse(BytesIO(xml_data))
