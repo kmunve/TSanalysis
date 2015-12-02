@@ -9,6 +9,10 @@ from crocus_forcing_nc import CrocusForcing
 '''
 Create a simple forcing data set to test snow routines
 
+TODO: Make a function for each forcing parameter and the creation of the data set.
+Continued in file crocus_synthetic_forcing.py.
+
+
 __author__ = 'kmu'
 '''
 

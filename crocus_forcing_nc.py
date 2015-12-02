@@ -197,6 +197,29 @@ class CrocusForcing:
         * Returns: OPTIONs.nam file
 
         TODO: adapt for multiple points
+        TODO: add option to insert an existing snow pack - maybe in a different function as optional
+
+
+        &NAM_PREP_ISBA_SNOW
+            CSNOW
+            NSNOW_LAYER
+            CFILE_SNOW
+            CTYPE_SNOW
+            CFILEPGD_SNOW
+            CTYPEPGD_SNOW
+            LSNOW_IDEAL
+            lSNOW_FRAC_TOT
+            XWSNOW
+            XZSNOW - NEW IN v8
+            XTSNOW
+            XLWCSNOW - NEW IN v8
+            XRSNOW
+            XASNOW
+            XSG1SNOW
+            XSG2SNOW
+            XHISTSNOW
+            XAGESNOW
+
         '''
         option_file = open('OPTIONS.nam', 'w')
         option_template = Template(open('./Test/Data/OPTIONS.nam.tpl', 'r').read())
