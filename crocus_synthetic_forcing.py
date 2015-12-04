@@ -12,7 +12,7 @@ Create a simple forcing data set to test snow routines
 
 TODO: Make a function for each forcing parameter and the creation of the data set.
 
-CLones from create_dummy_forcing
+Cloned from create_dummy_forcing
 
 __author__ = 'kmu'
 '''
