@@ -20,6 +20,7 @@ class wsKlimaRequest():
         self.wsmethod = method
         self.wsmethods = ['getElementsProperties',
                           'getElementsFromTimeserieType',
+                          'getElementsFromTimeserieTypeStation',
                           'getStationsProperties',
                           'getStationsFromTimeserieTypeElemCodes',
                           'getStationsFromTimeserieTypeStationsElemCode',
@@ -31,6 +32,7 @@ class wsKlimaRequest():
             print("Please choose a valid method:\n")
             for _m in self.wsmethods:
                 print(_m)
+            print('Received: {0}'.format(self.wsmethod))
 
         self.params = params
         self.base_url= 'http://eklima.met.no/met/MetService'
@@ -64,6 +66,14 @@ class wsKlimaRequest():
         elif self.wsmethod == 'getElementsFromTimeserieType':
             # params = timeserietypeID
             self.wsklima_url = "{0}?invoke=getElementsFromTimeserieType&timeserietypeID={1}".format(self.base_url, self.params['timeserietypeID'])
+
+        elif self.wsmethod == 'getElementsFromTimeserieTypeStation':
+            '''
+            E.g. - http://eklima.met.no/met/MetService?invoke=getElementsFromTimeserieTypeStation&timeserietypeID=2&stnr=63705
+            '''
+            # params = stnr, timeserietypeID
+            self.wsklima_url = "{0}?invoke=getElementsFromTimeserieTypeStation&timeserietypeID={1}&stnr={2}".format(self.base_url, self.params['timeserietypeID'], ",".join(map(str, self.params['stations'])))
+
 
         elif self.wsmethod == 'getElementsProperties':
             # params = language, elem_codes
@@ -152,7 +162,7 @@ def test_getStationProperties():
     import json
     _s = json.load(open('./Test/Data/crocus_stations.json'))
 
-    wr = wsKlimaRequest('getStationProperties', {'stations': stations, 'username': ""})
+    wr = wsKlimaRequest('getStationsProperties', {'stations': stations, 'username': ""})
 
 
 

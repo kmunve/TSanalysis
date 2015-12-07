@@ -211,6 +211,92 @@ def _insert_stations_dict(stations_dict,
     stations_dict[stnr]['utm_zone'] = int(utm_zone)
     stations_dict[stnr]['wmoNo'] = int(wmoNo)
 
+
+def parse_get_elements_from_timeserie_type_station(xml_data):
+    #TODO: need to fix the case when a file name is directly passed.
+
+
+    # if os.path.isfile(xml_data):
+    #     root = etree.parse(xml_data)
+    if isinstance(xml_data, str):
+        root = etree.fromstring(xml_data)
+    elif isinstance(xml_data, bytes):
+        root = etree.parse(BytesIO(xml_data))
+    else:
+        print("Please provide a string, file or file object. Got {0}".format(type(xml_data)))
+
+    elements = root.xpath('//return/item')
+
+    """
+    Available properties:
+    - description
+    - elemCode
+    - elemGroup
+    - elemNo
+    - fromdate
+    - todate
+    - language
+    - name
+    - unit
+    """
+
+    elements_dict = {}
+
+    for element in elements:
+        description = element.xpath('description')[0].text
+        elemCode = element.xpath('elemCode')[0].text
+        elemGroup = element.xpath('elemGroup')[0].text
+        elemNo = element.xpath('elemNo')[0].text
+        fromdate = element.xpath('fromdate')[0].text
+        todate = element.xpath('todate')[0].text
+        language = element.xpath('language')[0].text
+        name = element.xpath('name')[0].text
+        unit = element.xpath('unit')[0].text
+
+        _insert_elements_dict(elements_dict,
+                        description,
+                        elemCode,
+                        elemGroup,
+                        elemNo,
+                        fromdate,
+                        todate,
+                        language,
+                        name,
+                        unit)
+
+    return elements_dict
+
+
+def _insert_elements_dict(elements_dict,
+                        description,
+                        elemCode,
+                        elemGroup,
+                        elemNo,
+                        fromdate,
+                        todate,
+                        language,
+                        name,
+                        unit):
+
+    time_format = "%Y-%m-%dT%H:%M:%S.000Z"
+
+    elements_dict[elemCode] = {}
+    elements_dict[elemCode]['description'] = description
+    elements_dict[elemCode]['elemGroup'] = elemGroup
+    elements_dict[elemCode]['elemNo'] = int(elemNo)
+    try:
+        elements_dict[elemCode]['fromdate'] = dt.datetime.strptime(fromdate, time_format)
+    except TypeError:
+        elements_dict[elemCode]['fromdate'] = None
+    try:
+        elements_dict[elemCode]['todate'] = dt.datetime.strptime(todate, time_format)
+    except TypeError:
+        elements_dict[elemCode]['todate'] = None
+    elements_dict[elemCode]['language'] = language
+    elements_dict[elemCode]['name'] = name
+    elements_dict[elemCode]['unit'] = unit
+
+
 if __name__ == '__main__':
     import pylab
     sd = parse_get_data('54110.xml')
