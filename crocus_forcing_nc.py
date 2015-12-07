@@ -185,6 +185,7 @@ class CrocusForcing:
 
         # TODO: cross-check units
         # TODO: cross-check time conversions and time reference
+        # TODO: conversion to correct units and rates where necessary
         # Look-up between Crocus FORCING.nc and eklima getMetData return
         self.crocus_eklima_lut = {'time': 'time', # seconds since : seconds since
                                 'LAT': 'latDec', # degrees_north : degrees_north - ok
