@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 from wsklima_requests import wsKlimaRequest
-from wsklima_parser import parse_get_stations_properties, parse_get_elements_from_timeserie_type_station
+from wsklima_parser import parse_get_stations_properties, parse_get_elements_from_timeserie_type_station, parse_get_data
+from forcing_from_thredds import forcing_from_thredds
+import pylab
 '''
 This script covers the following steps
 - Retrieve information about station Oppdal stid=63705.
@@ -14,7 +16,8 @@ This script covers the following steps
 
 __author__ = 'kmu'
 '''
-stations = [63705,]
+stnr = 63705
+stations = [stnr,]
 
 t_from = '2015-12-04'
 t_to = '2015-12-07'
@@ -51,14 +54,19 @@ st_sensors = [sensor for sensor in relevant_sensors if sensor in st_elems.keys()
 '''
 STEP 2
 '''
-wr = wsKlimaRequest('getMetData', {'timeserietypeID': tt_id, 'format': "", 'from': t_from, 'to': t_to,
+rsp = wsKlimaRequest('getMetData', {'timeserietypeID': tt_id, 'format': "", 'from': t_from, 'to': t_to,
                                    'stations': stations, 'elements': st_sensors,
                                    'hours': range(0, 24), 'months': "", 'username': ""}).get()
 
-# if save:
-#     fname = '54110.xml'
-#     _f = open(fname, 'w')
-#     _f.write(wr.text)
-#     _f.close()
-#     print('Data written to %s' % fname)
-# print(wr.url)
+sd = parse_get_data(rsp.content)
+
+# pylab.plot(sd[str(stnr)]['index'], sd[str(stnr)]['TA']['val'])
+# pylab.show()
+
+'''
+STEP 3
+'''
+
+sites = {st_props[str(stnr)]['name']: [st_props[str(stnr)]['latDec'], st_props[str(stnr)]['lonDec']]}
+
+forcing_from_thredds(sites)

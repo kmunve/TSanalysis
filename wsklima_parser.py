@@ -41,9 +41,17 @@ def parse_get_data(xml_data):
     """
     station_dict = {} # station dictionary
 
-    tree = etree.parse(open(xml_data))
+    try:
+        root = etree.parse(open(xml_data)) # do I need tree.getroot() - see after Exception
+    except FileNotFoundError:
+        if isinstance(xml_data, str):
+            root = etree.fromstring(xml_data)
+        elif isinstance(xml_data, bytes):
+            root = etree.parse(BytesIO(xml_data))
+        else:
+            print("Please provide a string, file or file object. Got {0}".format(type(xml_data)))
 
-    root = tree.getroot()
+    # root = tree.getroot()
 
     # Get all item-tags that are a child of the timeStamp-tag
     TSitems = root.xpath('//timeStamp/item')

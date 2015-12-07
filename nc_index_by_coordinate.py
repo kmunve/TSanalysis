@@ -6,8 +6,8 @@ from numpy import pi, cos, sin, ravel, unravel_index
 try:
     from scipy.spatial import cKDTree
 except ImportError:
-    print 'The kdtree_fast method requires the scipy.spatial module.'
-    print 'Ignore this warning when using the tunnel_fast method.'
+    print('The kdtree_fast method requires the scipy.spatial module.')
+    print('Ignore this warning when using the tunnel_fast method.')
     
 __author__ = 'kmu'
 
@@ -81,4 +81,4 @@ def kdtree_fast(latvar,lonvar,lat0,lon0):
     return iy_min,ix_min
 
 if __name__ == "__main__":
-    print "..."
+    print("...")

@@ -182,6 +182,34 @@ class CrocusForcing:
                                 'ZREF': '', # m :
                                 'ZS': '' # m :
                                 }
+
+        # TODO: cross-check units
+        # TODO: cross-check time conversions and time reference
+        # Look-up between Crocus FORCING.nc and eklima getMetData return
+        self.crocus_eklima_lut = {'time': 'time', # seconds since : seconds since
+                                'LAT': 'latDec', # degrees_north : degrees_north - ok
+                                'LON': 'lonDec', # degrees_east : degrees_east - ok
+                                'Psurf': '', # Pa :
+                                'Tair': 'TA', # : K : C
+                                'HUMREL': '', # % :
+                                'LWdown': '', # W/m2 :
+                                'NEB': '', # 0-1 :
+                                'Qair': '', # Kg/Kg :
+                                'Rainf': '', # kg/m2/s :
+                                'SCA_SWdown': '', # W/m2 :
+                                'DIR_SWdown': '', # W/m2 :
+                                'CO2_air': '', # kg/m3 :
+                                'Snowf': '', # kg/m2/s :
+                                'theorSW': '', # W/m2 :
+                                'UREF': '', # m :
+                                'Wind': '', # m/s :
+                                'Wind_DIR': '', # deg :
+                                'aspect': '', # degrees from north :
+                                'slope': '', # degrees from horizontal :
+                                'ZREF': '', # m :
+                                'ZS': '' # m :
+                                }
+
     def close(self):
         """
         Closes netCDF file after writing.
