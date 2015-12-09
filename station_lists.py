@@ -73,7 +73,7 @@ def eklima_station_list():
 
 def crocus_station_list():
     stat = json.load(open('Test/Data/crocus_stations.json', 'r'))
-    station_list = stat['crocus_stations']
+    station_list = stat['crocus_stations_2016']
 
     wr = wsKlimaRequest('getStationsProperties', {'stations': station_list, 'username': ''})
     rsp = wr.get()
@@ -81,7 +81,6 @@ def crocus_station_list():
     sd = parse_get_stations_properties(rsp.content)
 
     # sd = crocus_station_list()
-    print(sd['13655'])
     db = CrocusStationDB('./Test/Data/stations.db')
     # db.create_station_db()
     for s in iter(sd.values()):
