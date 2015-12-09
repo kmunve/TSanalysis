@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-
-"""
-Create a forcing netcdf file for the snow pack model Crocus.
-"""
-
 from netCDF4 import Dataset, num2date
 from string import Template
+'''
+Create a forcing netcdf file for the snow pack model Crocus.
+'''
+
 
 class CrocusForcing:
 
@@ -28,8 +27,6 @@ class CrocusForcing:
         if filename is None:
             # Set general parameters
             self.fill_value = -9999999.0
-
-
 
             # create a file (Dataset object, also the root group).
             self.rootgrp = Dataset('FORCING.nc', 'w', format='NETCDF3_CLASSIC')
@@ -196,18 +193,18 @@ class CrocusForcing:
                                 'LWdown': '', # W/m2 :
                                 'NEB': '', # 0-1 :
                                 'Qair': '', # Kg/Kg :
-                                'Rainf': '', # kg/m2/s :
+                                'Rainf': 'RR_1', # kg/m2/s : mm
                                 'SCA_SWdown': '', # W/m2 :
                                 'DIR_SWdown': '', # W/m2 :
                                 'CO2_air': '', # kg/m3 :
                                 'Snowf': '', # kg/m2/s :
                                 'theorSW': '', # W/m2 :
-                                'UREF': '', # m :
-                                'Wind': '', # m/s :
-                                'Wind_DIR': '', # deg :
-                                'aspect': '', # degrees from north :
-                                'slope': '', # degrees from horizontal :
-                                'ZREF': '', # m :
+                                'UREF': '', # m : m should be 10 m
+                                'Wind': 'FF', # m/s : m/s
+                                'Wind_DIR': 'DD', # deg : deg
+                                'aspect': '', # degrees from north : -
+                                'slope': '', # degrees from horizontal : -
+                                'ZREF': '', # m : m from station_props
                                 'ZS': '' # m :
                                 }
 
@@ -219,6 +216,74 @@ class CrocusForcing:
 
     def set_variable(self, var):
         pass
+
+
+    def insert_eklima_station(self, i, station, data):
+        '''
+
+        :param i: number of point in the Forcing file
+        :param station: dict['stnr'] returned from wsklima_parser.parse_get_stations_properties()
+        :param data: dict['stnr'] returned from wsklima_parser.parse_get_data()
+        :return:
+        '''
+
+        # Set time properties - only once not for each station
+        self.forc_time_step_v[:] = dt.seconds
+        # TODO: use date2num to get the time right
+        self.time_v[i] = time_v
+        self.time_v.units = t_units
+
+        # Set station properties
+        # self.aspect_v[:] = 0.0
+        self.uref_v[i] = 10.0
+        self.zref_v[i] = 2.0
+        self.zs_v[i] = station['amsl']
+        self.lat_v[i] = station['latDec']
+        self.lon_v[i] = station['lonDec']
+
+
+        for key in data.keys():
+            if key in self.crocus_eklima_lut.values():
+                self._insert_eklima_data(i, key, data[key])
+        # Set the created forcing parameters
+        # PTH
+        self.q_air_v[:, i] = q_air[:]
+        self.tair_v[:, i] = tair[:]
+        self.ps_surf_v[:, i] = p_surf[:]
+        # Precip
+        self.rain_fall_v[:, i] = rainf[:]
+        self.snow_fall_v[:, i] = snowf[:]
+        # Raadiation
+        self.dir_sw_down_v[:, i] = dir_sw_down[:]
+        self.sca_sw_down_v[:, i] = sca_sw_down[:]
+        self.lw_down_v[:, i] = lw_down[:]
+        # Wind
+        self.wind_v[:, i] = wind[:]
+        self.wind_dir_v[:, i] = wind_dir[:]
+        # Others
+        self.co2_air_v[:, i] = co2_air
+
+
+    def _insert_eklima_data(self, i, key, data):
+        # TODO: need to make sure that it is inserted at the correct time!!!
+        if key== 'TA':
+            self.tair_v[:, i] = data[:]
+
+
+    def _convert_eklima_precip(self, RR_1, TA):
+        '''
+
+        :param RR_1: amount of rain within last hour in mm from eklima station
+        :param TA: 2m air temperature in C from eklima station
+        :return: sets self.Rainf or self.Snowf in kg/m2/s
+        '''
+        if TA >= 0.5:
+            self.Snowf = 0.0
+            self.Rainf = 1000.0 * RR_1 / 3600.0
+        else:
+            self.Rainf = 0.0
+            self.Snowf = 1000.0 * RR_1 / 3600.0
+
 
     def create_options_nam(self):
         '''
