@@ -3,6 +3,7 @@
 from __future__ import print_function
 from netCDF4 import Dataset, num2date
 from string import Template
+from datetime import datetime
 '''
 Create a forcing netcdf file for the snow pack model Crocus.
 '''
@@ -29,13 +30,20 @@ class CrocusForcing:
             self.fill_value = -9999999.0
 
             # create a file (Dataset object, also the root group).
-            self.rootgrp = Dataset('FORCING.nc', 'w', format='NETCDF3_CLASSIC')
+            self.rootgrp = Dataset('FORCING.nc', 'w', format='NETCDF3_CLASSIC') # TODO: should be changed to NETCDF4 once Surfex8 is ready
 
             ##############
             # Dimensions #
             ##############
             self.time_dim = self.rootgrp.createDimension('time', None)
             self.number_of_points_dim = self.rootgrp.createDimension('Number_of_points', no_points)
+
+            #####################
+            # Global attributes #
+            #####################
+
+            self.rootgrp.description = "SURFEX/Crocus forcing file"
+            self.rootgrp.history = "Created " + datetime.now().isoformat()
 
             #############
             # Variables #
