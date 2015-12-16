@@ -27,7 +27,7 @@ def forcing_from_thredds(sites):
     no_points = len(sites)
     point_index = [tunnel_fast(latvar, lonvar, coord[0], coord[1]) for coord in sites.values()]
 
-    cnc = CrocusForcing(no_points=no_points) # init Crocus forcing file
+    cnc = CrocusForcing(no_points=no_points, source="arome") # init Crocus forcing file
     cnc.forc_time_step_v[:] = 3600.0
 
     for point in range(no_points):

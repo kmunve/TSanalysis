@@ -11,7 +11,7 @@ Create a forcing netcdf file for the snow pack model Crocus.
 
 class CrocusForcing:
 
-    def __init__(self, no_points=1, filename=None, opt_param=[]):
+    def __init__(self, no_points=1, filename=None, opt_param=[], source="Unspecified"):
         '''
         TODO: add a plotting routine to view all parameters.
 
@@ -23,8 +23,14 @@ class CrocusForcing:
         - relative humidity (HUMREL)
         - nebulosity (NEB)
         - wind direction (Wind_DIR)
+
+        :param source: Unknown, eklima or arome - TODO: make an Enum
         :return: creates FORCING.nc
         '''
+
+        self._set_crocus_arome_lut()
+        self._set_crocus_eklima_lut()
+
         if filename is None:
             # Set general parameters
             self.fill_value = -9999999.0
@@ -44,6 +50,12 @@ class CrocusForcing:
 
             self.rootgrp.description = "SURFEX/Crocus forcing file"
             self.rootgrp.history = "Created " + datetime.now().isoformat()
+            if source == "arome":
+                self.rootgrp.source = "AROME MetCoop - NWP model"
+            elif source == "eklima":
+                self.rootgrp.source = "www.eklima.no - wsKlima API"
+            else:
+                self.rootgrp.source = "unspecified"
 
             #############
             # Variables #
@@ -59,20 +71,30 @@ class CrocusForcing:
             ######
             # 1D #
             ######
-            self.time_v = self.rootgrp.createVariable('time','f8',('time',),fill_value=self.fill_value)
+            self.time_v = self.rootgrp.createVariable('time', 'f8', ('time',), fill_value=self.fill_value)
             # depends on FORC_TIME_STP units
             self.time_v.units = 'hours/seconds since '
             self.time_v.long_name = 'time'
-            self.time_v.arome_name = 'time'
+            if source == "arome":
+                self.time_v.derived_from_arome = self.crocus_arome_lut['time']
+            elif source == "eklima":
+                self.time_v.derived_from_eklima = self.crocus_eklima_lut['time']
 
-            # TODO: add arome_name attribute too all variables
-            self.lat_v = self.rootgrp.createVariable('LAT','f8',('Number_of_points',),fill_value=self.fill_value)
+            self.lat_v = self.rootgrp.createVariable('LAT', 'f8', ('Number_of_points',), fill_value=self.fill_value)
             self.lat_v.units = 'degrees_north'
             self.lat_v.long_name = 'latitude'
+            if source == "arome":
+                self.lat_v.derived_from_arome = self.crocus_arome_lut['LAT']
+            elif source == "eklima":
+                self.lat_v.derived_from_eklima = self.crocus_eklima_lut['LAT']
 
-            self.lon_v = self.rootgrp.createVariable('LON','f8',('Number_of_points',),fill_value=self.fill_value)
+            self.lon_v = self.rootgrp.createVariable('LON', 'f8', ('Number_of_points',), fill_value=self.fill_value)
             self.lon_v.units = 'degrees_east'
             self.lon_v.long_name = 'longitude'
+            if source == "arome":
+                self.lon_v.derived_from_arome = self.crocus_arome_lut['LON']
+            elif source == "eklima":
+                self.lon_v.derived_from_eklima = self.crocus_eklima_lut['LON']
 
             if 'aspect' in opt_param:
                 self.aspect_v = self.rootgrp.createVariable('aspect', 'f8', ('Number_of_points'),fill_value=self.fill_value)
@@ -95,6 +117,10 @@ class CrocusForcing:
             self.zs_v = self.rootgrp.createVariable('ZS','f8',('Number_of_points',),fill_value=self.fill_value)
             self.zs_v.units = 'm'
             self.zs_v.long_name = 'altitude'
+            if source == "arome":
+                self.zs_v.derived_from_arome = self.crocus_arome_lut['ZS']
+            elif source == "eklima":
+                self.zs_v.derived_from_eklima = self.crocus_eklima_lut['ZS']
 
             ######
             # 2D #
@@ -103,71 +129,132 @@ class CrocusForcing:
                 self.co2_air_v = self.rootgrp.createVariable('CO2air','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
                 self.co2_air_v.units = 'kg/m3'
                 self.co2_air_v.long_name = 'Near_Surface_CO2_Concentration'
+                if source == "arome":
+                    self.co2_air_v.derived_from_arome = self.crocus_arome_lut['CO2air']
+                elif source == "eklima":
+                    self.co2_air_v.derived_from_eklima = self.crocus_eklima_lut['CO2air']
 
             self.dir_sw_down_v = self.rootgrp.createVariable('DIR_SWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.dir_sw_down_v.units = 'W/m2'
             self.dir_sw_down_v.long_name = 'Surface_Indicent_Direct_Shortwave_Radiation'
+            if source == "arome":
+                self.dir_sw_down_v.derived_from_arome = self.crocus_arome_lut['DIR_SWdown']
+            elif source == "eklima":
+                self.dir_sw_down_v.derived_from_eklima = self.crocus_eklima_lut['DIR_SWdown']
 
             if 'HUMREL' in opt_param:
                 self.hum_rel_v = self.rootgrp.createVariable('HUMREL','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
                 self.hum_rel_v.units = '%'
                 self.hum_rel_v.long_name = 'Relative Humidity'
+                if source == "arome":
+                    self.hum_rel_v.derived_from_arome = self.crocus_arome_lut['HUMREL']
+                elif source == "eklima":
+                    self.hum_rel_v.derived_from_eklima = self.crocus_eklima_lut['HUMREL']
 
             self.lw_down_v = self.rootgrp.createVariable('LWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.lw_down_v.units = 'W/m2'
             self.lw_down_v.long_name = 'Surface_Incident_Longwave_Radiation'
+            if source == "arome":
+                self.lw_down_v.derived_from_arome = self.crocus_arome_lut['LWdown']
+            elif source == "eklima":
+                self.lw_down_v.derived_from_eklima = self.crocus_eklima_lut['LWdown']
 
             if 'NEB' in opt_param:
                 self.neb_v = self.rootgrp.createVariable('NEB','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
                 self.neb_v.units = 'between 0 and 1'
                 self.neb_v.long_name = 'Nebulosity'
+                if source == "arome":
+                    self.neb_v.derived_from_arome = self.crocus_arome_lut['NEB']
+                elif source == "eklima":
+                    self.neb_v.derived_from_eklima = self.crocus_eklima_lut['NEB']
 
             self.ps_surf_v = self.rootgrp.createVariable('PSurf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.ps_surf_v.units = 'Pa'
             self.ps_surf_v.long_name = 'Surface_Pressure'
+            if source == "arome":
+                self.ps_surf_v.derived_from_arome = self.crocus_arome_lut['PSurf']
+            elif source == "eklima":
+                self.ps_surf_v.derived_from_eklima = self.crocus_eklima_lut['PSurf']
 
             self.q_air_v = self.rootgrp.createVariable('Qair','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.q_air_v.units = 'Kg/Kg'
             self.q_air_v.long_name = 'Near_Surface_Specific_Humidity'
+            if source == "arome":
+                self.q_air_v.derived_from_arome = self.crocus_arome_lut['Qair']
+            elif source == "eklima":
+                self.q_air_v.derived_from_eklima = self.crocus_eklima_lut['Qair']
 
             self.rain_fall_v = self.rootgrp.createVariable('Rainf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.rain_fall_v.units = 'kg/m2/s'
             self.rain_fall_v.long_name = 'Rainfall_Rate'
+            if source == "arome":
+                self.rain_fall_v.derived_from_arome = self.crocus_arome_lut['Rainf']
+            elif source == "eklima":
+                self.rain_fall_v.derived_from_eklima = self.crocus_eklima_lut['Rainf']
 
             self.sca_sw_down_v = self.rootgrp.createVariable('SCA_SWdown','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.sca_sw_down_v.units = 'W/m2'
             self.sca_sw_down_v.long_name = 'Surface_Incident_Diffuse_Shortwave_Radiation'
+            if source == "arome":
+                self.sca_sw_down_v.derived_from_arome = self.crocus_arome_lut['SCA_SWdown']
+            elif source == "eklima":
+                self.sca_sw_down_v.derived_from_eklima = self.crocus_eklima_lut['SCA_SWdown']
 
             self.snow_fall_v = self.rootgrp.createVariable('Snowf','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.snow_fall_v.units = 'kg/m2/s'
             self.snow_fall_v.long_name = 'Snowfall_Rate'
+            if source == "arome":
+                self.snow_fall_v.derived_from_arome = self.crocus_arome_lut['Snowf']
+            elif source == "eklima":
+                self.snow_fall_v.derived_from_eklima = self.crocus_eklima_lut['Snowf']
 
             self.tair_v = self.rootgrp.createVariable('Tair','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.tair_v.units = 'K'
             self.tair_v.long_name = 'Near_Surface_Air_Temperature'
-            self.tair_v.arome_name = 'air_temperature_2m'
+            self.tair_v.derived_from_arome = 'air_temperature_2m'
+            if source == "arome":
+                self.tair_v.derived_from_arome = self.crocus_arome_lut['Tair']
+            elif source == "eklima":
+                self.tair_v.derived_from_eklima = self.crocus_eklima_lut['Tair']
 
             self.wind_v = self.rootgrp.createVariable('Wind','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
             self.wind_v.units = 'm/s'
             self.wind_v.long_name = 'Wind_Speed'
+            if source == "arome":
+                self.wind_v.derived_from_arome = self.crocus_arome_lut['Wind']
+            elif source == "eklima":
+                self.wind_v.derived_from_eklima = self.crocus_eklima_lut['Wind']
 
             if 'Wind_DIR' in opt_param:
                 self.wind_dir_v = self.rootgrp.createVariable('Wind_DIR','f8',('time', 'Number_of_points',),fill_value=self.fill_value)
                 self.wind_dir_v.units = 'deg'
                 self.wind_dir_v.long_name = 'Wind_Direction'
+                if source == "arome":
+                    self.wind_dir_v.derived_from_arome = self.crocus_arome_lut['Wind_DIR']
+                elif source == "eklima":
+                    self.wind_dir_v.derived_from_eklima = self.crocus_eklima_lut['Wind_DIR']
 
         else:
             self.rootgrp = Dataset(filename, 'a')
 
 
+    def close(self):
+        """
+        Closes netCDF file after writing.
+        """
+        self.rootgrp.close()
 
+    def set_variable(self, var):
+        pass
+
+    def _set_crocus_arome_lut(self):
         # TODO: cross-check units
         # TODO: cross-check time conversions and time reference
-        # Look-up between Crocus FORCING.nc and arome_metcoop*test*.nc
+        # Look-up table between Crocus FORCING.nc and arome_metcoop*test*.nc
         self.crocus_arome_lut = {'time': 'time', # seconds since : seconds since
                                 'LAT': 'latitude', # degrees_north : degrees_north - ok
                                 'LON': 'longitude', # degrees_east : degrees_east - ok
-                                'Psurf': 'surface_air_pressure', # Pa : Pa - ok
+                                'PSurf': 'surface_air_pressure', # Pa : Pa - ok
                                 'Tair': 'air_temperature_2m', # : K : K - ok
                                 'HUMREL': 'relative_humidity_2m', # % : 1
                                 'LWdown': 'integral_of_surface_downwelling_longwave_flux_in_air_wrt_time', # W/m2 : W s/m^2
@@ -188,10 +275,11 @@ class CrocusForcing:
                                 'ZS': '' # m :
                                 }
 
+    def _set_crocus_eklima_lut(self):
         # TODO: cross-check units
         # TODO: cross-check time conversions and time reference
         # TODO: conversion to correct units and rates where necessary
-        # Look-up between Crocus FORCING.nc and eklima getMetData return
+        # Look-up table between Crocus FORCING.nc and eklima getMetData return
         self.crocus_eklima_lut = {'time': 'time', # seconds since : seconds since
                                 'LAT': 'latDec', # degrees_north : degrees_north - ok
                                 'LON': 'lonDec', # degrees_east : degrees_east - ok
@@ -216,16 +304,6 @@ class CrocusForcing:
                                 'ZS': '' # m :
                                 }
 
-    def close(self):
-        """
-        Closes netCDF file after writing.
-        """
-        self.rootgrp.close()
-
-    def set_variable(self, var):
-        pass
-
-
     def insert_eklima_station(self, i, station, data):
         '''
 
@@ -248,7 +326,6 @@ class CrocusForcing:
         self.zs_v[i] = station['amsl']
         self.lat_v[i] = station['latDec']
         self.lon_v[i] = station['lonDec']
-
 
         for key in data.keys():
             if key in self.crocus_eklima_lut.values():
