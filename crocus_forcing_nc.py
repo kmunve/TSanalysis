@@ -304,6 +304,18 @@ class CrocusForcing:
                                 'ZS': '' # m :
                                 }
 
+    def insert_arome_var(self, var_name, arome_variables):
+        # TODO: can I pass a values to the function in a dict? http://code.activestate.com/recipes/181064/
+        self._arome_converter = {'Rainf': self._insert_arome_rainf()}
+        if var_name == 'Rainf':
+            pass
+        else:
+            pass
+
+
+    def _insert_arome_rainf(self):
+
+
     def insert_eklima_station(self, i, station, data):
         '''
 
