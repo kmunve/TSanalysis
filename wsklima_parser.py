@@ -305,6 +305,9 @@ def _insert_elements_dict(elements_dict,
     elements_dict[elemCode]['unit'] = unit
 
 
+def _test_parse_get_elements_from_timeserie_type_station():
+    pass
+
 if __name__ == '__main__':
     import pylab
     sd = parse_get_data('54110.xml')
