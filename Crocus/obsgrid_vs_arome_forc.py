@@ -3,23 +3,21 @@
 from __future__ import print_function
 import pylab as plt
 import netCDF4
-from nc_index_by_coordinate import tunnel_fast
-from Plotting.meteo_plots import temperature_plot
+import datetime
 
 """
-Test to use the tunnel_fast function to extract point data from a netcdf grid.
+Comparing forcing data from AROME MetCOOP model and the gridded observational data.
 
 Author: kmunve
 
-TODO: add info as MD
 """
 
 arome_f = "../Test/Data/FORCING_arome.nc"
 obsgrid_f = "../Test/Data/FORCING_obsgrid.nc"
 
 
-N = 35360
-
+#N = 35360
+N = 64197
 
 arome_nc = netCDF4.Dataset(arome_f, 'r')
 obsgrid_nc = netCDF4.Dataset(obsgrid_f, 'r')
@@ -39,7 +37,7 @@ a_rr_v = arome_nc.variables['Rainf']
 a_sf_v = arome_nc.variables['Snowf']
 a_time_v = arome_nc.variables['time']
 
-a_t = a_time_v[:]
+a_t = a_time_v[:]#netCDF4.num2date(a_time_v[:], a_time_v.units)
 a_ta = a_ta_v[:, N]
 a_rr = a_rr_v[:, N]
 a_sf = a_sf_v[:, N]
@@ -60,12 +58,14 @@ o_rr_v = obsgrid_nc.variables['Rainf']
 o_sf_v = obsgrid_nc.variables['Snowf']
 o_time_v = obsgrid_nc.variables['time']
 
-o_t = o_time_v[:]
+o_t = o_time_v[:]#netCDF4.num2date(o_time_v[:], o_time_v.units)
 o_ta = o_ta_v[:, N]
 o_rr = o_rr_v[:, N]
 o_sf = o_sf_v[:, N]
 
+#t_width = datetime.timedelta(minutes=30)
 width = 0.25
+
 f, axarr = plt.subplots(3, sharex=True)
 plt.hold(True)
 axarr[0].axhline(273.65, color='k', linestyle="--")
@@ -82,14 +82,3 @@ axarr[2].bar(o_t+width, o_sf, width=width, color='r')
 axarr[2].bar(a_t, a_sf, width=width, color='b')
 axarr[2].set_ylabel("Snowfall rate")
 plt.show()
-
-'''
-points = {'Hemsedal': [60.86, 8.6],
-          'Nordøyan fyr': [64.8, 10.55]
-          }
-
-indicies = [tunnel_fast(latvar, lonvar, coord[0], coord[1]) for coord in points.values()]
-#[print(coord[0], coord[1]) for coord in points.values()]
-print(indicies, type(indicies[0]), len(points))
-
-'''
