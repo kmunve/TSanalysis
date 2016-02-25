@@ -135,10 +135,10 @@ def test_getStationsFromTimeserieTypeStationsElemCode():
 
 
 def test_getMetData(save=False):
-    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2015-08-01', 'to': '2015-08-21', 'stations': [54110, 12290,], 'elements': ['TA', 'RR_1', 'RR', 'FF', 'UU'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
+    wr = wsKlimaRequest('getMetData', {'timeserietypeID': 2, 'format': "", 'from': '2016-02-11', 'to': '2016-02-24', 'stations': [54110, 12290, 15890], 'elements': ['TA', 'RR_1', 'RR_24', 'FF', 'UU', 'DD'], 'hours': range(0,24), 'months': "", 'username': ""}).get()
     print(wr.text)
     if save:
-        fname = '54110.xml'
+        fname = './Test/Data/54110.xml'
         _f = open(fname, 'w')
         _f.write(wr.text)
         _f.close()
@@ -170,6 +170,6 @@ def test_getStationProperties():
 if __name__ == "__main__":
 #    test_getStationsFromTimeserieTypeElemCodes()
 #    test_getElementsFromTimeserieType()
-#     test_getMetData(save=True)
-    test_getStationProperties()
+    test_getMetData(save=True)
+#     test_getStationProperties()
 #    test_getStationsFromTimeserieTypeStationsElemCode()
