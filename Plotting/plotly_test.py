@@ -17,8 +17,42 @@ __author__ = 'kmu'
 '''
 
 
+def ta_rr_plotly(station_id, dates, dates_24, temperature, precip, precip_24):
+
+    ta_plot = go.Scatter(x=dates, y=temperature, name="Lufttemperatur (time)")
+    rr_plot = go.Bar(x=dates, y=precip, name="Nedbør (time)", yaxis="y2")
+    rr24_plot = go.Scatter(x=dates_24, y=precip_24, name="Nedbør (06-06)", yaxis="y2",
+                           marker={'size': 15, 'symbol': 'square-cross-open'},
+                           line={'shape': 'vh'}, fill='tozeroy')
+
+    data = [ta_plot, rr_plot, rr24_plot]
+    layout = go.Layout(
+        title=station_id,
+        xaxis={'type': 'date'},
+        yaxis={'title': 'Celsius',
+               'range': [-30, 20],
+               'overlaying': 'y2',
+               },
+        yaxis2=dict(
+            title='mm',
+            # titlefont=dict(
+            #     color='rgb(148, 103, 189)'
+            # ),
+            # tickfont=dict(
+            #     color='rgb(148, 103, 189)'
+            # ),
+            range=[0, 50],
+            side='right'
+        )
+    )
+
+    fig = go.Figure(data=data, layout=layout)
+    plotly.offline.plot(fig, filename="ta-rr-plot.html")
+
+
+
 def isMetDay(dt):
-    if dt.hour == 6:
+    if dt.hour == 6 and dt.minute == 0:
         return True
     else:
         return False
@@ -30,17 +64,20 @@ def removeNull(rr):
         return True
 
 
-sd = parse_get_data('../Test/Data/eklima_data.xml')
+if __name__ == '__main__':
 
-station_id = '15890'
+    sd = parse_get_data('../Test/Data/eklima_data.xml')
 
-dates = sd[station_id]['index']
-temperature = sd[station_id]['TA']['val']
-precip = sd[station_id]['RR_1']['val']
-#precip_24 = sd[station_id]['RR_24']['val']
+    station_id = '15890' # TODO: some stations measure TA with a 10 min interval, which causes the time-axis to be wrong.
 
-precip_24 = list(filter(removeNull, sd[station_id]['RR_24']['val']))
-dates_24 = list(filter(isMetDay, dates))
+    dates = sd[station_id]['index']
+    temperature = sd[station_id]['TA']['val']
+    precip = sd[station_id]['RR_1']['val']
+
+    precip_24 = list(filter(removeNull, sd[station_id]['RR_24']['val']))
+    dates_24 = list(filter(isMetDay, dates))
+
+    ta_rr_plotly(station_id, dates, dates_24, temperature, precip, precip_24)
 
 '''
 dates = [datetime.datetime.today() - datetime.timedelta(days=i) for i in range(4)]
@@ -49,35 +86,7 @@ temperature = np.array([4, 1, -3, -17])
 precip = [0, 3, 12, 15]
 '''
 
-ta_plot = go.Scatter(x=dates, y=temperature, name="Lufttemperatur (time)")
-rr_plot = go.Bar(x=dates, y=precip, name="Nedbør (time)", yaxis="y2")
-rr24_plot = go.Scatter(x=dates_24, y=precip_24, name="Nedbør (06-06)", yaxis="y2",
-                       marker={'size': 15, 'symbol': 'square-cross-open'},
-                       line={'shape': 'vh'}, fill='tozeroy')
 
-data = [ta_plot, rr_plot, rr24_plot]
-layout = go.Layout(
-    title=station_id,
-    xaxis={'type': 'date'},
-    yaxis={'title': 'Celsius',
-           'range': [-30, 20],
-           'overlaying': 'y2',
-           },
-    yaxis2=dict(
-        title='mm',
-        # titlefont=dict(
-        #     color='rgb(148, 103, 189)'
-        # ),
-        # tickfont=dict(
-        #     color='rgb(148, 103, 189)'
-        # ),
-        range=[0, 50],
-        side='right'
-    )
-)
-
-fig = go.Figure(data=data, layout=layout)
-plotly.offline.plot(fig, filename="ta-rr-plot.html")
 
 """
 Vindrose
