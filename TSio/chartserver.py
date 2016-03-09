@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 from pandas import Series, DataFrame
-
+import time
+import re
 import requests
 import json
 
@@ -40,10 +41,34 @@ df = DataFrame(data_list[0]['SeriesPoints'], columns=data_list[0]['SeriesPoints'
 
 
 # make the date the new index
-df.index = df['Key']
+# df.index = df['Key']
 
 # remove the duplicate Key column
-del df['Key']
+# del df['Key']
 print(df)
 
+# print(time.gmtime(0))
+
+def convert_timestr(s, as_string=True):
+    """
+
+    :param s: time string returned by chartserver query, e.g. /Date(1457485200000)/
+    :return:
+    """
+    # regular expression to extract the numeric values in the json date string
+    regex = re.compile("\d+")
+    # extract numerical value, make it a float, and divide by 1000 to get seconds since 1.1.1970
+    ds = time.gmtime(float(regex.search(s).group())*0.001)
+    if as_string:
+        ds = time.strftime("%Y-%m-%dT%H:%M:%S", ds)
+
+    return ds
+
+df['Key'] = [convert_timestr(s) for s in df['Key']]
+
+print(df)
+# s = re.findall('\(.*?\)', df['Key'][0])
+# s = time.gmtime(df['Key'][0])
 print('Done')
+
+
