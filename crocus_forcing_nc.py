@@ -314,6 +314,7 @@ class CrocusForcing:
 
 
     def _insert_arome_rainf(self):
+        pass
 
 
     def insert_eklima_station(self, i, station, data):

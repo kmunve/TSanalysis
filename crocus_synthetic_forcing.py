@@ -21,7 +21,7 @@ __author__ = 'kmu'
 class SyntheticForcing:
     def __init__(self, t_start, t_stop):
         # TODO: refactor self.t_start/stop to selt.start_time / .stop_time
-        #TODO: make time input as string of iso-format YYYY-MM-DDTHH:MM:SS
+        # TODO: make time input as string of iso-format YYYY-MM-DDTHH:MM:SS
         # Create the time line
         t_start = datetime(2014, 1, 21)
         t_stop = datetime(2014, 2, 10)
