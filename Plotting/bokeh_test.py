@@ -39,7 +39,7 @@ source = ColumnDataSource(data=dict(x=x, y=y))
 
 
 # Set up plot
-plot = Figure(plot_height=400, plot_width=400, title="my sine wave",
+plot = Figure(plot_height=400, plot_width=600, title="my sine wave",
               tools="crosshair,pan,reset,resize,save,wheel_zoom",
               x_range=[0, 4*np.pi], y_range=[-2.5, 2.5])
 
@@ -81,6 +81,6 @@ for w in [offset, amplitude, phase, freq]:
 # Set up layouts and add to document
 inputs = VBoxForm(children=[text, offset, amplitude, phase, freq])
 
-curdoc().add_root(HBox(children=[inputs, plot], width=800))
+curdoc().add_root(HBox(children=[inputs, plot], width=1000))
 
 
