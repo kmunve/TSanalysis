@@ -3,9 +3,11 @@
 from __future__ import print_function
 
 from datetime import datetime, timedelta
-from netCDF4 import date2num
+
 import numpy as np
-from crocus_forcing_nc import CrocusForcing
+from netCDF4 import date2num
+
+from Crocus.crocus_forcing_nc import CrocusForcing
 '''
 Create a simple forcing data set to test snow routines
 

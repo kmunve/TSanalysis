@@ -19,7 +19,7 @@ __author__ = 'kmu'
 '''
 
 import openpyxl
-from crocus_station_db import CrocusStationDB
+from Crocus.crocus_station_db import CrocusStationDB
 
 ftp_url = r'''ftp://ftp.met.no/users/dagrunvs/xgeo/'''
 

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import datetime as dt
+
 import numpy as np
 import pandas as pd
 
-from crocus_forcing_nc import populate_forcing_nc
+from Crocus.crocus_forcing_nc import populate_forcing_nc
 
 try:
     import xml.etree.cElementTree as ET

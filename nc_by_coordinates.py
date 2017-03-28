@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import pylab as plt
+
 import netCDF4
+
+from Crocus.crocus_forcing_nc import CrocusForcing
 from nc_index_by_coordinate import tunnel_fast
-from crocus_forcing_nc import CrocusForcing
-from Plotting.meteo_plots import temperature_plot
 
 """
 Test to use the tunnel_fast function to extract point data from a netcdf grid.

@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-from wsklima_requests import wsKlimaRequest
+
+from Crocus.forcing_from_thredds import forcing_from_thredds
 from wsklima_parser import parse_get_stations_properties, parse_get_elements_from_timeserie_type_station, parse_get_data
-from forcing_from_thredds import forcing_from_thredds
-import pylab
+from wsklima_requests import wsKlimaRequest
+
 '''
 This script covers the following steps
 - Retrieve information about station Oppdal stid=63705.

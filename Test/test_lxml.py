@@ -26,21 +26,14 @@ Usage:
 
 '''
 
-
-import ipdb
-
 import matplotlib
 matplotlib.use('Agg')
 
 import datetime as dt
 import numpy as np
-import pandas as pd
 
 from lxml import etree
 # test the lxml package in comparision to the standard ElementTree pkg
-
-
-from crocus_forcing_nc import populate_forcing_nc
 
 
 # try:

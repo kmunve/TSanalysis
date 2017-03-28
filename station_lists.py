@@ -12,11 +12,15 @@ Todo:
 TODO: move to folder util/eklima
 """
 from __future__ import print_function
-from wsklima_requests import wsKlimaRequest
+
 import json
+
 from lxml import etree
-from crocus_station_db import CrocusStationDB
+
+from Crocus.crocus_station_db import CrocusStationDB
 from wsklima_parser import parse_get_stations_properties
+from wsklima_requests import wsKlimaRequest
+
 
 def hourly_rr_ta_uu_ff_dd_po():
     

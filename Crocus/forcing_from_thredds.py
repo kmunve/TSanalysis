@@ -3,8 +3,9 @@
 from __future__ import print_function
 
 import netCDF4
+
+from Crocus.crocus_forcing_nc import CrocusForcing
 from nc_index_by_coordinate import tunnel_fast
-from crocus_forcing_nc import CrocusForcing
 '''
 
 TODO: add functionality to append data at correct time step, possibly update some time-steps
